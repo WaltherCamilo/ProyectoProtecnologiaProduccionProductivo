@@ -1,0 +1,108 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+  padding: 20px;
+}
+
+/* HEADER */
+header h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #38bdf8;
+}
+
+/* ARTÍCULO */
+.article {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* CONTENEDOR */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* TARJETAS */
+.project-card {
+  background: #1e293b;
+  padding: 20px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+/* IMAGEN */
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* FORMULARIOS */
+form {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #38bdf8;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+a {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #38bdf8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .project-card {
+    width: 90%;
+  }
+}
