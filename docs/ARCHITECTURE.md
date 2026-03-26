@@ -1,0 +1,3 @@
+# Project Architecture
+
+Here, we will describe the architecture of the project...
