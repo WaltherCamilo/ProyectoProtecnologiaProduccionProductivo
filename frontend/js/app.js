@@ -1,22 +1,20 @@
-// Manejo de formularios
-document.addEventListener("DOMContentLoaded", () => {
+const express = require("express");
+const path = require("path");
 
-  const formularios = document.querySelectorAll("form");
+const app = express();
 
-  formularios.forEach(form => {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+// 🔥 Servir frontend
+app.use(express.static(path.join(__dirname, "frontend")));
 
-      const inputs = form.querySelectorAll("input");
-      const usuario = inputs[0].value;
-      const password = inputs[1].value;
+// (Tu API sigue funcionando)
+app.use(express.json());
 
-      if(usuario === "" || password === ""){
-        alert("Por favor completa todos los campos");
-      } else {
-        alert(`Bienvenido ${usuario} 🚀`);
-      }
-    });
-  });
+// Ejemplo si tienes rutas:
+app.use("/api", require("./routes"));
 
+// 🔥 Puerto
+const PORT = 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
