@@ -1,0 +1,27 @@
+body {
+    background: #0f172a;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+form {
+    background: #1e293b;
+    padding: 30px;
+    width: 350px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    background: #38bdf8;
+    padding: 10px;
+    border: none;
+    width: 100%;
+}
