@@ -1,37 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <!-- LOGIN MODAL -->
+<div id="loginBox" class="login-box">
+    <h3>Ingreso</h3>
+
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+
+    <button onclick="login()">Ingresar</button>
+
+    <p class="link" onclick="irRegistro()">¿No estás registrado?</p>
+</div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProTecnologiaTech - Plataforma de Servicios</title>
+    <title>ProTecnologiaTech</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-    <!-- Banner horizontal -->
-    <header>
+
+    <!-- BANNER -->
+    <header class="navbar">
         <div class="logo">ProTecnologiaTech</div>
         <nav>
             <a href="#">Inicio</a>
-            <a href="#">Quiénes somos</a>
-            <a href="#">Historia</a>
-            <a href="#">Servicios</a>
-            <a href="#">Contáctanos</a>
-            <a href="#">Ubicación</a>
-            <a href="#">Ingreso</a>
+            <a href="#empresa">Nuestra historia</a>
+             <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contactanos</a>
+            <a href="http://127.0.0.1:5500/frontend/register.html">Registro</a>
+            <a href="#" onclick="toggleLogin()">Ingreso</a>
         </nav>
     </header>
 
-    <!-- Contenido principal -->
-    <main>
+    <!-- HERO -->
+    <section class="hero">
         <h1>Bienvenido a ProTecnologiaTech</h1>
-        <p>Plataforma interna de servicios para empleados y clientes.</p>
+        <p>Soluciones tecnológicas modernas</p>
+    </section>
 
-        
+    <!-- TARJETA EMPRESA -->
+    <section class="container" id="empresa">
+        <article class="card">
+            <img src="Images/Walther Valarezo DataCenter.jpg" alt="Bogotá">
+
+            <h2>ProTecnologiaTech</h2>
+
+            <p>
+                ProTecnologiaTech es una empresa enfocada en el desarrollo de soluciones tecnológicas innovadoras
+                para mejorar la eficiencia de las organizaciones.
+            </p>
+
+            <p>
+                Ubicados en la ciudad de Bogotá D.C., trabajamos en la transformación digital, desarrollo de software,
+                gestión de datos y soporte empresarial.
+            </p>
+
+        </article>
+    </section>
+
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+        <h2>Contáctanos</h2>
+
+        <form>
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="text" placeholder="Teléfono" required>
+
+            <textarea maxlength="500" placeholder="Escribe tu mensaje (máx. 500 caracteres)" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
 
     <footer>
-        &copy; 2026 ProTecnologiaTech. Todos los derechos reservados.
+        © 2026 ProTecnologiaTech
     </footer>
 
+    <script src="js/main.js"></script>
+
 </body>
+
 </html>

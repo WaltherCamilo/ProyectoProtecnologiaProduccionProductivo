@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<title>Registro</title>
-<link rel="stylesheet" href="css/register.css">
+    <meta charset="UTF-8">
+    <title>Registro - ProTecnologiaTech</title>
+    <link rel="stylesheet" href="css/register.css">
 </head>
 
 <body>
 
-<h1>Registro</h1>
+    <div class="wrapper">
+        <div class="form-card">
 
-<form id="registroForm">
+            <h2>Registro unico de usuarios </h2>
 
-<select id="tipoUsuario" required>
-<option value="">Tipo de usuario</option>
-<option value="persona">Persona</option>
-<option value="proveedor">Proveedor</option>
-</select>
+            <form id="registroForm">
+                <select id="rol" required>
+                    <option value="">Categoria</option>
+                    <option value="Trabajador">Administrativo</option>
+                    <option value="Trabajador">Trabajadores</option>
+                    <option value="Trabajador">Proveedores</option>
+                    <option value="cliente">Clientes</option>
+                </select>
 
-<input type="text" id="nombre" placeholder="Nombre completo" required>
-<input type="text" id="identificacion" placeholder="Identificación" required>
-<input type="text" id="telefono" placeholder="Teléfono" required>
-<input type="email" id="email" placeholder="Correo" required>
-<input type="password" id="password" placeholder="Contraseña" required>
+                <input type="text" id="nombre" placeholder="Nombres completos" required>
+                <select id="tipoIdentificacion" required>
+                    <option value="">Tipo de identificacion
 
-<select id="rol" required>
-<option value="">Rol</option>
-<option value="empleado">Empleado</option>
-<option value="cliente">Cliente</option>
-</select>
+                    </option>
+                    <option value="NumerodeIndetificacion">Cedula de ciudadania</option>
+                    <option value="NumerodeIndetificacion">Cedula de extranjeria</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="Permisodepermanencia">Permiso de permanencia</option>
+                    <option value="Permisodepermanencia">Carnet diplomatico</option>
+                </select>
+                <input type="text" id="telefono de contacto" placeholder="Teléfono de contacto" required>
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <input type="password" id="confirmPassword" placeholder="Repetir contraseña" required>
 
-<label>
-<input type="checkbox" id="ley" required>
-Acepto tratamiento de datos (Ley 1581 de 2012)
-</label>
+                <div class="check">
+                    <input type="checkbox" id="ley" required>
+                    <label for="ley">
+                        Acepto terminos y condiciones<a href="https://www.bing.com/search?q=ley+1581+de+2012" target="_blank">Ley 1581</a>
+                    </label>
+                </div>
 
-<button type="submit">Registrarse</button>
+                <button type="submit">Registrarse</button>
 
-</form>
+            </form>
 
-<script src="js/auth.js"></script>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
 
 </body>
+
 </html>
