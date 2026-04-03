@@ -82,3 +82,26 @@ button {
 button:hover {
   background: #0ea5e9;
 }
+.btn-volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #00d4ff;
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-volver:hover {
+    background: #00aacc;
+}
+.from-container {
+    width: 350%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #0b1a2a;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,212,255,0.2);
+}

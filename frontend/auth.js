@@ -46,3 +46,6 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
         window.location.href = "cliente.html";
     }
 });
+function volverInicio() {
+    window.location.href = "http://127.0.0.1:5500/frontend/index.html";
+}

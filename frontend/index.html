@@ -3,16 +3,18 @@
 
 <head>
     <!-- LOGIN MODAL -->
-<div id="loginBox" class="login-box">
-    <h3>Ingreso</h3>
+    <div id="loginBox" class="login-box">
+        <h3>Ingreso</h3>
 
-    <input type="text" id="usuario" placeholder="Usuario">
-    <input type="password" id="password" placeholder="Contraseña">
+        <input type="text" id="usuario" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
 
-    <button onclick="login()">Ingresar</button>
+        <button onclick="login()">Ingresar</button>
 
-    <p class="link" onclick="irRegistro()">¿No estás registrado?</p>
-</div>
+        <p class="link" onclick="toggleLogin()">¿Olvidaste tu contraseña?</p>
+
+        <p class="link" onclick="irRegistro()">¿No estás registrado?</p>
+    </div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProTecnologiaTech</title>
@@ -28,9 +30,10 @@
         <nav>
             <a href="#">Inicio</a>
             <a href="#empresa">Nuestra historia</a>
-             <a href="#servicios">Servicios</a>
+            <a href="#servicios">Servicios</a>
             <a href="#contacto">Contactanos</a>
             <a href="http://127.0.0.1:5500/frontend/register.html">Registro</a>
+
             <a href="#" onclick="toggleLogin()">Ingreso</a>
         </nav>
     </header>
