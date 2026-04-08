@@ -147,3 +147,22 @@ function login() {
         }, 1500);
     }
 }
+// ===== SLIDER AUTOMÁTICO =====
+const slider = document.getElementById("slides");
+
+let scroll = 0;
+
+setInterval(() => {
+    if (slider) {
+        scroll += 320;
+
+        if (scroll >= slider.scrollWidth) {
+            scroll = 0;
+        }
+
+        slider.scrollTo({
+            left: scroll,
+            behavior: "smooth"
+        });
+    }
+}, 3000);

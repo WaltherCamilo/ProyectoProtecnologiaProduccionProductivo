@@ -1,0 +1,86 @@
+/* 🔥 RESET */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #081b2f;
+}
+
+/* 🔥 NAVBAR (IGUAL AL INDEX) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    background: linear-gradient(90deg, #020024, #001f3f, #000814);
+}
+
+/* 🔥 LOGO */
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #00d4ff;
+}
+/* 🔥 MENÚ */
+.navbar nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+}
+
+/* 🔥 GRID SERVICIOS */
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 60px 60px;
+}
+
+
+/* 🔥 TARJETAS */
+.card-servicio {
+    background: #102a4c;
+    padding: 18px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+/* ✨ EFECTO */
+.card-servicio:hover {
+    background: #00d4ff;
+    color: black;
+    transform: translateY(-5px);
+}
+/* 🔥 TITULO SERVICIOS PRO */
+.titulo-servicios {
+    text-align: center;
+    font-size: 38px;
+    color: white;
+    margin: 40px 0;
+    position: relative;
+}
+
+/* línea decorativa */
+.titulo-servicios::after {
+    content: "";
+    width: 70px;
+    height: 3px;
+    background: #00d4ff;
+    display: block;
+    margin: 10px auto;
+}
+/* ✨ HOVER */
+.navbar nav a:hover {
+    color: #00d4ff;
+}

@@ -2,19 +2,7 @@
 <html lang="es">
 
 <head>
-    <!-- LOGIN MODAL -->
-    <div id="loginBox" class="login-box">
-        <h3>Ingreso</h3>
 
-        <input type="text" id="usuario" placeholder="Usuario">
-        <input type="password" id="password" placeholder="Contraseña">
-
-        <button onclick="login()">Ingresar</button>
-
-        <p class="link" onclick="toggleLogin()">¿Olvidaste tu contraseña?</p>
-
-        <p class="link" onclick="irRegistro()">¿No estás registrado?</p>
-    </div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProTecnologiaTech</title>
@@ -22,19 +10,29 @@
 </head>
 
 <body>
+    <section id="lista-servicios" class="contenedor"></section>
 
+    <!-- LOGIN -->
+    <div id="loginBox" class="login-box" style="display:none;">
+        <h3>Ingreso</h3>
+        <input type="text" placeholder="Usuario">
+        <input type="password" placeholder="Contraseña">
+        <button>Ingresar</button>
+        <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+    </div>
 
-    <!-- BANNER -->
+    <!-- NAVBAR -->
     <header class="navbar">
         <div class="logo">ProTecnologiaTech</div>
         <nav>
-            <a href="#">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="#empresa">Nuestra historia</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto">Contactanos</a>
-            <a href="http://127.0.0.1:5500/frontend/register.html">Registro</a>
-
+            <a href="services/servicios.html">Servicios</a>
+            <a href="#contacto">Contáctanos</a>
+            <a href="register.html">Registro</a>
             <a href="#" onclick="toggleLogin()">Ingreso</a>
+
+
         </nav>
     </header>
 
@@ -44,26 +42,85 @@
         <p>Soluciones tecnológicas modernas</p>
     </section>
 
-    <!-- TARJETA EMPRESA -->
     <section class="container" id="empresa">
-        <article class="card">
-            <img src="Images/Walther Valarezo DataCenter.jpg" alt="Bogotá">
+        <article class="card empresa">
+
+            <img src="./Images/Walther Valarezo Ciudad de Bogota DC.jpg" class="img-top">
 
             <h2>ProTecnologiaTech</h2>
 
             <p>
-                ProTecnologiaTech es una empresa enfocada en el desarrollo de soluciones tecnológicas innovadoras
-                para mejorar la eficiencia de las organizaciones.
+                ProTecnologiaTech fue fundada el 14 de mayo de 2025 a las 18:04 en San José del Guaviare por Walther
+                Valarezo.
             </p>
 
             <p>
-                Ubicados en la ciudad de Bogotá D.C., trabajamos en la transformación digital, desarrollo de software,
-                gestión de datos y soporte empresarial.
+                Walther nació en 1993 en Bogotá, Colombia, donde desarrolló su pasión por la tecnología.
+                Culminó sus estudios en Ingeniería de Sistemas en la Universidad San José.
             </p>
 
+            <p>
+                Durante un viaje de trabajo al Guaviare nació la idea de crear una empresa enfocada en soluciones
+                tecnológicas reales,
+                proyecto que hoy sigue creciendo día a día.
+            </p>
+
+            <p>
+                Lina Carolina Yepez Davila, nacida en Ciudad del Banco Magdalena,
+                ha demostrado un gran potencial y sus aportes han sido fundamentales.
+            </p>
+
+            <!-- 🔥 IMÁGENES -->
+            <div class="imagenes-personas">
+
+
+                <img src="Images/Walther Valarezo Biografia.jpg" alt="Walther">
+
+                <img src="./Images/Foto Lina Davila.jpeg" alt="Lina">
+
+            </div>
+
         </article>
+
+
     </section>
 
+    <!-- 🔥 SLIDER (AHORA ABAJO) -->
+    <section class="slider-section">
+
+        <h2 class="titulo-servicios">Nuestros Servicios</h2>
+
+        <div class="slider-container">
+            <div class="slides">
+
+                <div class="card">
+                    <img src="Images/Walther Valarezo DataCenter.jpg">
+                    <h3>DataCenter</h3>
+                    <p>Infraestructura, servidores y alta disponibilidad.</p>
+                </div>
+
+                <div class="card">
+                    <img src="Images/Walther Valarezo Mesa de ayuda.jpg">
+                    <h3>Mesa de ayuda</h3>
+                    <p>Soporte técnico especializado y gestión de tickets.</p>
+                </div>
+
+                <div class="card">
+                    <img src="Images/Walther Valarezo Traslado de cable.jpg">
+                    <h3>Infraestructura</h3>
+                    <p>Redes, cableado estructurado y mantenimiento.</p>
+                </div>
+
+                <div class="card">
+                    <img src="Images/Walther Valarezo Repuesto.jpg">
+                    <h3>Hardware</h3>
+                    <p>Venta y mantenimiento de equipos.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
 
     <!-- CONTACTO -->
     <section class="contacto" id="contacto">
@@ -74,7 +131,7 @@
             <input type="email" placeholder="Correo electrónico" required>
             <input type="text" placeholder="Teléfono" required>
 
-            <textarea maxlength="500" placeholder="Escribe tu mensaje (máx. 500 caracteres)" required></textarea>
+            <textarea maxlength="500" placeholder="Mensaje"></textarea>
 
             <button type="submit">Enviar</button>
         </form>
