@@ -336,4 +336,5 @@ h4 {
 footer,
 .footer {
   color: #ffffff !important;
+  text-shadow: 0 0 5px #00d4ff;
 }
