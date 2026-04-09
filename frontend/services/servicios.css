@@ -1,116 +1,156 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-/* 🔥 RESET */
-body {
+html, body {
+    height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #081b2f;
 }
-
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #081b2f;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
 /* 🔥 NAVBAR (IGUAL AL INDEX) */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 60px;
-    background: linear-gradient(90deg, #020024, #001f3f, #000814);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: linear-gradient(90deg, #020024, #001f3f, #000814);
 }
 
 /* 🔥 LOGO */
 .logo {
-    font-size: 26px;
-    font-weight: 700;
-    color: #00d4ff;
+  font-size: 26px;
+  font-weight: 700;
+  color: #00d4ff;
 }
 /* 🔥 MENÚ */
 .navbar nav a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 500;
-    transition: 0.3s;
+  transition: all 0.3s ease;
+  margin-left: 25px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 header {
-    text-align: center;
-    padding: 20px;
-    font-size: 24px;
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
 }
 
 /* 🔥 GRID SERVICIOS */
 .contenedor {
-    display: flex;
-    justify-content: space-between; /* separa bien lados */
-    align-items: flex-start;
-    margin-top: 40px;
-    padding: 0 80px; /* separa de los bordes */
+  display: flex;
+  justify-content: space-between; /* separa bien lados */
+  align-items: flex-start;
+  margin-top: 40px;
+  padding: 0 80px; /* separa de los bordes */
 }
-
 
 /* Tarjetas */
 .card-servicio {
-    background: #1e3a5f;
-    color: white;
-    padding: 12px;          /* sube un poco */
-    border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 16px;        /* un poco más grande */
-    width: 50%;             /* MÁS ANGOSTAS */
+  background: #1e3a5f;
+  color: white;
+  padding: 12px; /* sube un poco */
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px; /* un poco más grande */
+  width: 50%; /* MÁS ANGOSTAS */
 }
 
 .card-servicio:hover {
-    background: #2563eb;
-    transform: scale(1.05);
+  background: #2563eb;
+  transform: scale(1.05);
 }
 /* 🔥 TITULO SERVICIOS PRO */
 .titulo-servicios {
-    text-align: center;
-    font-size: 38px;
-    color: white;
-    margin: 40px 0;
-    position: relative;
+  text-align: center;
+  font-size: 38px;
+  color: white;
+  margin: 40px 0;
+  position: relative;
 }
 
 /* línea decorativa */
 .titulo-servicios::after {
-    content: "";
-    width: 70px;
-    height: 3px;
-    background: #00d4ff;
-    display: block;
-    margin: 10px auto;
+  content: "";
+  width: 70px;
+  height: 3px;
+  background: #00d4ff;
+  display: block;
+  margin: 10px auto;
 }
 /* ✨ HOVER */
 .navbar nav a:hover {
-    color: #00d4ff;
+  color: #00d4ff;
 }
 /* Columnas */
 .columna {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 40%;
 }
 /* 🔥 CLAVE: alineación real */
 .columna:first-child {
-    align-items: flex-start;  /* izquierda */
+  align-items: flex-start; /* izquierda */
 }
 
 .columna:last-child {
-    align-items: flex-end;    /* derecha */
+  align-items: flex-end; /* derecha */
 }
 .subtitulo-servicios {
-    text-align: center;
-    color: #00d4ff; /* mismo estilo que el logo */
-    margin-top: 10px;
-    margin-bottom: 40px;
-    font-size: 18px; /* un poquito más grande */
-    font-weight: 500;
+  color: #ffffff !important;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 0.5px;
 }
 body {
-    background: linear-gradient(135deg, #021526, #03346e);
+  background: linear-gradient(135deg, #021526, #03346e);
+}
+.footer {
+  width: 100%;
+  background: linear-gradient(90deg, #020024, #001f3f, #000814);
+  color: #00d4ff;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 40px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 🔥 quita espacio raro */
+.footer {
+  width: 100%;
+  background: linear-gradient(90deg, #020024, #001f3f, #000814);
+  color: #00d4ff;
+  text-align: center;
+  padding: 14px 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  /* 🔥 CLAVE */
+  margin-top: auto;
+}
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    font-size: 13px;
+    padding: 5px 8px;
 }
