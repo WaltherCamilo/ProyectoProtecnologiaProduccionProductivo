@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProTecnologiaTech</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
             <a href="index.html">Inicio</a>
             <a href="#empresa">Nuestra historia</a>
             <a href="services/servicios.html">Servicios</a>
-            <a href="#contacto">Contáctanos</a>
+            <a href="#" id="btnContacto">Contáctanos</a>
             <a href="register.html">Registro</a>
             <a href="#" onclick="toggleLogin()">Ingreso</a>
 
@@ -122,26 +123,61 @@
 
     </section>
 
-    <!-- CONTACTO -->
-    <section class="contacto" id="contacto">
-        <h2>Contáctanos</h2>
+    <!-- 🔥 MODAL CONTACTO -->
+    <div id="modalContacto" class="modal-contacto">
+        <div class="contact-box">
 
-        <form>
-            <input type="text" placeholder="Nombre completo" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="text" placeholder="Teléfono" required>
+            <span class="close-contacto">&times;</span>
 
-            <textarea maxlength="500" placeholder="Mensaje"></textarea>
+            <h3>Contáctanos</h3>
 
-            <button type="submit">Enviar</button>
-        </form>
+            <input type="text" placeholder="Nombre completo">
+            <input type="email" placeholder="Correo electrónico">
+            <input type="tel" placeholder="Teléfono">
+            <textarea placeholder="Mensaje (máx 500 caracteres)" maxlength="500"></textarea>
+
+            <button>Enviar</button>
+
+        </div>
+    </div>
+    </form>
     </section>
+    <section class="footer-pro">
+        <div class="footer-container">
 
-   <footer class="footer">
-    <p>© 2026 ProTecnologiaTech | Todos los derechos reservados</p>
-</footer>
+            <!-- INFO -->
+            <div class="footer-box">
+                <h3>ProTecnologiaTech</h3>
+                <p>Soluciones tecnológicas modernas para impulsar tu negocio.</p>
+            </div>
 
-    <script src="js/main.js"></script>
+            <!-- CONTACTO -->
+            <div class="footer-box">
+                <h4>Contacto</h4>
+                <p>📍 Cl 62B sur N°37-33</p>
+                <p>📞 3058031267</p>
+                <p>📞 3058328004</p>
+                <p>📧 walther.valarezo@protecnologiatech.com</p>
+            </div>
+
+            <!-- REDES -->
+            <div class="footer-box">
+                <h4>Síguenos</h4>
+                <div class="redes">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <p>© 2026 ProTecnologiaTech | Todos los derechos reservados</p>
+    </footer>
+
+    <script src="js/servicios.js"></script>
 
 </body>
 

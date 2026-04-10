@@ -21,17 +21,43 @@
 </header>
 
 <body>
+
+    <!-- 🔥 MODAL OCULTO -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+
+            <video id="videoPlayer" controls>
+                <source id="videoSource" src="" type="video/mp4">
+                <track src="../videos/soporte.vtt" kind="subtitles" srclang="es" default>
+            </video>
+
+            <p id="videoDescripcion"></p>
+
+            <div id="accionesFinal" class="acciones">
+                <button>Para saber da clic aquí</button>
+                <button>Da clic acá para continuar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🔥 TU CONTENIDO (NO SE TOCA) -->
     <header>
         <p class="subtitulo-servicios">
             Soluciones tecnológicas diseñadas para impulsar tu negocio
         </p>
     </header>
+
     <section id="lista-servicios" class="contenedor">
     </section>
+
     <footer class="footer">
         <p>© 2026 ProTecnologiaTech | Todos los derechos reservados</p>
     </footer>
-    <script src="servicios.js"></script>
+
+    <script src="servicios.js" defer></script>
 
 </body>
 

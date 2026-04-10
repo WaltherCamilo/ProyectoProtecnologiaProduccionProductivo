@@ -105,9 +105,8 @@ body {
 
 /* CONTACTO */
 .contacto {
-  text-align: center;
-  padding: 50px;
-}
+  display: none; /* 🔥 OCULTA el formulario grande */
+} /* 🔥 OCULTA el formulario grande */
 
 form {
   max-width: 400px;
@@ -177,28 +176,28 @@ footer {
     padding: 15px;
   }
   @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+    }
 
-  .navbar {
-    flex-direction: column;
+    .card {
+      width: 90%;
+    }
+
+    /* 🔥 AQUÍ PEGAS ESTO ↓ */
+
+    input,
+    select,
+    textarea {
+      font-size: 14px;
+      padding: 12px;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 12px;
+    }
   }
-
-  .card {
-    width: 90%;
-  }
-
-  /* 🔥 AQUÍ PEGAS ESTO ↓ */
-
-  input, select, textarea {
-    font-size: 14px;
-    padding: 12px;
-  }
-
-  button {
-    font-size: 14px;
-    padding: 12px;
-  }
-
-}
   .navbar nav {
     display: flex;
     flex-direction: column;
@@ -375,4 +374,296 @@ footer,
 .footer {
   color: #ffffff !important;
   text-shadow: 0 0 5px #00d4ff;
+}
+/* 🔥 FOOTER PRO */
+.footer-pro {
+  background: #0a1f44;
+  padding: 40px 20px;
+  color: white;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-box {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-box h3 {
+  color: #00d4ff;
+  margin-bottom: 10px;
+}
+
+.footer-box h4 {
+  margin-bottom: 10px;
+}
+
+.footer-box p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #cbd5e1;
+}
+
+/* 🔥 REDES */
+.redes {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.redes a {
+  background: #112240;
+  padding: 10px;
+  border-radius: 50%;
+  color: #00d4ff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.redes a:hover {
+  background: #00d4ff;
+  color: black;
+  transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .redes {
+    justify-content: center;
+  }
+}
+/* 🔥 FORMULARIO PRO */
+.contacto form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+  max-width: 400px;
+}
+
+/* INPUTS BONITOS */
+.contacto input,
+.contacto textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* EFECTO FOCUS */
+.contacto input:focus,
+.contacto textarea:focus {
+  border: 1px solid #00d4ff;
+  box-shadow: 0 0 10px #00d4ff50;
+}
+
+/* BOTÓN PRO */
+.contacto button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #00d4ff, #00aaff);
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.contacto button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #00d4ff;
+}
+.input-group {
+  position: relative;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #00d4ff;
+}
+
+.input-group input,
+.input-group textarea {
+  padding-left: 35px;
+}
+.redes a:nth-child(1) {
+  background: #1877f2;
+} /* Facebook */
+.redes a:nth-child(2) {
+  background: #e4405f;
+} /* Instagram */
+.redes a:nth-child(3) {
+  background: #0a66c2;
+} /* LinkedIn */
+.redes a:nth-child(4) {
+  background: #25d366;
+} /* WhatsApp */
+
+.redes a {
+  color: white;
+}
+/* 🔥 MODAL CONTACTO */
+.modal-contacto {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+.modal-contacto.active {
+  display: flex;
+}
+
+/* 🔥 CAJA TIPO LOGIN */
+.contact-box {
+  background: #0b1a2a;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px; /* 👈 MÁS PEQUEÑO */
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.contact-box h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* INPUTS */
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+}
+
+/* BOTÓN */
+.contact-box button {
+  width: 100%;
+  padding: 10px;
+  background: #00d4ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* CERRAR */
+.close-contacto {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: white;
+  cursor: pointer;
+}
+/* 🔥 MODAL CONTACTO */
+.modal-contacto {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contacto.active {
+  display: flex;
+}
+
+/* 🔥 CAJA BONITA (tipo login) */
+.contact-box {
+  width: 280px;
+  background: #0b1a2a;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.25);
+  text-align: center;
+  position: relative;
+}
+
+/* TITULO */
+.contact-box h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* INPUTS */
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 9px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+  font-size: 13px;
+}
+
+/* TEXTAREA */
+.contact-box textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* BOTON */
+.contact-box button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #00d4ff, #00aaff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* CERRAR */
+.close-contacto {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.redes a:nth-child(1) {
+  background: #1877f2;
+}
+.redes a:nth-child(2) {
+  background: #e4405f;
+}
+.redes a:nth-child(3) {
+  background: #0a66c2;
+}
+.redes a:nth-child(4) {
+  background: #25d366;
 }

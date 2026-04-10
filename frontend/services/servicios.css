@@ -154,3 +154,142 @@ nav a {
     font-size: 13px;
     padding: 5px 8px;
 }
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  background: #0b1a2a;
+  margin: 5% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #00d4ff50;
+  text-align: center;
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from {transform: scale(0.8); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+video {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.acciones {
+  margin-top: 15px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.acciones button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #00d4ff;
+  cursor: pointer;
+}
+
+/* 🔥 MODAL ELEGANTE TIPO LOGIN */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔥 CAJA PEQUEÑA Y BONITA */
+.modal-content {
+  width: 350px; /* 👈 CLAVE */
+  max-width: 90%;
+  background: #0b1a2a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+  text-align: center;
+  position: relative;
+  animation: aparecer 0.3s ease;
+}
+
+/* 🎬 VIDEO BONITO */
+.modal-content video {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* ❌ BOTÓN CERRAR */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ✨ DESCRIPCIÓN */
+#videoDescripcion {
+  color: #cbd5e1;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* 🔥 BOTONES FINALES */
+.acciones {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.acciones button {
+  background: #00d4ff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+
+/* 🎬 ANIMACIÓN */
+@keyframes aparecer {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+} 
