@@ -383,12 +383,31 @@ footer,
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
   max-width: 1100px;
   margin: auto;
-  gap: 30px;
+  gap: 60px;
+}
+
+/* 🔥 BLOQUES */
+.footer-box {
+  text-align: left;
+}
+.footer-box i {
+  margin-right: 8px;
+  color: #00d4ff;
+}
+
+/* 🔥 CENTRAR SOLO CONTACTO */
+.footer-box:nth-child(2) {
+  text-align: center;
+}
+
+/* 🔥 REDES A LA DERECHA */
+.footer-box:nth-child(3) {
+  text-align: right;
 }
 
 .footer-box {
@@ -396,37 +415,140 @@ footer,
   min-width: 250px;
 }
 
-.footer-box h3 {
-  color: #00d4ff;
-  margin-bottom: 10px;
-}
-
+.footer-box h3,
 .footer-box h4 {
-  margin-bottom: 10px;
+  color: #00d4ff;
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
 .footer-box p {
-  font-size: 14px;
-  margin: 5px 0;
+  margin: 8px 0;
   color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.6;
 }
-
 /* 🔥 REDES */
 .redes {
   display: flex;
-  gap: 15px;
+  justify-content: flex-end;
+  gap: 12px;
   margin-top: 10px;
 }
 
 .redes a {
-  background: #112240;
-  padding: 10px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
-  color: #00d4ff;
+  color: white;
   font-size: 16px;
   transition: 0.3s;
 }
+/* COLORES REALES */
+.redes a:nth-child(1) {
+  background: #1877f2;
+}
+.redes a:nth-child(2) {
+  background: #e4405f;
+}
+.redes a:nth-child(3) {
+  background: #0a66c2;
+}
+.redes a:nth-child(4) {
+  background: #25d366;
+}
 
+/* HOVER PRO */
+.redes a:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+.redes a {
+  width: 45px;
+  height: 46px;
+  display: inline-flex; /* 🔥 clave */
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  color: white;
+  font-size: 25px;
+
+  /* 🔥 centra mejor visualmente */
+  line-height: 1;
+  padding: 0;
+
+  transition: all 0.3s ease;
+}
+
+/* COLORES CON GRADIENTE PRO */
+.redes a {
+  width: 48px;
+  height: 48px;
+  display: flex; /* 🔥 mejor que inline-flex */
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+.redes a i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 🔥 RESET TOTAL */
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Facebook */
+.redes a:nth-child(1) i {
+  transform: translateY(1px);
+}
+
+/* Instagram */
+.redes a:nth-child(2) i {
+  transform: translateY(1px);
+}
+
+/* LinkedIn */
+.redes a:nth-child(3) i {
+  transform: translateY(1px);
+}
+
+/* WhatsApp (EL MÁS PROBLEMÁTICO) */
+.redes a:nth-child(4) i {
+  transform: translateY(0px) scale(1.1);
+}
+.redes a:nth-child(1) {
+  background: linear-gradient(135deg, #1877f2, #0d5bd1);
+}
+
+.redes a:nth-child(2) {
+  background: linear-gradient(135deg, #e4405f, #c13584);
+}
+
+.redes a:nth-child(3) {
+  background: linear-gradient(135deg, #0a66c2, #004182);
+}
+
+.redes a:nth-child(4) {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+.redes a:nth-child(4) i {
+  transform: translateY(0px) scale(1.05);
+}
+
+/* ✨ HOVER NIVEL DIOS */
+.redes a:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+}
 .redes a:hover {
   background: #00d4ff;
   color: black;
@@ -666,4 +788,32 @@ footer,
 }
 .redes a:nth-child(4) {
   background: #25d366;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  z-index: 9999;
+  text-decoration: none;
+
+  /* 🔥 sombra pro */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+
+  transition: all 0.3s ease;
+}
+
+/* ✨ HOVER PRO */
+.whatsapp-float:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
 }

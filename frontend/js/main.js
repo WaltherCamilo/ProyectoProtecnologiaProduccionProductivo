@@ -1,5 +1,5 @@
 // ===== SCROLL SUAVE =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]:not(#btnContacto)').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
         e.preventDefault();
 
@@ -23,7 +23,7 @@ if (form) {
 
         const nombre = form.querySelector('input[type="text"]').value.trim();
         const correo = form.querySelector('input[type="email"]').value.trim();
-        const telefono = form.querySelectorAll('input[type="text"]')[1].value.trim();
+        const telefono = form.querySelector('input[type="tel"]').value.trim();
         const mensaje = form.querySelector("textarea").value.trim();
 
         // Validaciones
@@ -83,11 +83,8 @@ function toggleLogin() {
     } else {
         box.style.display = "block";
     }
-}
 
-function login() {
-    const user = document.getElementById("usuario").value;
-    const pass = document.getElementById("password").value;
+
 
     if (!user || !pass) {
         alert("Debes ingresar usuario y contraseña");
@@ -102,20 +99,6 @@ function login() {
 }
 
 // CERRAR AL HACER CLICK FUERA
-window.addEventListener("click", function(e) {
-    const box = document.getElementById("loginBox");
-
-    if (box && !e.target.closest(".login-box") && !e.target.closest("a")) {
-        box.style.display = "none";
-    }
-});
-// MOSTRAR LOGIN
-function toggleLogin() {
-    const box = document.getElementById("loginBox");
-    box.style.display = box.style.display === "block" ? "none" : "block";
-}
-
-// IR A REGISTRO
 function irRegistro() {
     window.location.href = "http://127.0.0.1:5500/frontend/register.html";
 }
@@ -148,7 +131,7 @@ function login() {
     }
 }
 // ===== SLIDER AUTOMÁTICO =====
-const slider = document.getElementById("slides");
+const slider = document.querySelector(".slides");
 
 let scroll = 0;
 
@@ -166,3 +149,45 @@ setInterval(() => {
         });
     }
 }, 3000);
+// ===== MODAL CONTACTO =====
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modal = document.getElementById("modalContacto");
+    const btn = document.getElementById("btnContacto");
+    const cerrar = document.querySelector(".close-contacto");
+
+    if (!modal || !btn || !cerrar) {
+        console.log("❌ Modal contacto no encontrado");
+        return;
+    }
+
+    // ABRIR
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.classList.add("active");
+    });
+
+    // CERRAR (X)
+    cerrar.addEventListener("click", () => {
+        modal.classList.remove("active");
+    });
+
+    // CERRAR AL DAR CLICK FUERA
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.classList.remove("active");
+        }
+    });
+
+});
+window.addEventListener("click", function (e) {
+    const box = document.getElementById("loginBox");
+
+    if (
+        box &&
+        !e.target.closest(".login-box") &&
+        !e.target.closest('[onclick="toggleLogin()"]')
+    ) {
+        box.style.display = "none";
+    }
+});

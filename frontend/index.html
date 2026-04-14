@@ -8,22 +8,24 @@
     <title>ProTecnologiaTech</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
 </head>
 
 <body>
-    <section id="lista-servicios" class="contenedor"></section>
+     <section id="lista-servicios" class="contenedor"></section>
 
     <!-- LOGIN -->
     <div id="loginBox" class="login-box" style="display:none;">
         <h3>Ingreso</h3>
-        <input type="text" placeholder="Usuario">
-        <input type="password" placeholder="Contraseña">
-        <button>Ingresar</button>
+        <input id="usuario" type="text" placeholder="Usuario">
+        <input id="password" type="password" placeholder="Contraseña">
+        <button onclick="login()">Ingresar</button>
         <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
     </div>
 
     <!-- NAVBAR -->
-    <header class="navbar">
+     <header class="navbar">
         <div class="logo">ProTecnologiaTech</div>
         <nav>
             <a href="index.html">Inicio</a>
@@ -32,13 +34,11 @@
             <a href="#" id="btnContacto">Contáctanos</a>
             <a href="register.html">Registro</a>
             <a href="#" onclick="toggleLogin()">Ingreso</a>
-
-
         </nav>
     </header>
 
     <!-- HERO -->
-    <section class="hero">
+        <section class="hero">
         <h2>Bienvenido a nuestra sitio corporativo para gestion de servcios de IT</h2>
         <p>Soluciones tecnológicas modernas</p>
     </section>
@@ -124,43 +124,42 @@
     </section>
 
     <!-- 🔥 MODAL CONTACTO -->
-    <div id="modalContacto" class="modal-contacto">
+     <div id="modalContacto" class="modal-contacto">
         <div class="contact-box">
 
             <span class="close-contacto">&times;</span>
 
             <h3>Contáctanos</h3>
 
-            <input type="text" placeholder="Nombre completo">
-            <input type="email" placeholder="Correo electrónico">
-            <input type="tel" placeholder="Teléfono">
-            <textarea placeholder="Mensaje (máx 500 caracteres)" maxlength="500"></textarea>
+            <form id="formContacto">
+                <input id="nombre" type="text" placeholder="Nombre completo">
+                <input id="correo" type="email" placeholder="Correo electrónico">
+                <input id="telefono" type="tel" placeholder="Teléfono">
+                <textarea id="mensaje" maxlength="500" placeholder="Mensaje"></textarea>
 
-            <button>Enviar</button>
+                <button type="submit">Enviar</button>
+            </form>
 
         </div>
     </div>
-    </form>
+
     </section>
+     <!-- FOOTER -->
     <section class="footer-pro">
         <div class="footer-container">
 
-            <!-- INFO -->
             <div class="footer-box">
                 <h3>ProTecnologiaTech</h3>
                 <p>Soluciones tecnológicas modernas para impulsar tu negocio.</p>
             </div>
 
-            <!-- CONTACTO -->
             <div class="footer-box">
-                <h4>Contacto</h4>
-                <p>📍 Cl 62B sur N°37-33</p>
-                <p>📞 3058031267</p>
-                <p>📞 3058328004</p>
-                <p>📧 walther.valarezo@protecnologiatech.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Cl 62B sur N°37-33</p>
+                <p><i class="fas fa-phone"></i> 3058031267</p>
+                <p><i class="fas fa-phone"></i> 3058328004</p>
+                <p><i class="fas fa-envelope"></i> walther.valarezo@protecnologiatech.com</p>
             </div>
 
-            <!-- REDES -->
             <div class="footer-box">
                 <h4>Síguenos</h4>
                 <div class="redes">
@@ -173,12 +172,17 @@
 
         </div>
     </section>
+
     <footer class="footer">
-        <p>© 2026 ProTecnologiaTech | Todos los derechos reservados</p>
+        <p>© 2026 ProTecnologiaTech</p>
     </footer>
+
+    <!-- BOTÓN WHATSAPP -->
+    <a href="https://wa.me/573058328004" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="js/servicios.js"></script>
 
 </body>
-
 </html>
