@@ -836,6 +836,9 @@ footer,
   flex-direction: column;
   align-items: center;
 }
+.login-card {
+  position: relative; /* 🔥 clave para que la X se ubique bien */
+}
 
 @keyframes fadeIn {
   from {
@@ -1022,4 +1025,245 @@ footer,
 form input,
 form textarea {
   width: 100%;
+}
+.btn-inicio-float {
+  position: fixed;
+  bottom: 95px; /* arriba del WhatsApp */
+  right: 25px;
+
+  width: 50px;
+  height: 50px;
+
+  background: linear-gradient(135deg, #00d4ff, #0077ff);
+  color: white;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  text-decoration: none;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+
+  transition: all 0.3s ease;
+}
+
+/* ✨ HOVER */
+.btn-inicio-float:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.6);
+}
+.btn-inicio-float::after {
+  content: "Inicio";
+  position: absolute;
+  right: 60px;
+  background: #000;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.btn-inicio-float:hover::after {
+  opacity: 1;
+}
+/* 🔥 MODAL PEQUEÑO */
+.mini-contacto {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.mini-contacto.active {
+  display: flex;
+}
+
+/* 🔥 CAJITA */
+.mini-box {
+  width: 260px;
+  background: #0b1a2a;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  position: relative;
+}
+
+.mini-box h4 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* INPUTS */
+.mini-box input,
+.mini-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 6px;
+  border: none;
+
+  background: #1e3a5f;
+  color: white;
+
+  font-size: 13px;
+
+  box-sizing: border-box; /* 🔥 ESTA ES LA CLAVE */
+}
+.mini-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mini-box input,
+.mini-box textarea,
+.mini-box button {
+  width: 90%;
+  max-width: 240px;
+}
+.mini-box textarea {
+  height: 70px;
+  resize: none;
+}
+
+/* BOTÓN */
+.mini-box button {
+  width: 100%;
+  padding: 9px;
+  background: linear-gradient(90deg, #00d4ff, #00aaff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* CERRAR */
+.cerrar-mini {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+  cursor: pointer;
+}
+/* 🔥 MODAL REGISTRO (usa el mismo estilo del login) */
+#modalRegistro {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+#modalRegistro.active {
+  display: flex;
+}
+
+/* 🔥 CAJA (igual que login pero independiente) */
+#modalRegistro .login-card {
+  background: #0b1a2a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+
+  /* 🔥 MÁS PRESENCIA */
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+
+  text-align: center;
+  position: relative;
+
+  /* 🔥 CAMBIO AQUÍ */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  text-align: center;
+  position: relative;
+}
+#modalRegistro .login-card {
+  width: 320px; /* 🔥 más espacio para que quepa en 1 línea */
+}
+
+/* INPUTS */
+#modalRegistro input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+}
+
+/* BOTÓN */
+#modalRegistro button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #00d4ff, #00aaff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* CERRAR */
+.close-registro {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: #ffffff; /* 🔥 blanco */
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+.registro-extra {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.check-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #cbd5e1;
+  width: 100%;
+}
+.check-inline span {
+  white-space: nowrap; /* 🔥 evita que se parta en 2 líneas */
+}
+
+.check-inline input {
+  margin: 0;
+  width: 14px;
+  height: 14px;
+  transform: translateY(2px);
+}
+
+.check-inline span {
+  white-space: nowrap; /* 🔥 evita que se parta en 2 líneas */
+}
+
+.registro-extra input[type="checkbox"] {
+  margin: 0;
+  transform: translateY(1px);
+}
+.check-inline {
+  margin-top: 13px; /* 🔥 mueve TODO hacia abajo */
 }

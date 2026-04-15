@@ -14,27 +14,27 @@
 
 <body>
 
- <div id="loginModal" class="modal-login">
-  <div class="login-card">
-    <span class="close-login">&times;</span>
+    <div id="loginModal" class="modal-login">
+        <div class="login-card">
+            <span class="close-login">&times;</span>
 
-    <h3>Ingreso de usuarios </h3>
+            <h3>Ingreso de usuarios </h3>
 
-    <input type="text" id="loginUser" placeholder="Usuario o correo electrónico">
-    <input type="password" id="loginPass" placeholder="Digita tu contraseña">
+            <input type="text" id="loginUser" placeholder="Usuario o correo electrónico">
+            <input type="password" id="loginPass" placeholder="Digita tu contraseña">
 
-    <div class="login-extra">
-      <label>
-        <input type="checkbox" id="terminos">
-        Acepto términos y condiciones
-      </label>
+            <div class="login-extra">
+                <label>
+                    <input type="checkbox" id="terminos">
+                    <span>Acepto términos y condiciones</span>
+                </label>
+            </div>
+
+            <button id="btnLogin">Ingresar</button>
+
+            <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
+        </div>
     </div>
-
-    <button id="btnLogin">Ingresar</button>
-
-    <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
-  </div>
-</div>
 
 
 
@@ -47,7 +47,7 @@
             <a href="#empresa">Nuestra historia</a>
             <a href="services/servicios.html">Servicios</a>
             <a href="#" id="btnContacto">Contáctanos</a>
-            <a href="register.html">Registro</a>
+            <a href="#" id="btnRegistro">Registro</a>
             <a href="#" id="btnAbrirLogin">Ingreso</a>
         </nav>
     </header>
@@ -147,9 +147,9 @@
             <h3>Contáctanos</h3>
 
             <form id="formContacto">
-                <input id="nombre" type="text" placeholder="Nombre completo">
+                <input id="nombre" type="text" placeholder="Nombres completoss">
                 <input id="correo" type="email" placeholder="Correo electrónico">
-                <input id="telefono" type="tel" placeholder="Teléfono">
+                <input id="telefono" type="tel" placeholder="Teléfono de contacto">
                 <textarea id="mensaje" maxlength="500" placeholder="Mensaje"></textarea>
 
                 <button type="submit">Enviar</button>
@@ -196,6 +196,54 @@
     <a href="https://wa.me/573058328004" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <a href="index.html" class="btn-inicio-float">
+        <i class="fas fa-home"></i>
+    </a>
+    <div id="miniContacto" class="mini-contacto">
+
+        <div class="mini-box">
+
+            <span class="cerrar-mini">&times;</span>
+
+            <h4>Contáctanos</h4>
+
+            <input type="text" id="miniNombre" placeholder="Nombre">
+            <input type="email" id="miniCorreo" placeholder="Correo electrónico">
+            <textarea id="miniMensaje" placeholder="¿En qué te podemos ayudar?"></textarea>
+
+            <button id="btnEnviarMini">Enviar</button>
+
+        </div>
+
+
+    </div>
+
+    </div>
+    <!-- 🔥 MODAL REGISTRO (AQUÍ EXACTAMENTE) -->
+    <div id="modalRegistro" class="modal-login">
+
+        <div class="login-card">
+
+            <span class="close-registro">&times;</span>
+
+            <h3>Registro</h3>
+
+            <input type="text" id="regNombre" placeholder="Nombre completo">
+            <input type="email" id="regCorreo" placeholder="Correo electrónico">
+            <input type="password" id="regPass" placeholder="Contraseña">
+
+            <button id="btnEnviarRegistro">Registrarse</button>
+            <div class="registro-extra">
+                <label class="check-inline">
+                    <input type="checkbox">
+                  <span>Acepto términos y condiciones</span>
+                </label>
+            </div>
+
+        </div>
+
+    </div>
+
 
     <script src="js/main.js"></script>
 
