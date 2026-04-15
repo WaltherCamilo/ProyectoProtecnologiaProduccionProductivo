@@ -13,19 +13,34 @@
 </head>
 
 <body>
-     <section id="lista-servicios" class="contenedor"></section>
 
-    <!-- LOGIN -->
-    <div id="loginBox" class="login-box" style="display:none;">
-        <h3>Ingreso</h3>
-        <input id="usuario" type="text" placeholder="Usuario">
-        <input id="password" type="password" placeholder="Contraseña">
-        <button onclick="login()">Ingresar</button>
-        <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+ <div id="loginModal" class="modal-login">
+  <div class="login-card">
+    <span class="close-login">&times;</span>
+
+    <h3>Ingreso de usuarios </h3>
+
+    <input type="text" id="loginUser" placeholder="Usuario o correo electrónico">
+    <input type="password" id="loginPass" placeholder="Digita tu contraseña">
+
+    <div class="login-extra">
+      <label>
+        <input type="checkbox" id="terminos">
+        Acepto términos y condiciones
+      </label>
     </div>
 
+    <button id="btnLogin">Ingresar</button>
+
+    <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
+  </div>
+</div>
+
+
+
+
     <!-- NAVBAR -->
-     <header class="navbar">
+    <header class="navbar">
         <div class="logo">ProTecnologiaTech</div>
         <nav>
             <a href="index.html">Inicio</a>
@@ -33,12 +48,12 @@
             <a href="services/servicios.html">Servicios</a>
             <a href="#" id="btnContacto">Contáctanos</a>
             <a href="register.html">Registro</a>
-            <a href="#" onclick="toggleLogin()">Ingreso</a>
+            <a href="#" id="btnAbrirLogin">Ingreso</a>
         </nav>
     </header>
 
     <!-- HERO -->
-        <section class="hero">
+    <section class="hero">
         <h2>Bienvenido a nuestra sitio corporativo para gestion de servcios de IT</h2>
         <p>Soluciones tecnológicas modernas</p>
     </section>
@@ -124,7 +139,7 @@
     </section>
 
     <!-- 🔥 MODAL CONTACTO -->
-     <div id="modalContacto" class="modal-contacto">
+    <div id="modalContacto" class="modal-contacto">
         <div class="contact-box">
 
             <span class="close-contacto">&times;</span>
@@ -144,7 +159,7 @@
     </div>
 
     </section>
-     <!-- FOOTER -->
+    <!-- FOOTER -->
     <section class="footer-pro">
         <div class="footer-container">
 
@@ -182,7 +197,8 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/servicios.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>

@@ -113,13 +113,10 @@ form {
   margin: auto;
 }
 
-input,
-textarea {
+form input,
+form textarea {
   width: 100%;
-  margin: 10px 0;
-  padding: 10px;
 }
-
 textarea {
   height: 120px;
 }
@@ -807,7 +804,7 @@ footer,
   text-decoration: none;
 
   /* 🔥 sombra pro */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 
   transition: all 0.3s ease;
 }
@@ -816,4 +813,213 @@ footer,
 .whatsapp-float:hover {
   transform: scale(1.15);
   box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+}
+/* 🔥 MODAL LOGIN NUEVO */
+.modal-login {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modal-login.active {
+  display: flex;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 🔥 CAJITA PRO */
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 🔥 centra todo */
+}
+
+.login-card h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.login-card input {
+  width: 85% !important;
+  max-width: 240px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+  text-align: center;
+}
+
+.login-card button {
+  width: 85% !important;
+  max-width: 240px;
+  padding: 10px;
+  background: #00d4ff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-login {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+  cursor: pointer;
+}
+/* 🔥 MODAL LOGIN */
+.modal-login {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* CAJA */
+.login-card {
+  background: #0b1a2a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+/* INPUTS */
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+}
+
+/* BOTON */
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  background: #00d4ff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* CERRAR */
+.close-login {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: white;
+  cursor: pointer;
+}
+/* 🔥 MODAL LOGIN */
+.modal-login {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* 🔥 CLAVE */
+}
+
+.modal-login.active {
+  display: flex;
+}
+
+/* CAJA */
+.login-card {
+  background: #0b1a2a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+  text-align: center;
+  position: relative;
+}
+.login-extra {
+  width: 85%;
+  max-width: 240px;
+  font-size: 13px;
+  color: #cbd5e1;
+  margin: 10px auto;
+  text-align: left;
+}
+
+.login-extra input {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.login-extra label {
+  display: flex;
+  align-items: center; /* 🔥 centra verticalmente */
+  justify-content: center; /* 🔥 centra todo el bloque */
+  gap: 1px;
+  white-space: nowrap; /* 🔥 evita salto de línea */
+}
+
+.login-extra input[type="checkbox"] {
+  margin-right: 2px;
+  transform: translateY(2px); /* 🔥 micro ajuste fino */
+}
+.forgot-pass {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #00d4ff;
+}
+
+.forgot-pass:hover {
+  font-size: 13px;
+  color: #00d4ff;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.forgot-pass:hover {
+  color: white;
+}
+form input,
+form textarea {
+  width: 100%;
 }
