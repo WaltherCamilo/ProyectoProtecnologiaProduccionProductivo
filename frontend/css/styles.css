@@ -1267,3 +1267,46 @@ form textarea {
 .check-inline {
   margin-top: 13px; /* 🔥 mueve TODO hacia abajo */
 }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(90deg, #000428, #004e92);
+}
+
+/* 🔥 LOGO PRO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+
+  /* 💥 elimina fondo blanco visualmente */
+  mix-blend-mode: lighten;
+}
+
+/* TEXTO */
+.logo span {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #e6f1ff; /* blanco suave */
+  letter-spacing: 0.5px;
+}
+
+/* NAV */
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #00cfff;
+}

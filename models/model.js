@@ -4,6 +4,8 @@ class Proyecto {
         this.nombre = nombre
         this.descripcion = descripcion
         this.tecnologia = tecnologia
+        this.equipo = []    
+        this.progreso = 0
     }
 
 }
