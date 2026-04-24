@@ -2,13 +2,17 @@
 alert("JS conectado");// Solo para verificar que el archivo se carga correctamente
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // ===== LOGIN =====
     const btnAbrir = document.getElementById("btnAbrirLogin");
     const modalLogin = document.getElementById("loginModal");
     const cerrarLogin = document.querySelector(".close-login");
+    // 🔥 AQUÍ VA (ESTO TE FALTABA)
     const btnLogin = document.getElementById("btnLogin");
+
+
 
     if (btnAbrir && modalLogin && cerrarLogin && btnLogin) {
 
@@ -121,43 +125,43 @@ const btnEnviarRegistro = document.getElementById("btnEnviarRegistro");
 
 if (btnRegistro && modalRegistro && cerrarRegistro) {
 
-  // ABRIR
-  btnRegistro.addEventListener("click", (e) => {
-    e.preventDefault();
-    modalRegistro.classList.add("active");
-  });
+    // ABRIR
+    btnRegistro.addEventListener("click", (e) => {
+        e.preventDefault();
+        modalRegistro.classList.add("active");
+    });
 
-  // CERRAR
-  cerrarRegistro.addEventListener("click", () => {
-    modalRegistro.classList.remove("active");
-  });
+    // CERRAR
+    cerrarRegistro.addEventListener("click", () => {
+        modalRegistro.classList.remove("active");
+    });
 
-  // CERRAR FUERA
-  window.addEventListener("click", (e) => {
-    if (e.target === modalRegistro) {
-      modalRegistro.classList.remove("active");
-    }
-  });
+    // CERRAR FUERA
+    window.addEventListener("click", (e) => {
+        if (e.target === modalRegistro) {
+            modalRegistro.classList.remove("active");
+        }
+    });
 
-  // REGISTRO
-  btnEnviarRegistro.addEventListener("click", () => {
-    const nombre = document.getElementById("regNombre").value;
-    const correo = document.getElementById("regCorreo").value;
-    const pass = document.getElementById("regPass").value;
+    // REGISTRO
+    btnEnviarRegistro.addEventListener("click", () => {
+        const nombre = document.getElementById("regNombre").value;
+        const correo = document.getElementById("regCorreo").value;
+        const pass = document.getElementById("regPass").value;
 
-    if (!nombre || !correo || !pass) {
-      alert("Completa todos los campos");
-      return;
-    }
+        if (!nombre || !correo || !pass) {
+            alert("Completa todos los campos");
+            return;
+        }
 
-    alert("Registro exitoso ✅");
+        alert("Registro exitoso ✅");
 
-    modalRegistro.classList.remove("active");
+        modalRegistro.classList.remove("active");
 
-    // limpiar
-    document.getElementById("regNombre").value = "";
-    document.getElementById("regCorreo").value = "";
-    document.getElementById("regPass").value = "";
-  });
+        // limpiar
+        document.getElementById("regNombre").value = "";
+        document.getElementById("regCorreo").value = "";
+        document.getElementById("regPass").value = "";
+    });
 
 }

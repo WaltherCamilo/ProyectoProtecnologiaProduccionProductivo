@@ -23,21 +23,22 @@
         <div class="login-card">
             <span class="close-login">&times;</span>
 
-            <h3>Ingreso de usuarios </h3>
+            <h3>Ingreso de usuarios</h3>
 
             <input type="text" id="loginUser" placeholder="Usuario o correo electrónico">
             <input type="password" id="loginPass" placeholder="Digita tu contraseña">
 
+            <!-- 🔽 NUEVO -->
             <div class="login-extra">
-                <label>
+                <label class="check-center">
                     <input type="checkbox" id="terminos">
-                    <span>Acepto términos y condiciones</span>
+                    <span>Autenticarme</span>
                 </label>
+
+                <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
             </div>
 
-            <button id="btnLogin">Ingresar</button>
-
-            <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
+            <button type="button" onclick="login()">Ingresar</button>
         </div>
     </div>
 
@@ -54,9 +55,11 @@
         <nav>
             <a href="index.html">Inicio</a>
             <a href="#empresa">¿Quiénes somos?</a>
-           <a href="services/servicios.html">Servicios</a>
+            <a href="services/servicios.html">Servicios</a>
             <a href="#" id="btnContacto">Contáctanos</a>
             <a href="#" id="btnRegistro">Registro</a>
+            <a href="#" id="btnAbrirLogin">Ingreso</a>
+
         </nav>
     </header>
 
@@ -255,7 +258,55 @@
 
 
     <script src="js/main.js"></script>
+    <script>
+        // ===== DEBUG (para saber si corre) =====
+        console.log("SCRIPT LOGIN CARGADO");
 
+        // ===== ABRIR / CERRAR =====
+        document.addEventListener("DOMContentLoaded", () => {
+            const btnAbrir = document.getElementById("btnAbrirLogin");
+            const modal = document.getElementById("loginModal");
+            const cerrar = document.querySelector(".close-login");
+
+            if (!btnAbrir) console.error("NO existe btnAbrirLogin");
+            if (!modal) console.error("NO existe loginModal");
+            if (!cerrar) console.error("NO existe .close-login");
+
+            btnAbrir?.addEventListener("click", (e) => {
+                e.preventDefault();
+                console.log("CLICK NAVBAR");
+                modal.classList.add("active");
+            });
+
+            cerrar?.addEventListener("click", () => {
+                console.log("CERRAR MODAL");
+                modal.classList.remove("active");
+            });
+        });
+
+        // ===== LOGIN =====
+        function login() {
+            console.log("CLICK LOGIN 🔥");
+
+            const userEl = document.getElementById("loginUser");
+            const passEl = document.getElementById("loginPass");
+
+            if (!userEl || !passEl) {
+                alert("Inputs no encontrados");
+                return;
+            }
+
+            const email = userEl.value;
+            const password = passEl.value;
+
+            if (!email || !password) {
+                alert("Completa los datos");
+                return;
+            }
+
+            alert("Login OK (prueba)");
+        }
+    </script>
 </body>
 
 </html>
