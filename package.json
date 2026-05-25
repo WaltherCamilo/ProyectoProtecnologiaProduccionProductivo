@@ -8,5 +8,28 @@
   },
   "devDependencies": {
     "typescript": "^6.0.3"
-  }
+  },
+  "name": "proyectoprotecnologiaproduccionproductivo",
+  "version": "1.0.0",
+  "description": "This is the academic and professional portfolio. Authorized personnel only.",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WaltherCamilo/ProyectoProtecnologiaProduccionProductivo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WaltherCamilo/ProyectoProtecnologiaProduccionProductivo/issues"
+  },
+  "homepage": "https://github.com/WaltherCamilo/ProyectoProtecnologiaProduccionProductivo#readme"
 }
