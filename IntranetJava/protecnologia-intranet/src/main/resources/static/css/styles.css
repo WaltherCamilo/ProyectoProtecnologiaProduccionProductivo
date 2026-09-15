@@ -1,0 +1,1438 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #021526 0%, #03346e 50%, #021526 100%);
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* 🔥 NAVBAR PROFESIONAL (IGUAL EN TODAS LAS PÁGINAS) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: linear-gradient(90deg, #020024, #001f3f, #000814);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* 🔥 LOGO PRO */
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #00d4ff;
+  letter-spacing: 1px;
+}
+/* LOGIN PEQUEÑO */
+.login-box {
+  position: absolute;
+  top: 70px;
+  right: 40px;
+  width: 250px;
+  background: #112240;
+  padding: 15px;
+  border-radius: 8px;
+  display: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.login-box h3 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.login-box input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-box button {
+  width: 100%;
+  background: #00d4ff;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.link {
+  font-size: 12px;
+  color: #00d4ff;
+  text-align: center;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+/* 🔥 MENÚ */
+.navbar nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* ✨ HOVER BONITO */
+.navbar nav a:hover {
+  color: #00d4ff;
+  text-shadow: 0 0 5px #00d4ff;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 50px;
+}
+
+/* CONTENEDOR */
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+/* IMAGEN */
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* CONTACTO */
+.contacto {
+  display: none; /* 🔥 OCULTA el formulario grande */
+} /* 🔥 OCULTA el formulario grande */
+
+form {
+  max-width: 400px;
+  margin: auto;
+}
+
+form input,
+form textarea {
+  width: 100%;
+}
+textarea {
+  height: 120px;
+}
+
+button {
+  background: #00d4ff;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(90deg, #020024, #001f3f, #000814);
+  text-align: center;
+  padding: 15px 10px;
+  color: #00d4ff;
+  font-size: 14px;
+  letter-spacing: 1px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.login-box {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 260px;
+  background: #0b1a2a;
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: none;
+  box-sizing: border-box; /* 🔥 ESTO ARREGLA EL DESCUADRE */
+}
+
+.login-box button {
+  width: 100%;
+}
+/* MÓVIL */
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+    }
+
+    .card {
+      width: 90%;
+    }
+
+    /* 🔥 AQUÍ PEGAS ESTO ↓ */
+
+    input,
+    select,
+    textarea {
+      font-size: 14px;
+      padding: 12px;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 12px;
+    }
+  }
+  .navbar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .navbar nav a {
+    font-size: 14px;
+  }
+  /* TITULOS */
+  h1,
+  h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  /* CONTENEDORES */
+  .contenedor {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  /* TARJETAS SERVICIOS */
+  .card-servicio {
+    width: 80%;
+    max-width: 250px;
+    padding: 15px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* FORMULARIOS */
+  .form-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .card {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .login-box {
+    right: 20px !important;
+    width: 90%;
+  }
+}
+/* CENTRAR SLIDER */
+.slider-section {
+  text-align: center;
+  padding: 50px;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+}
+
+.slides {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  max-width: 900px;
+}
+
+/* TARJETAS */
+.card {
+  min-width: 280px;
+  background: #112240;
+  border-radius: 15px;
+  padding: 15px;
+  color: white;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.empresa {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.img-top {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.imagenes-personas {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.imagenes-personas img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00d4ff60;
+}
+/* 🔐 LINK OLVIDAR CONTRASEÑA */
+.forgot {
+  display: block;
+  margin-top: 13px;
+  text-align: center;
+  font-size: 13px;
+  color: #00d4ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* ✨ EFECTO HOVER */
+.forgot:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px #00d4ff;
+  transform: translateX(-3px);
+}
+h1 {
+  color: #ffffff !important;
+  font-size: 38px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 212, 255, 0.4);
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #00d4ff;
+  margin: 10px auto 0;
+}
+
+p {
+  color: #cbd5e1 !important;
+  text-align: center;
+}
+.contenedor-info {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #ffffff !important;
+}
+
+footer,
+.footer {
+  color: #ffffff !important;
+  text-shadow: 0 0 5px #00d4ff;
+}
+/* 🔥 FOOTER PRO */
+.footer-pro {
+  background: #0a1f44;
+  padding: 40px 20px;
+  color: white;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+  max-width: 1100px;
+  margin: auto;
+  gap: 60px;
+}
+
+/* 🔥 BLOQUES */
+.footer-box {
+  text-align: left;
+}
+.footer-box i {
+  margin-right: 8px;
+  color: #00d4ff;
+}
+
+/* 🔥 CENTRAR SOLO CONTACTO */
+.footer-box:nth-child(2) {
+  text-align: center;
+}
+
+/* 🔥 REDES A LA DERECHA */
+.footer-box:nth-child(3) {
+  text-align: right;
+}
+
+.footer-box {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-box h3,
+.footer-box h4 {
+  color: #00d4ff;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-box p {
+  margin: 8px 0;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+/* 🔥 REDES */
+.redes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.redes a {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 16px;
+  transition: 0.3s;
+}
+/* COLORES REALES */
+.redes a:nth-child(1) {
+  background: #1877f2;
+}
+.redes a:nth-child(2) {
+  background: #e4405f;
+}
+.redes a:nth-child(3) {
+  background: #0a66c2;
+}
+.redes a:nth-child(4) {
+  background: #25d366;
+}
+
+/* HOVER PRO */
+.redes a:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+.redes a {
+  width: 45px;
+  height: 46px;
+  display: inline-flex; /* 🔥 clave */
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  color: white;
+  font-size: 25px;
+
+  /* 🔥 centra mejor visualmente */
+  line-height: 1;
+  padding: 0;
+
+  transition: all 0.3s ease;
+}
+
+/* COLORES CON GRADIENTE PRO */
+.redes a {
+  width: 48px;
+  height: 48px;
+  display: flex; /* 🔥 mejor que inline-flex */
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+.redes a i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 🔥 RESET TOTAL */
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Facebook */
+.redes a:nth-child(1) i {
+  transform: translateY(1px);
+}
+
+/* Instagram */
+.redes a:nth-child(2) i {
+  transform: translateY(1px);
+}
+
+/* LinkedIn */
+.redes a:nth-child(3) i {
+  transform: translateY(1px);
+}
+
+/* WhatsApp (EL MÁS PROBLEMÁTICO) */
+.redes a:nth-child(4) i {
+  transform: translateY(0px) scale(1.1);
+}
+.redes a:nth-child(1) {
+  background: linear-gradient(135deg, #1877f2, #0d5bd1);
+}
+
+.redes a:nth-child(2) {
+  background: linear-gradient(135deg, #e4405f, #c13584);
+}
+
+.redes a:nth-child(3) {
+  background: linear-gradient(135deg, #0a66c2, #004182);
+}
+
+.redes a:nth-child(4) {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+.redes a:nth-child(4) i {
+  transform: translateY(0px) scale(1.05);
+}
+
+/* ✨ HOVER NIVEL DIOS */
+.redes a:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+}
+.redes a:hover {
+  background: #00d4ff;
+  color: black;
+  transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .redes {
+    justify-content: center;
+  }
+}
+/* 🔥 FORMULARIO PRO */
+.contacto form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+  max-width: 400px;
+}
+
+/* INPUTS BONITOS */
+.contacto input,
+.contacto textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* EFECTO FOCUS */
+.contacto input:focus,
+.contacto textarea:focus {
+  border: 1px solid #00d4ff;
+  box-shadow: 0 0 10px #00d4ff50;
+}
+
+/* BOTÓN PRO */
+.contacto button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #00d4ff, #00aaff);
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.contacto button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #00d4ff;
+}
+.input-group {
+  position: relative;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #00d4ff;
+}
+
+.input-group input,
+.input-group textarea {
+  padding-left: 35px;
+}
+.redes a:nth-child(1) {
+  background: #1877f2;
+} /* Facebook */
+.redes a:nth-child(2) {
+  background: #e4405f;
+} /* Instagram */
+.redes a:nth-child(3) {
+  background: #0a66c2;
+} /* LinkedIn */
+.redes a:nth-child(4) {
+  background: #25d366;
+} /* WhatsApp */
+
+.redes a {
+  color: white;
+}
+/* 🔥 MODAL CONTACTO */
+.modal-contacto {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+.modal-contacto.active {
+  display: flex;
+}
+
+/* 🔥 CAJA TIPO LOGIN */
+.contact-box {
+  background: #0b1a2a;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px; /* 👈 MÁS PEQUEÑO */
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.contact-box h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* INPUTS */
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+}
+
+/* BOTÓN */
+.contact-box button {
+  width: 100%;
+  padding: 10px;
+  background: #00d4ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* CERRAR */
+.close-contacto {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: white;
+  cursor: pointer;
+}
+/* 🔥 MODAL CONTACTO */
+.modal-contacto {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contacto.active {
+  display: flex;
+}
+
+/* 🔥 CAJA BONITA (tipo login) */
+.contact-box {
+  width: 280px;
+  background: #0b1a2a;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.25);
+  text-align: center;
+  position: relative;
+}
+
+/* TITULO */
+.contact-box h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* INPUTS */
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 9px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+  font-size: 13px;
+}
+
+/* TEXTAREA */
+.contact-box textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* BOTON */
+.contact-box button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #00d4ff, #00aaff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* CERRAR */
+.close-contacto {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.redes a:nth-child(1) {
+  background: #1877f2;
+}
+.redes a:nth-child(2) {
+  background: #e4405f;
+}
+.redes a:nth-child(3) {
+  background: #0a66c2;
+}
+.redes a:nth-child(4) {
+  background: #25d366;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  z-index: 9999;
+  text-decoration: none;
+
+  /* 🔥 sombra pro */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.3s ease;
+}
+
+/* ✨ HOVER PRO */
+.whatsapp-float:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+}
+/* 🔥 MODAL LOGIN NUEVO */
+.modal-login {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal-login.active {
+  display: flex;
+}
+
+.login-card {
+  background: #0f1f3d;
+  padding: 25px;
+  border-radius: 15px;
+  width: 320px;
+  text-align: center; /* ← esto está centrando todo */
+  color: white;
+  position: relative;
+}
+
+.login-card input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2c4a7a;
+  color: white;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.close-login {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 🔥 CAJITA PRO */
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 🔥 centra todo */
+}
+
+.login-card h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.login-card input {
+  width: 85% !important;
+  max-width: 240px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+  text-align: center;
+}
+
+.login-card button {
+  width: 85% !important;
+  max-width: 240px;
+  padding: 10px;
+  background: #00d4ff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-login {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+  cursor: pointer;
+}
+/* 🔥 MODAL LOGIN */
+.modal-login {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* CAJA */
+.login-card {
+  background: #0b1a2a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+/* INPUTS */
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+}
+
+/* BOTON */
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  background: #00d4ff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* CERRAR */
+.close-login {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: white;
+  cursor: pointer;
+}
+/* 🔥 MODAL LOGIN */
+.modal-login {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* 🔥 CLAVE */
+}
+
+.modal-login.active {
+  display: flex;
+}
+
+/* CAJA */
+.login-card {
+  background: #0b1a2a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+  text-align: center;
+  position: relative;
+}
+.login-extra {
+  width: 85%;
+  margin: 10px auto;
+  font-size: 13px;
+  color: #cbd5e1;
+  text-align: left;
+}
+
+/* fila checkbox */
+.login-extra label {
+  display: flex;
+  justify-content: center; /* 🔥 centra todo */
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  transform: translateX(-50px); /* 🔥 AJUSTE FINO */
+}
+.login-extra label {
+  justify-content: center !important;
+}
+
+/* checkbox */
+.login-extra input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+/* link separado */
+.forgot-link {
+  display: block;
+  width: 85%; /* 🔥 mismo ancho que inputs */
+  margin: 4px auto 0 auto; /* 🔥 centra el bloque */
+  padding-left: 10px; /* 🔥 lo mete hacia adentro (alineado con texto input) */
+  font-size: 12px;
+  color: #00d4ff;
+  text-decoration: none;
+  text-align: left;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.forgot-pass {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #00d4ff;
+}
+
+.forgot-pass:hover {
+  font-size: 13px;
+  color: #00d4ff;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.forgot-pass:hover {
+  color: white;
+}
+form input,
+form textarea {
+  width: 100%;
+}
+.btn-inicio-float {
+  position: fixed;
+  bottom: 95px; /* arriba del WhatsApp */
+  right: 25px;
+
+  width: 50px;
+  height: 50px;
+
+  background: linear-gradient(135deg, #00d4ff, #0077ff);
+  color: white;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  text-decoration: none;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+
+  transition: all 0.3s ease;
+}
+
+/* ✨ HOVER */
+.btn-inicio-float:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.6);
+}
+.btn-inicio-float::after {
+  content: "Inicio";
+  position: absolute;
+  right: 60px;
+  background: #000;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.btn-inicio-float:hover::after {
+  opacity: 1;
+}
+/* 🔥 MODAL PEQUEÑO */
+.mini-contacto {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.mini-contacto.active {
+  display: flex;
+}
+
+/* 🔥 CAJITA */
+.mini-box {
+  width: 260px;
+  background: #0b1a2a;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  position: relative;
+}
+
+.mini-box h4 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* INPUTS */
+.mini-box input,
+.mini-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 6px;
+  border: none;
+
+  background: #1e3a5f;
+  color: white;
+
+  font-size: 13px;
+
+  box-sizing: border-box; /* 🔥 ESTA ES LA CLAVE */
+}
+.mini-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mini-box input,
+.mini-box textarea,
+.mini-box button {
+  width: 90%;
+  max-width: 240px;
+}
+.mini-box textarea {
+  height: 70px;
+  resize: none;
+}
+
+/* BOTÓN */
+.mini-box button {
+  width: 100%;
+  padding: 9px;
+  background: linear-gradient(90deg, #00d4ff, #00aaff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* CERRAR */
+.cerrar-mini {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+  cursor: pointer;
+}
+/* 🔥 MODAL REGISTRO (usa el mismo estilo del login) */
+#modalRegistro {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+#modalRegistro.active {
+  display: flex;
+}
+
+/* 🔥 CAJA (igual que login pero independiente) */
+#modalRegistro .login-card {
+  background: #0b1a2a;
+  text-align: center;
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+
+  /* 🔥 MÁS PRESENCIA */
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+
+  text-align: center;
+  position: relative;
+
+  /* 🔥 CAMBIO AQUÍ */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  text-align: center;
+  position: relative;
+}
+#modalRegistro .login-card {
+  width: 320px; /* 🔥 más espacio para que quepa en 1 línea */
+}
+
+/* INPUTS */
+#modalRegistro input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+}
+
+/* BOTÓN */
+#modalRegistro button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #00d4ff, #00aaff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* CERRAR */
+.close-registro {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: #ffffff; /* 🔥 blanco */
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+.registro-extra {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+.check-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #cbd5e1;
+  width: 100%;
+}
+.check-inline span {
+  white-space: nowrap; /* 🔥 evita que se parta en 2 líneas */
+}
+
+.check-inline input {
+  margin: 0;
+  width: 14px;
+  height: 14px;
+  transform: translateY(2px);
+}
+
+.check-inline span {
+  white-space: nowrap; /* 🔥 evita que se parta en 2 líneas */
+}
+
+.registro-extra input[type="checkbox"] {
+  margin: 0;
+  transform: translateY(1px);
+}
+.check-inline {
+  margin-top: 13px; /* 🔥 mueve TODO hacia abajo */
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(90deg, #000428, #004e92);
+}
+
+/* 🔥 LOGO PRO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+
+  /* 💥 elimina fondo blanco visualmente */
+  mix-blend-mode: lighten;
+}
+
+/* TEXTO */
+.logo span {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #e6f1ff; /* blanco suave */
+  letter-spacing: 0.5px;
+}
+
+/* NAV */
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #00cfff;
+}
+/* ===== FIX LOGIN (NO TOCAR ARRIBA, SOLO PEGAR ABAJO) ===== */
+
+.login-extra {
+  text-align: left !important;
+}
+
+.login-extra label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.login-extra input[type="checkbox"] {
+  margin: 0 !important;
+}
+
+.forgot-link {
+  display: block;
+  margin-top: 6px;
+
+  text-align: center; /* 🔥 CENTRADO REAL */
+
+  font-size: 12px;
+  color: #00d4ff;
+  text-decoration: none;
+}
+/* ===== AJUSTE EXACTO POSICION LINK ===== */
+
+.login-extra {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 🔥 TODO se alinea a la izquierda */
+}
+
+.login-extra label {
+  display: flex;
+  justify-content: center; /* 🔥 centra el bloque completo */
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  text-align: center;
+}
+.login-extra label span {
+  display: inline-block;
+}
+
+.forgot-link {
+  display: block; /* 🔥 hace que ocupe toda la línea */
+  width: 100%; /* 🔥 ocupa todo el ancho */
+  text-align: center; /* 🔥 CENTRADO REAL */
+  margin-top: 4px;
+  margin-left: 0; /* 🔥 elimina el corrimiento */
+  font-size: 12px;
+  color: #00d4ff;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+.check-center {
+  display: flex;
+  justify-content: center; /* 🔥 centra TODO */
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.login-extra label {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+}
+
+.login-extra input[type="checkbox"] {
+  margin: 0 !important;
+}
+
+.login-extra span {
+  margin: 0 !important;
+}

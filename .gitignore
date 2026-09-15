@@ -1,0 +1,50 @@
+# =========================
+# Java / Maven
+# =========================
+**/target/
+**/.mvn/timing.properties
+
+# =========================
+# IDE
+# =========================
+**/.idea/
+**/*.iml
+**/.vscode/
+
+# =========================
+# Logs
+# =========================
+**/*.log
+
+# =========================
+# Secrets / Environment
+# =========================
+**/.env
+**/.env.*
+**/application-local.properties
+**/application-secret.properties
+
+# =========================
+# OS
+# =========================
+**/Thumbs.db
+**/desktop.ini
+
+# =========================
+# Node.js dependencies
+# =========================
+**/node_modules/
+
+# =========================
+# Java generated files
+# =========================
+**/*.class
+# Logs y archivos de diagnóstico
+**/*.log
+**/*-error.txt
+# Archivos del proyecto Java que no se deben versionar
+IntranetJava/**/*.zip
+IntranetJava/**/*.bak
+
+# Source maps / archivos generados de TypeScript
+IntranetJava/**/*.map

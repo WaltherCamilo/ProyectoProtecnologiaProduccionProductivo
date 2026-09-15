@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios IT</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="stylesheet" href="servicios.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+
+
+
+</head>
+<header class="navbar">
+    <div class="logo">ProTecnologiaTech</div>
+    <nav>
+        <a href="../index.html">Retornar al inicio</a>
+        <a href="#">COPASST</a>
+        <a href="#">Reglamento interno de trabajo</a>
+        <a href="#">Seguridad de la información</a>
+        <a href="#">Ley 1581 de 2012</a>
+        <a href="#">Ley 1273 de 2009</a>
+    </nav>
+</header>
+
+<body>
+
+    <!-- 🔥 MODAL OCULTO -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+
+            <video id="videoPlayer" controls>
+                <source id="videoSource" src="" type="video/mp4">
+                <track src="../videos/soporte.vtt" kind="subtitles" srclang="es" default>
+            </video>
+
+            <p id="videoDescripcion"></p>
+
+            <div id="accionesFinal" class="acciones">
+                <button>Para saber da clic aquí</button>
+                <button>Da clic acá para continuar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🔥 TU CONTENIDO (NO SE TOCA) -->
+    <header>
+        <p class="subtitulo-servicios">
+            Soluciones tecnológicas diseñadas para impulsar tu negocio
+        </p>
+    </header>
+
+    <section id="lista-servicios" class="contenedor">
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 ProTecnologiaTech | Todos los derechos reservados</p>
+    </footer>
+
+    <script src="../../dist/servicios.js"></script>
+
+</body>
+
+</html>

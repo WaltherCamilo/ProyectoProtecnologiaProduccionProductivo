@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panel - ProTecnologiaTech</title>
+</head>
+
+<body style="background:#0f172a; color:white; margin:0; font-family:Arial, sans-serif;">
+
+    <!-- =========================
+         BARRA SUPERIOR
+    ========================== -->
+
+    <nav style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 25px;
+        background:#111827;
+    ">
+
+        <h2 style="margin:0;">
+            ProTecnologiaTech
+        </h2>
+
+        <div style="position:relative;">
+
+            <span
+                id="userName"
+                style="
+                    cursor:pointer;
+                    font-weight:bold;
+                ">
+            </span>
+
+            <div
+                id="userMenu"
+                style="
+                    display:none;
+                    position:absolute;
+                    right:0;
+                    top:35px;
+                    background:#1e1e1e;
+                    padding:15px;
+                    border-radius:10px;
+                    width:250px;
+                    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+                    z-index:1000;
+                ">
+
+                <p id="infoNombre">
+                    👤
+                </p>
+
+                <p id="infoEmail">
+                    📧
+                </p>
+
+                <p id="infoTelefono">
+                    📱
+                </p>
+
+                <button
+                    onclick="logout()"
+                    style="
+                        width:100%;
+                        padding:10px;
+                        cursor:pointer;
+                    ">
+                    Salir
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+
+    <main style="
+        max-width:1000px;
+        margin:40px auto;
+        padding:20px;
+    ">
+
+        <h1 style="text-align:center;">
+            Bienvenido al sistema
+        </h1>
+
+
+        <!-- =========================
+             EXPERIENCIA LABORAL
+        ========================== -->
+
+        <section>
+
+            <h2>
+                💼 Experiencia laboral
+            </h2>
+
+            <div id="experienciaLaboral">
+
+                <p>
+                    Cargando experiencia laboral...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- =========================
+             FORMACIÓN ACADÉMICA
+        ========================== -->
+
+        <section>
+
+            <h2>
+                🎓 Formación académica
+            </h2>
+
+            <div id="experienciaAcademica">
+
+                <p>
+                    Cargando formación académica...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- =========================
+             INFORMACIÓN GENERAL
+        ========================== -->
+
+        <section>
+
+            <h2>
+                📋 Información general
+            </h2>
+
+            <div id="informeGeneral">
+
+                <p>
+                    Cargando información general...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+         * ==========================================
+         * OBTENER USUARIO Y JWT
+         * ==========================================
+         */
+
+        const userData = localStorage.getItem("user");
+        const token = localStorage.getItem("token");
+
+
+        /*
+         * ==========================================
+         * VALIDAR SESIÓN LOCAL
+         * ==========================================
+         */
+
+        if (!userData || !token) {
+
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+
+            window.location.href = "login.html";
+
+        }
+
+
+        /*
+         * ==========================================
+         * CONVERTIR USUARIO
+         * ==========================================
+         */
+
+        let user = null;
+
+        try {
+
+            user = JSON.parse(userData);
+
+        } catch (error) {
+
+            console.error("Error leyendo usuario:", error);
+
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+
+            window.location.href = "login.html";
+
+        }
+
+
+        /*
+         * ==========================================
+         * MOSTRAR INFORMACIÓN DEL USUARIO
+         * ==========================================
+         */
+
+        if (user) {
+
+            document.getElementById("userName").innerText =
+                user.nombre || "Usuario";
+
+            document.getElementById("infoNombre").innerText =
+                "👤 " +
+                ((user.nombre || "") + " " + (user.apellido || "")).trim();
+
+            document.getElementById("infoEmail").innerText =
+                "📧 " +
+                (user.correo || "No registrado");
+
+            document.getElementById("infoTelefono").innerText =
+                "📱 " +
+                (user.telefono || "No registrado");
+
+        }
+
+
+        /*
+         * ==========================================
+         * MENÚ DEL USUARIO
+         * ==========================================
+         */
+
+        document
+            .getElementById("userName")
+            .addEventListener("click", function () {
+
+                const menu =
+                    document.getElementById("userMenu");
+
+                if (menu.style.display === "block") {
+
+                    menu.style.display = "none";
+
+                } else {
+
+                    menu.style.display = "block";
+
+                }
+
+            });
+
+
+        /*
+         * ==========================================
+         * CERRAR SESIÓN
+         * ==========================================
+         */
+
+        function logout() {
+
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+
+            window.location.href = "index.html";
+
+        }
+
+
+        /*
+         * ==========================================
+         * PETICIONES AUTENTICADAS
+         * ==========================================
+         *
+         * Todas las llamadas a las APIs privadas
+         * llevan automáticamente:
+         *
+         * Authorization: Bearer JWT
+         *
+         */
+
+        async function fetchAutenticado(url) {
+
+            const respuesta = await fetch(url, {
+
+                method: "GET",
+
+                headers: {
+
+                    "Authorization": "Bearer " + token
+
+                }
+
+            });
+
+
+            /*
+             * Token inválido o expirado
+             */
+
+            if (respuesta.status === 401 ||
+                respuesta.status === 403) {
+
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+
+                window.location.href = "login.html";
+
+                return null;
+
+            }
+
+
+            return respuesta;
+
+        }
+
+
+        /*
+         * ==========================================
+         * EXPERIENCIA LABORAL
+         * ==========================================
+         */
+
+        async function cargarExperienciaLaboral() {
+
+            const contenedor =
+                document.getElementById("experienciaLaboral");
+
+            try {
+
+                const response =
+                    await fetchAutenticado("/api/experiencia");
+
+
+                if (!response) {
+                    return;
+                }
+
+
+                const resultado =
+                    await response.json();
+
+
+                if (resultado.estado !== "OK") {
+
+                    contenedor.innerHTML =
+                        "<p>No fue posible cargar la experiencia laboral.</p>";
+
+                    return;
+
+                }
+
+
+                if (!resultado.datos ||
+                    resultado.datos.length === 0) {
+
+                    contenedor.innerHTML =
+                        "<p>No hay experiencia laboral registrada.</p>";
+
+                    return;
+
+                }
+
+
+                contenedor.innerHTML =
+                    resultado.datos.map(item => `
+
+                        <div style="
+                            margin-bottom:20px;
+                            padding:15px;
+                            background:#1e293b;
+                            border-radius:10px;
+                        ">
+
+                            <h3>
+                                ${item.cargo || ""}
+                            </h3>
+
+                            <strong>
+                                ${item.empresa || ""}
+                            </strong>
+
+                            <p>
+                                📍 ${item.ciudad || "No especificada"}
+                            </p>
+
+                            <p>
+                                ${item.descripcion || ""}
+                            </p>
+
+                            <p>
+                                📅
+                                ${
+                                    item.fecha_inicio
+                                    ? new Date(item.fecha_inicio)
+                                        .toLocaleDateString("es-CO")
+                                    : ""
+                                }
+
+                                -
+
+                                ${
+                                    item.fecha_fin
+                                    ? new Date(item.fecha_fin)
+                                        .toLocaleDateString("es-CO")
+                                    : "Actualidad"
+                                }
+                            </p>
+
+                        </div>
+
+                    `).join("");
+
+            } catch (error) {
+
+                console.error(
+                    "Error cargando experiencia laboral:",
+                    error
+                );
+
+                contenedor.innerHTML =
+                    "<p>Error conectando con la API.</p>";
+
+            }
+
+        }
+
+
+        /*
+         * ==========================================
+         * FORMACIÓN ACADÉMICA
+         * ==========================================
+         */
+
+        async function cargarExperienciaAcademica() {
+
+            const contenedor =
+                document.getElementById("experienciaAcademica");
+
+            try {
+
+                const response =
+                    await fetchAutenticado(
+                        "/api/experiencia-academica"
+                    );
+
+
+                if (!response) {
+                    return;
+                }
+
+
+                const resultado =
+                    await response.json();
+
+
+                if (resultado.estado !== "OK") {
+
+                    contenedor.innerHTML =
+                        "<p>No fue posible cargar la formación académica.</p>";
+
+                    return;
+
+                }
+
+
+                if (!resultado.datos ||
+                    resultado.datos.length === 0) {
+
+                    contenedor.innerHTML =
+                        "<p>No hay formación académica registrada.</p>";
+
+                    return;
+
+                }
+
+
+                contenedor.innerHTML =
+                    resultado.datos.map(item => `
+
+                        <div style="
+                            margin-bottom:20px;
+                            padding:15px;
+                            background:#1e293b;
+                            border-radius:10px;
+                        ">
+
+                            <h3>
+                                ${item.nombre || ""}
+                            </h3>
+
+                            <strong>
+                                ${item.institucion || ""}
+                            </strong>
+
+                            <p>
+                                🛠️
+                                ${item.tecnologia || "No especificada"}
+                            </p>
+
+                            <p>
+                                ${item.descripcion || ""}
+                            </p>
+
+                            <p>
+                                📅
+                                ${
+                                    item.fecha_inicio
+                                    ? new Date(item.fecha_inicio)
+                                        .toLocaleDateString("es-CO")
+                                    : ""
+                                }
+
+                                -
+
+                                ${
+                                    item.fecha_fin
+                                    ? new Date(item.fecha_fin)
+                                        .toLocaleDateString("es-CO")
+                                    : "En curso"
+                                }
+                            </p>
+
+                        </div>
+
+                    `).join("");
+
+            } catch (error) {
+
+                console.error(
+                    "Error cargando formación académica:",
+                    error
+                );
+
+                contenedor.innerHTML =
+                    "<p>Error conectando con la API.</p>";
+
+            }
+
+        }
+
+
+        /*
+         * ==========================================
+         * INFORMACIÓN GENERAL
+         * ==========================================
+         */
+
+        async function cargarInformeGeneral() {
+
+            const contenedor =
+                document.getElementById("informeGeneral");
+
+            try {
+
+                const response =
+                    await fetchAutenticado(
+                        "/api/informe-general"
+                    );
+
+
+                if (!response) {
+                    return;
+                }
+
+
+                const resultado =
+                    await response.json();
+
+
+                if (resultado.estado !== "OK") {
+
+                    contenedor.innerHTML =
+                        "<p>No fue posible cargar la información general.</p>";
+
+                    return;
+
+                }
+
+
+                if (!resultado.datos ||
+                    resultado.datos.length === 0) {
+
+                    contenedor.innerHTML =
+                        "<p>No hay información general registrada.</p>";
+
+                    return;
+
+                }
+
+
+                contenedor.innerHTML =
+                    resultado.datos.map(item => `
+
+                        <div style="
+                            margin-bottom:20px;
+                            padding:15px;
+                            background:#1e293b;
+                            border-radius:10px;
+                        ">
+
+                            <h3>
+                                ${item.cargo || ""}
+                            </h3>
+
+                            <strong>
+                                ${item.empresa || ""}
+                            </strong>
+
+                            <p>
+                                📍 ${item.ciudad || "No especificada"}
+                            </p>
+
+                            <p>
+                                ${item.descripcion || ""}
+                            </p>
+
+                            <p>
+                                👤
+                                ${item.jefe_inmediato || "No especificado"}
+                            </p>
+
+                            <p>
+                                📞
+                                ${item.telefono_contacto || "No registrado"}
+                            </p>
+
+                            <p>
+                                📅
+                                ${
+                                    item.fecha_inicio
+                                    ? new Date(item.fecha_inicio)
+                                        .toLocaleDateString("es-CO")
+                                    : ""
+                                }
+
+                                -
+
+                                ${
+                                    item.fecha_fin
+                                    ? new Date(item.fecha_fin)
+                                        .toLocaleDateString("es-CO")
+                                    : "Actualidad"
+                                }
+                            </p>
+
+                        </div>
+
+                    `).join("");
+
+            } catch (error) {
+
+                console.error(
+                    "Error cargando información general:",
+                    error
+                );
+
+                contenedor.innerHTML =
+                    "<p>Error conectando con la API.</p>";
+
+            }
+
+        }
+
+
+        /*
+         * ==========================================
+         * CARGAR INFORMACIÓN
+         * ==========================================
+         */
+
+        cargarExperienciaLaboral();
+
+        cargarExperienciaAcademica();
+
+        cargarInformeGeneral();
+
+    </script>
+
+</body>
+
+</html>

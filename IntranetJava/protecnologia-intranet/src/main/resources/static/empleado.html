@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registro</title>
+<link rel="stylesheet" href="css/empleado.css">
+</head>
+
+<body>
+
+<h1>Registro</h1>
+
+<form id="registroForm">
+
+<select id="tipoUsuario" required>
+<option value="">Tipo de usuario</option>
+<option value="persona">Persona</option>
+<option value="proveedor">Proveedor</option>
+</select>
+
+<input type="text" id="nombre" placeholder="Nombre completo" required>
+<input type="text" id="identificacion" placeholder="Identificación" required>
+<input type="text" id="telefono" placeholder="Teléfono" required>
+<input type="email" id="email" placeholder="Correo" required>
+<input type="password" id="password" placeholder="Contraseña" required>
+
+<select id="rol" required>
+<option value="">Rol</option>
+<option value="empleado">Empleado</option>
+<option value="cliente">Cliente</option>
+</select>
+
+<label>
+<input type="checkbox" id="ley" required>
+Acepto tratamiento de datos (Ley 1581 de 2012)
+</label>
+
+<button type="submit">Registrarse</button>
+
+</form>
+
+<script src="js/auth.js"></script>
+
+</body>
+</html>
