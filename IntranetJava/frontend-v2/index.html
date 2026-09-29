@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProTecnologiaTech</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="services/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="services/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="services/favicon/favicon-16x16.png">
+    <link rel="manifest" href="services/favicon/site.webmanifest">
+    <link rel="icon" href="services/favicon/favicon.ico">
+
+</head>
+
+<body>
+
+    <div id="loginModal" class="modal-login">
+        <div class="login-card">
+            <span class="close-login">&times;</span>
+
+            <h3>Ingreso de usuarios</h3>
+
+            <input type="text" id="loginUser" placeholder="Usuario o correo electrónico">
+            <input type="password" id="loginPass" placeholder="Digita tu contraseña">
+
+            <!-- 🔽 NUEVO -->
+            <div class="login-extra">
+                <label class="check-center">
+                    <input type="checkbox" id="terminos">
+                    <span>Autenticarme</span>
+                </label>
+
+                <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+            </div>
+
+           <button type="button">Ingresar</button>
+        </div>
+    </div>
+
+
+
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="Images/Logo.png" alt="ProTecnologiaTech">
+            <span>ProTecnologiaTech</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="#empresa">¿Quiénes somos?</a>
+            <a href="services/servicios.html">Servicios</a>
+            <a href="#" id="btnContacto">Contáctanos</a>
+            <a href="#" id="btnRegistro">Registro</a>
+            <a href="#" id="btnAbrirLogin">Ingreso</a>
+
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h2>Bienvenido a nuestra sitio corporativo para gestion de servcios de IT</h2>
+        <p>Soluciones tecnológicas modernas</p>
+    </section>
+
+    <section class="container" id="empresa">
+        <article class="card empresa">
+
+            <img src="./Images/Walther Valarezo Ciudad de Bogota DC.jpg" class="img-top">
+
+            <h2>ProTecnologiaTech</h2>
+
+            <p>
+                ProTecnologiaTech fue fundada el 14 de mayo de 2025 a las 18:04 en San José del Guaviare por Walther
+                Valarezo.
+            </p>
+
+            <p>
+                Walther nació en 1993 en Bogotá, Colombia, donde desarrolló su pasión por la tecnología.
+                Culminó sus estudios en Ingeniería de Sistemas en la Universidad San José.
+            </p>
+
+            <p>
+                Durante un viaje de trabajo al Guaviare nació la idea de crear una empresa enfocada en soluciones
+                tecnológicas reales,
+                proyecto que hoy sigue creciendo día a día. Desde entonces, ProTecnologiaTech se ha dedicado a ofrecer servicios de alta calidad en el ámbito de IT,
+                con un enfoque en la satisfacción del cliente y la innovación constante.
+            </p>
+
+            
+
+            <!-- 🔥 IMÁGENES -->
+            <div class="imagenes-personas">
+
+
+                <img src="Images/Walther Valarezo Biografia.jpg" alt="Walther">
+
+
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+    <!-- 🔥 SLIDER (AHORA ABAJO) -->
+    <section class="slider-section">
+
+        <h2 class="titulo-servicios">Nuestros Servicios</h2>
+
+        <div class="slider-container">
+            <div class="slides">
+
+                <div class="card">
+                    <img src="Images/Walther Valarezo DataCenter.jpg">
+                    <h3>DataCenter</h3>
+                    <p>Infraestructura, servidores y alta disponibilidad.</p>
+                </div>
+
+                <div class="card">
+                    <img src="Images/Walther Valarezo Mesa de ayuda.jpg">
+                    <h3>Mesa de ayuda</h3>
+                    <p>Soporte técnico especializado y gestión de tickets.</p>
+                </div>
+
+                <div class="card">
+                    <img src="Images/Walther Valarezo Traslado de cable.jpg">
+                    <h3>Infraestructura</h3>
+                    <p>Redes, cableado estructurado y mantenimiento.</p>
+                </div>
+
+                <div class="card">
+                    <img src="Images/Walther Valarezo Repuesto.jpg">
+                    <h3>Hardware</h3>
+                    <p>Venta y mantenimiento de equipos.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 🔥 MODAL CONTACTO -->
+    <div id="modalContacto" class="modal-contacto">
+        <div class="contact-box">
+
+            <span class="close-contacto">&times;</span>
+
+            <h3>Contáctanos</h3>
+
+            <form id="formContacto">
+                <input id="nombre" type="text" placeholder="Nombres completoss">
+                <input id="correo" type="email" placeholder="Correo electrónico">
+                <input id="telefono" type="tel" placeholder="Teléfono de contacto">
+                <textarea id="mensaje" maxlength="500" placeholder="Mensaje"></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+
+    </section>
+    <!-- FOOTER -->
+    <section class="footer-pro">
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <h3>ProTecnologiaTech</h3>
+                <p>Soluciones tecnológicas modernas para impulsar tu negocio.</p>
+            </div>
+
+            <div class="footer-box">
+                <p><i class="fas fa-map-marker-alt"></i> Cl 62B sur N°37-33</p>
+                <p><i class="fas fa-phone"></i> 3058031267</p>
+                <p><i class="fas fa-phone"></i> 3058328004</p>
+                <p><i class="fas fa-envelope"></i> walther.valarezo@protecnologiatech.com</p>
+            </div>
+
+            <div class="footer-box">
+                <h4>Síguenos</h4>
+                <div class="redes">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 ProTecnologiaTech</p>
+    </footer>
+
+    <!-- BOTÓN WHATSAPP -->
+    <a href="https://wa.me/573058328004" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="index.html" class="btn-inicio-float">
+        <i class="fas fa-home"></i>
+    </a>
+    <div id="miniContacto" class="mini-contacto">
+
+        <div class="mini-box">
+
+            <span class="cerrar-mini">&times;</span>
+
+            <h4>Contáctanos</h4>
+
+            <input type="text" id="miniNombre" placeholder="Nombre">
+            <input type="email" id="miniCorreo" placeholder="Correo electrónico">
+            <textarea id="miniMensaje" placeholder="¿En qué te podemos ayudar?"></textarea>
+
+            <button id="btnEnviarMini">Enviar</button>
+
+        </div>
+
+
+    </div>
+
+    </div>
+    <!-- 🔥 MODAL REGISTRO (AQUÍ EXACTAMENTE) -->
+    <div id="modalRegistro" class="modal-login">
+
+        <div class="login-card">
+
+            <span class="close-registro">&times;</span>
+
+            <h3>Registro</h3>
+
+            <input type="text" id="regNombre" placeholder="Nombre completo">
+            <input type="email" id="regCorreo" placeholder="Correo electrónico">
+            <input type="password" id="regPass" placeholder="Contraseña">
+
+            <button id="btnEnviarRegistro">Registrarse</button>
+            <div class="registro-extra">
+                <label class="check-inline">
+                    <input type="checkbox">
+                    <span>Acepto términos y condiciones</span>
+                </label>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script type="module" src="dist/main.js"></script>
+    
+</body>
+
+</html>
