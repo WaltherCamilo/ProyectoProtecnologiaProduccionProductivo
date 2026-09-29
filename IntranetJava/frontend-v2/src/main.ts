@@ -30,7 +30,7 @@ function configurarModalLogin(): void {
 function configurarLogin(): void {
 
     const botonLogin = document.querySelector(
-        '#loginModal button[onclick="login()"]'
+        '#btnLogin'
     );
 
     if (!(botonLogin instanceof HTMLButtonElement)) {
