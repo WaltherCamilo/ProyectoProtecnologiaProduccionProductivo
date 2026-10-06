@@ -1,8 +1,8 @@
-import { iniciarSesion } from "./api";
+import { iniciarSesion } from "./api.js";
 import {
     guardarToken,
     guardarUsuario
-} from "./storage";
+} from "./storage.js";
 
 export async function login(
     correo: string,
@@ -30,5 +30,5 @@ export async function login(
     guardarToken(respuesta.token);
     guardarUsuario(respuesta.usuario);
 
-    window.location.href = "panel.html";
+    window.location.href = "http://localhost:8080/panel.html";
 }

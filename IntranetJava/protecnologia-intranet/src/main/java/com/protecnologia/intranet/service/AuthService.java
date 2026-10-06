@@ -97,14 +97,20 @@ public class AuthService {
 
         Usuario usuario;
 
-        try {
-            usuario =
-                    usuarioRepository.buscarPorCorreo(correo);
-        } catch (Exception e) {
-            throw new IllegalArgumentException(
-                    "Correo o contraseña incorrectos"
-            );
-        }
+      try {
+    usuario = usuarioRepository.buscarPorCorreo(correo);
+} catch (org.springframework.dao.EmptyResultDataAccessException e) {
+    throw new IllegalArgumentException(
+        "Correo o contraseña incorrectos"
+    );
+} catch (Exception e) {
+    System.err.println("ERROR CONSULTANDO USUARIO EN SQL SERVER:");
+    e.printStackTrace();
+
+    throw new IllegalStateException(
+        "Error interno al consultar la base de datos"
+    );
+}
 
         if (usuario == null) {
             throw new IllegalArgumentException(

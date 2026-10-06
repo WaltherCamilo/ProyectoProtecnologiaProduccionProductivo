@@ -1,0 +1,295 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #081b2f;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+/* 🔥 NAVBAR (IGUAL AL INDEX) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: linear-gradient(90deg, #020024, #001f3f, #000814);
+}
+
+/* 🔥 LOGO */
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #00d4ff;
+}
+/* 🔥 MENÚ */
+.navbar nav a {
+  transition: all 0.3s ease;
+  margin-left: 25px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+}
+
+/* 🔥 GRID SERVICIOS */
+.contenedor {
+  display: flex;
+  justify-content: space-between; /* separa bien lados */
+  align-items: flex-start;
+  margin-top: 40px;
+  padding: 0 80px; /* separa de los bordes */
+}
+
+/* Tarjetas */
+.card-servicio {
+  background: #1e3a5f;
+  color: white;
+  padding: 12px; /* sube un poco */
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px; /* un poco más grande */
+  width: 50%; /* MÁS ANGOSTAS */
+}
+
+.card-servicio:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
+/* 🔥 TITULO SERVICIOS PRO */
+.titulo-servicios {
+  text-align: center;
+  font-size: 38px;
+  color: white;
+  margin: 40px 0;
+  position: relative;
+}
+
+/* línea decorativa */
+.titulo-servicios::after {
+  content: "";
+  width: 70px;
+  height: 3px;
+  background: #00d4ff;
+  display: block;
+  margin: 10px auto;
+}
+/* ✨ HOVER */
+.navbar nav a:hover {
+  color: #00d4ff;
+}
+/* Columnas */
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 40%;
+}
+/* 🔥 CLAVE: alineación real */
+.columna:first-child {
+  align-items: flex-start; /* izquierda */
+}
+
+.columna:last-child {
+  align-items: flex-end; /* derecha */
+}
+.subtitulo-servicios {
+  color: #ffffff !important;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 0.5px;
+}
+body {
+  background: linear-gradient(135deg, #021526, #03346e);
+}
+.footer {
+  width: 100%;
+  background: linear-gradient(90deg, #020024, #001f3f, #000814);
+  color: #00d4ff;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 40px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 🔥 quita espacio raro */
+.footer {
+  width: 100%;
+  background: linear-gradient(90deg, #020024, #001f3f, #000814);
+  color: #00d4ff;
+  text-align: center;
+  padding: 14px 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  /* 🔥 CLAVE */
+  margin-top: auto;
+}
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    font-size: 13px;
+    padding: 5px 8px;
+}
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  background: #0b1a2a;
+  margin: 5% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #00d4ff50;
+  text-align: center;
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from {transform: scale(0.8); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+video {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.acciones {
+  margin-top: 15px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.acciones button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #00d4ff;
+  cursor: pointer;
+}
+
+/* 🔥 MODAL ELEGANTE TIPO LOGIN */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔥 CAJA PEQUEÑA Y BONITA */
+.modal-content {
+  width: 350px; /* 👈 CLAVE */
+  max-width: 90%;
+  background: #0b1a2a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+  text-align: center;
+  position: relative;
+  animation: aparecer 0.3s ease;
+}
+
+/* 🎬 VIDEO BONITO */
+.modal-content video {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* ❌ BOTÓN CERRAR */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ✨ DESCRIPCIÓN */
+#videoDescripcion {
+  color: #cbd5e1;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* 🔥 BOTONES FINALES */
+.acciones {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.acciones button {
+  background: #00d4ff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+
+/* 🎬 ANIMACIÓN */
+@keyframes aparecer {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

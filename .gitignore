@@ -48,3 +48,15 @@ IntranetJava/**/*.bak
 
 # Source maps / archivos generados de TypeScript
 IntranetJava/**/*.map
+# Temporales locales de diagnóstico
+IntranetJava/protecnologia-intranet/classpath.txt
+IntranetJava/protecnologia-intranet/cp.txt
+IntranetJava/protecnologia-intranet/error-arranque.txt
+IntranetJava/protecnologia-intranet/error-spring.txt
+
+# Respaldos locales
+IntranetJava/protecnologia-intranet/src/main/resources/static/panel-original.html
+IntranetJava/protecnologia-intranet/src/main/resources/static/panel-respaldo.html
+
+# Archivo temporal accidental
+status

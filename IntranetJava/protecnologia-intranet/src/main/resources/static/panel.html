@@ -1,707 +1,479 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Panel - ProTecnologiaTech</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            background: #0f172a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        /* =========================
+           BARRA SUPERIOR
+        ========================== */
+        .navbar {
+            min-height: 72px;
+            background: #111827;
+            display: flex;
+            align-items: center;
+            padding: 0 35px;
+            gap: 25px;
+            border-bottom: 1px solid #263244;
+        }
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+            margin-right: auto;
+            white-space: nowrap;
+        }
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 5px;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .nav-link:hover {
+            color: #60a5fa;
+        }
+        .user-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+        #userName {
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+            padding: 10px;
+        }
+        #userMenu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 45px;
+            width: 270px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.45);
+            z-index: 1000;
+        }
+        #userMenu p {
+            margin: 10px 0;
+            color: #e5e7eb;
+        }
+        .menu-button {
+            width: 100%;
+            border: 0;
+            border-radius: 7px;
+            padding: 11px;
+            margin-top: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .password-button {
+            background: #2563eb;
+            color: white;
+        }
+        .logout-button {
+            background: #dc2626;
+            color: white;
+        }
+        /* =========================
+           CONTENIDO
+        ========================== */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 45px 25px 60px;
+        }
+        .welcome {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .welcome h1 {
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+        .welcome p {
+            color: #94a3b8;
+            margin: 0;
+        }
+        /* =========================
+           SEIS MODULOS
+        ========================== */
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+        .module {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 28px;
+            min-height: 190px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform .2s, border-color .2s;
+        }
+        .module:hover {
+            transform: translateY(-3px);
+            border-color: #3b82f6;
+        }
+        .module-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+        .module h2 {
+            font-size: 21px;
+            margin: 0 0 10px;
+        }
+        .module p {
+            color: #94a3b8;
+            line-height: 1.5;
+            margin: 0 0 20px;
+        }
+        .module-button {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            background: #2563eb;
+            color: #ffffff;
+            padding: 11px 18px;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+        .module-button:hover {
+            background: #1d4ed8;
+        }
+        /* =========================
+           INFORMACION DEL SISTEMA
+        ========================== */
+        .system-info {
+            margin-top: 35px;
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 14px;
+            padding: 25px;
+        }
+        .system-info h2 {
+            margin-top: 0;
+        }
+        .system-info p {
+            color: #94a3b8;
+            margin-bottom: 0;
+        }
+        @media (max-width: 1000px) {
+            .navbar {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+            .brand {
+                width: 100%;
+                margin-right: 0;
+            }
+            .modules {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 650px) {
+            .modules {
+                grid-template-columns: 1fr;
+            }
+            .nav-link {
+                display: none;
+            }
+        }
+    </style>
 </head>
-
-<body style="background:#0f172a; color:white; margin:0; font-family:Arial, sans-serif;">
-
+<body>
     <!-- =========================
          BARRA SUPERIOR
     ========================== -->
-
-    <nav style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:15px 25px;
-        background:#111827;
-    ">
-
-        <h2 style="margin:0;">
+    <nav class="navbar">
+        <div class="brand">
             ProTecnologiaTech
-        </h2>
-
-        <div style="position:relative;">
-
-            <span
-                id="userName"
-                style="
-                    cursor:pointer;
-                    font-weight:bold;
-                ">
+        </div>
+        <a class="nav-link" href="#">
+            SST Talento humano
+        </a>
+        <a class="nav-link" href="#">
+            Recursos humanos
+        </a>
+        <a class="nav-link" href="#">
+            Reglamento interno de la compañía
+        </a>
+        <a class="nav-link" href="#">
+            Normativa de la compañía
+        </a>
+        <div class="user-container">
+            <span id="userName">
+                Usuario
             </span>
-
-            <div
-                id="userMenu"
-                style="
-                    display:none;
-                    position:absolute;
-                    right:0;
-                    top:35px;
-                    background:#1e1e1e;
-                    padding:15px;
-                    border-radius:10px;
-                    width:250px;
-                    box-shadow:0 5px 20px rgba(0,0,0,0.4);
-                    z-index:1000;
-                ">
-
-                <p id="infoNombre">
-                    👤
-                </p>
-
-                <p id="infoEmail">
-                    📧
-                </p>
-
-                <p id="infoTelefono">
-                    📱
-                </p>
-
+            <div id="userMenu">
+                <p id="infoNombre">👤 Usuario</p>
+                <p id="infoEmail">📧 Correo</p>
+                <p id="infoTelefono">📱 Teléfono</p>
                 <button
-                    onclick="logout()"
-                    style="
-                        width:100%;
-                        padding:10px;
-                        cursor:pointer;
-                    ">
+                    class="menu-button password-button"
+                    onclick="cambiarPassword()">
+                    Cambiar contraseña
+                </button>
+                <button
+                    class="menu-button logout-button"
+                    onclick="logout()">
                     Salir
                 </button>
-
             </div>
-
         </div>
-
     </nav>
-
-
     <!-- =========================
-         CONTENIDO PRINCIPAL
+         CONTENIDO
     ========================== -->
-
-    <main style="
-        max-width:1000px;
-        margin:40px auto;
-        padding:20px;
-    ">
-
-        <h1 style="text-align:center;">
-            Bienvenido al sistema
-        </h1>
-
-
-        <!-- =========================
-             EXPERIENCIA LABORAL
-        ========================== -->
-
-        <section>
-
-            <h2>
-                💼 Experiencia laboral
-            </h2>
-
-            <div id="experienciaLaboral">
-
-                <p>
-                    Cargando experiencia laboral...
-                </p>
-
-            </div>
-
+    <main>
+        <section class="welcome">
+            <h1>
+                Bienvenido al sistema
+            </h1>
+            <p>
+                Plataforma interna de ProTecnologiaTech
+            </p>
+<p id="fechaHora" style="
+                margin-top:12px;
+                color:#60a5fa;
+                font-size:16px;
+                font-weight:bold;
+            ">
+                Cargando fecha y hora...
+            </p>
         </section>
-
-
-        <hr>
-
-
         <!-- =========================
-             FORMACIÓN ACADÉMICA
+             SEIS MODULOS
         ========================== -->
-
-        <section>
-
-            <h2>
-                🎓 Formación académica
-            </h2>
-
-            <div id="experienciaAcademica">
-
-                <p>
-                    Cargando formación académica...
-                </p>
-
-            </div>
-
+        <section class="modules">
+            <!-- 1 -->
+            <article class="module">
+                <div>
+                    <div class="module-icon">🏢</div>
+                    <h2>
+                        Intranet corporativa
+                    </h2>
+                    <p>
+                        Acceso a los servicios y recursos
+                        internos de la compañía.
+                    </p>
+                </div>
+                <a
+                    class="module-button"
+                    href="login.html?modulo=intranet">
+                    Ingresar
+                </a>
+            </article>
+            <!-- 2 -->
+            <article class="module">
+                <div>
+                    <div class="module-icon">📊</div>
+                    <h2>
+                        Ciencias de datos
+                    </h2>
+                    <p>
+                        Acceso al entorno de trabajo
+                        relacionado con datos y análisis.
+                    </p>
+                </div>
+                <a
+                    class="module-button"
+                    href="login.html?modulo=ciencias-datos">
+                    Ingresar
+                </a>
+            </article>
+            <!-- 3 -->
+            <article class="module">
+                <div>
+                    <div class="module-icon">🗄️</div>
+                    <h2>
+                        Bases de datos
+                    </h2>
+                    <p>
+                        Acceso a los recursos y servicios
+                        de bases de datos.
+                    </p>
+                </div>
+                <a
+                    class="module-button"
+                    href="login.html?modulo=bases-datos">
+                    Ingresar
+                </a>
+            </article>
+            <!-- 4 -->
+            <article class="module">
+                <div>
+                    <div class="module-icon">💻</div>
+                    <h2>
+                        Entornos de desarrollo
+                    </h2>
+                    <p>
+                        Acceso a los entornos utilizados
+                        para desarrollo de aplicaciones.
+                    </p>
+                </div>
+                <a
+                    class="module-button"
+                    href="login.html?modulo=desarrollo">
+                    Ingresar
+                </a>
+            </article>
+            <!-- 5 -->
+            <article class="module">
+                <div>
+                    <div class="module-icon">📈</div>
+                    <h2>
+                        Dashboard
+                    </h2>
+                    <p>
+                        Acceso al panel de información
+                        y monitoreo de la plataforma.
+                    </p>
+                </div>
+                <a
+                    class="module-button"
+                    href="login.html?modulo=dashboard">
+                    Ingresar
+                </a>
+            </article>
+            <!-- 6 -->
+            <article class="module">
+                <div>
+                    <div class="module-icon">🖥️</div>
+                    <h2>
+                        Servidores
+                    </h2>
+                    <p>
+                        Acceso a los servicios y recursos
+                        de infraestructura.
+                    </p>
+                </div>
+                <a
+                    class="module-button"
+                    href="login.html?modulo=servidores">
+                    Ingresar
+                </a>
+            </article>
         </section>
-
-
-        <hr>
-
-
         <!-- =========================
-             INFORMACIÓN GENERAL
+             INFORMACION
         ========================== -->
-
-        <section>
-
+        <section class="system-info">
             <h2>
-                📋 Información general
+                Información del sistema
             </h2>
-
-            <div id="informeGeneral">
-
-                <p>
-                    Cargando información general...
-                </p>
-
-            </div>
-
+            <p>
+                ProTecnologiaTech · Intranet corporativa
+            </p>
         </section>
-
     </main>
-
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
+   <script type="module" src="/js/main.js"></script>
     <script>
-
-        /*
-         * ==========================================
-         * OBTENER USUARIO Y JWT
-         * ==========================================
-         */
-
-        const userData = localStorage.getItem("user");
-        const token = localStorage.getItem("token");
-
-
-        /*
-         * ==========================================
-         * VALIDAR SESIÓN LOCAL
-         * ==========================================
-         */
-
-        if (!userData || !token) {
-
-            localStorage.removeItem("user");
-            localStorage.removeItem("token");
-
-            window.location.href = "login.html";
-
+        /* =========================
+           USUARIO
+        ========================== */
+        const user = JSON.parse(
+            localStorage.getItem("user")
+        );
+        const token =
+            localStorage.getItem("token");
+        if (!user || !token) {
+            window.location.href =
+                "login.html";
+        } else {
+            const nombreCompleto =
+                `${user.nombre || ""} ${user.apellido || ""}`.trim();
+            document.getElementById("userName").textContent =
+                nombreCompleto || "Usuario";
+            document.getElementById("infoNombre").textContent =
+                "👤 " + (nombreCompleto || "Usuario");
+            document.getElementById("infoEmail").textContent =
+                "📧 " + (user.correo || "Correo no registrado");
+            document.getElementById("infoTelefono").textContent =
+                "📱 " + (user.telefono || "Teléfono no registrado");
         }
-
-
-        /*
-         * ==========================================
-         * CONVERTIR USUARIO
-         * ==========================================
-         */
-
-        let user = null;
-
-        try {
-
-            user = JSON.parse(userData);
-
-        } catch (error) {
-
-            console.error("Error leyendo usuario:", error);
-
-            localStorage.removeItem("user");
-            localStorage.removeItem("token");
-
-            window.location.href = "login.html";
-
-        }
-
-
-        /*
-         * ==========================================
-         * MOSTRAR INFORMACIÓN DEL USUARIO
-         * ==========================================
-         */
-
-        if (user) {
-
-            document.getElementById("userName").innerText =
-                user.nombre || "Usuario";
-
-            document.getElementById("infoNombre").innerText =
-                "👤 " +
-                ((user.nombre || "") + " " + (user.apellido || "")).trim();
-
-            document.getElementById("infoEmail").innerText =
-                "📧 " +
-                (user.correo || "No registrado");
-
-            document.getElementById("infoTelefono").innerText =
-                "📱 " +
-                (user.telefono || "No registrado");
-
-        }
-
-
-        /*
-         * ==========================================
-         * MENÚ DEL USUARIO
-         * ==========================================
-         */
-
+        /* =========================
+           MENU USUARIO
+        ========================== */
         document
             .getElementById("userName")
             .addEventListener("click", function () {
-
                 const menu =
                     document.getElementById("userMenu");
-
-                if (menu.style.display === "block") {
-
-                    menu.style.display = "none";
-
-                } else {
-
-                    menu.style.display = "block";
-
-                }
-
+                menu.style.display =
+                    menu.style.display === "block"
+                    ? "none"
+                    : "block";
             });
-
-
-        /*
-         * ==========================================
-         * CERRAR SESIÓN
-         * ==========================================
-         */
-
+        /* =========================
+           CAMBIAR CONTRASEÑA
+        ========================== */
+        function cambiarPassword() {
+            window.location.href =
+                "cambiar-password.html";
+        }
+        /* =========================
+           SALIR
+        ========================== */
         function logout() {
-
             localStorage.removeItem("token");
             localStorage.removeItem("user");
-
-            window.location.href = "index.html";
-
+            window.location.href =
+                "index.html";
         }
-
-
-        /*
-         * ==========================================
-         * PETICIONES AUTENTICADAS
-         * ==========================================
-         *
-         * Todas las llamadas a las APIs privadas
-         * llevan automáticamente:
-         *
-         * Authorization: Bearer JWT
-         *
-         */
-
-        async function fetchAutenticado(url) {
-
-            const respuesta = await fetch(url, {
-
-                method: "GET",
-
-                headers: {
-
-                    "Authorization": "Bearer " + token
-
+        /* =========================
+           FECHA Y HORA
+        ========================== */
+        function actualizarFechaHora() {
+            const ahora = new Date();
+            const fecha = ahora.toLocaleDateString(
+                "es-CO",
+                {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
                 }
-
-            });
-
-
-            /*
-             * Token inválido o expirado
-             */
-
-            if (respuesta.status === 401 ||
-                respuesta.status === 403) {
-
-                localStorage.removeItem("token");
-                localStorage.removeItem("user");
-
-                window.location.href = "login.html";
-
-                return null;
-
+            );
+            const hora = ahora.toLocaleTimeString(
+                "es-CO",
+                {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit"
+                }
+            );
+            const elemento =
+                document.getElementById("fechaHora");
+            if (elemento) {
+                elemento.textContent =
+                    fecha.charAt(0).toUpperCase() +
+                    fecha.slice(1) +
+                    " · " +
+                    hora;
             }
-
-
-            return respuesta;
-
         }
-
-
-        /*
-         * ==========================================
-         * EXPERIENCIA LABORAL
-         * ==========================================
-         */
-
-        async function cargarExperienciaLaboral() {
-
-            const contenedor =
-                document.getElementById("experienciaLaboral");
-
-            try {
-
-                const response =
-                    await fetchAutenticado("/api/experiencia");
-
-
-                if (!response) {
-                    return;
-                }
-
-
-                const resultado =
-                    await response.json();
-
-
-                if (resultado.estado !== "OK") {
-
-                    contenedor.innerHTML =
-                        "<p>No fue posible cargar la experiencia laboral.</p>";
-
-                    return;
-
-                }
-
-
-                if (!resultado.datos ||
-                    resultado.datos.length === 0) {
-
-                    contenedor.innerHTML =
-                        "<p>No hay experiencia laboral registrada.</p>";
-
-                    return;
-
-                }
-
-
-                contenedor.innerHTML =
-                    resultado.datos.map(item => `
-
-                        <div style="
-                            margin-bottom:20px;
-                            padding:15px;
-                            background:#1e293b;
-                            border-radius:10px;
-                        ">
-
-                            <h3>
-                                ${item.cargo || ""}
-                            </h3>
-
-                            <strong>
-                                ${item.empresa || ""}
-                            </strong>
-
-                            <p>
-                                📍 ${item.ciudad || "No especificada"}
-                            </p>
-
-                            <p>
-                                ${item.descripcion || ""}
-                            </p>
-
-                            <p>
-                                📅
-                                ${
-                                    item.fecha_inicio
-                                    ? new Date(item.fecha_inicio)
-                                        .toLocaleDateString("es-CO")
-                                    : ""
-                                }
-
-                                -
-
-                                ${
-                                    item.fecha_fin
-                                    ? new Date(item.fecha_fin)
-                                        .toLocaleDateString("es-CO")
-                                    : "Actualidad"
-                                }
-                            </p>
-
-                        </div>
-
-                    `).join("");
-
-            } catch (error) {
-
-                console.error(
-                    "Error cargando experiencia laboral:",
-                    error
-                );
-
-                contenedor.innerHTML =
-                    "<p>Error conectando con la API.</p>";
-
-            }
-
-        }
-
-
-        /*
-         * ==========================================
-         * FORMACIÓN ACADÉMICA
-         * ==========================================
-         */
-
-        async function cargarExperienciaAcademica() {
-
-            const contenedor =
-                document.getElementById("experienciaAcademica");
-
-            try {
-
-                const response =
-                    await fetchAutenticado(
-                        "/api/experiencia-academica"
-                    );
-
-
-                if (!response) {
-                    return;
-                }
-
-
-                const resultado =
-                    await response.json();
-
-
-                if (resultado.estado !== "OK") {
-
-                    contenedor.innerHTML =
-                        "<p>No fue posible cargar la formación académica.</p>";
-
-                    return;
-
-                }
-
-
-                if (!resultado.datos ||
-                    resultado.datos.length === 0) {
-
-                    contenedor.innerHTML =
-                        "<p>No hay formación académica registrada.</p>";
-
-                    return;
-
-                }
-
-
-                contenedor.innerHTML =
-                    resultado.datos.map(item => `
-
-                        <div style="
-                            margin-bottom:20px;
-                            padding:15px;
-                            background:#1e293b;
-                            border-radius:10px;
-                        ">
-
-                            <h3>
-                                ${item.nombre || ""}
-                            </h3>
-
-                            <strong>
-                                ${item.institucion || ""}
-                            </strong>
-
-                            <p>
-                                🛠️
-                                ${item.tecnologia || "No especificada"}
-                            </p>
-
-                            <p>
-                                ${item.descripcion || ""}
-                            </p>
-
-                            <p>
-                                📅
-                                ${
-                                    item.fecha_inicio
-                                    ? new Date(item.fecha_inicio)
-                                        .toLocaleDateString("es-CO")
-                                    : ""
-                                }
-
-                                -
-
-                                ${
-                                    item.fecha_fin
-                                    ? new Date(item.fecha_fin)
-                                        .toLocaleDateString("es-CO")
-                                    : "En curso"
-                                }
-                            </p>
-
-                        </div>
-
-                    `).join("");
-
-            } catch (error) {
-
-                console.error(
-                    "Error cargando formación académica:",
-                    error
-                );
-
-                contenedor.innerHTML =
-                    "<p>Error conectando con la API.</p>";
-
-            }
-
-        }
-
-
-        /*
-         * ==========================================
-         * INFORMACIÓN GENERAL
-         * ==========================================
-         */
-
-        async function cargarInformeGeneral() {
-
-            const contenedor =
-                document.getElementById("informeGeneral");
-
-            try {
-
-                const response =
-                    await fetchAutenticado(
-                        "/api/informe-general"
-                    );
-
-
-                if (!response) {
-                    return;
-                }
-
-
-                const resultado =
-                    await response.json();
-
-
-                if (resultado.estado !== "OK") {
-
-                    contenedor.innerHTML =
-                        "<p>No fue posible cargar la información general.</p>";
-
-                    return;
-
-                }
-
-
-                if (!resultado.datos ||
-                    resultado.datos.length === 0) {
-
-                    contenedor.innerHTML =
-                        "<p>No hay información general registrada.</p>";
-
-                    return;
-
-                }
-
-
-                contenedor.innerHTML =
-                    resultado.datos.map(item => `
-
-                        <div style="
-                            margin-bottom:20px;
-                            padding:15px;
-                            background:#1e293b;
-                            border-radius:10px;
-                        ">
-
-                            <h3>
-                                ${item.cargo || ""}
-                            </h3>
-
-                            <strong>
-                                ${item.empresa || ""}
-                            </strong>
-
-                            <p>
-                                📍 ${item.ciudad || "No especificada"}
-                            </p>
-
-                            <p>
-                                ${item.descripcion || ""}
-                            </p>
-
-                            <p>
-                                👤
-                                ${item.jefe_inmediato || "No especificado"}
-                            </p>
-
-                            <p>
-                                📞
-                                ${item.telefono_contacto || "No registrado"}
-                            </p>
-
-                            <p>
-                                📅
-                                ${
-                                    item.fecha_inicio
-                                    ? new Date(item.fecha_inicio)
-                                        .toLocaleDateString("es-CO")
-                                    : ""
-                                }
-
-                                -
-
-                                ${
-                                    item.fecha_fin
-                                    ? new Date(item.fecha_fin)
-                                        .toLocaleDateString("es-CO")
-                                    : "Actualidad"
-                                }
-                            </p>
-
-                        </div>
-
-                    `).join("");
-
-            } catch (error) {
-
-                console.error(
-                    "Error cargando información general:",
-                    error
-                );
-
-                contenedor.innerHTML =
-                    "<p>Error conectando con la API.</p>";
-
-            }
-
-        }
-
-
-        /*
-         * ==========================================
-         * CARGAR INFORMACIÓN
-         * ==========================================
-         */
-
-        cargarExperienciaLaboral();
-
-        cargarExperienciaAcademica();
-
-        cargarInformeGeneral();
-
+        actualizarFechaHora();
+        setInterval(
+            actualizarFechaHora,
+            1000
+        );
     </script>
-
 </body>
-
 </html>

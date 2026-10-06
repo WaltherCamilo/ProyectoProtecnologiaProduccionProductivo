@@ -1,7 +1,7 @@
 import type { LoginResponse } from "./types";
-import { obtenerToken } from "./storage";
+import { obtenerToken } from "./storage.js";
 
-const API_BASE_URL = "/api";
+const API_BASE_URL = "http://localhost:8080/api";
 
 export async function apiFetch<T>(
     endpoint: string,
