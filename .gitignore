@@ -60,3 +60,10 @@ IntranetJava/protecnologia-intranet/src/main/resources/static/panel-respaldo.htm
 
 # Archivo temporal accidental
 status
+# Archivos de prueba locales - no versionar
+IntranetJava/frontend-v2/services/test.d.ts
+IntranetJava/frontend-v2/services/test.js
+IntranetJava/frontend-v2/services/test.ts
+
+# Utilidades locales de prueba - no versionar
+IntranetJava/protecnologia-intranet/src/main/java/com/protecnologia/intranet/util/
