@@ -68,30 +68,35 @@ public class SecurityConfig {
 
             .authorizeHttpRequests(auth -> auth
 
-                // Páginas públicas
-                .requestMatchers(
-                    "/",
-                    "/index.html",
-                    "/login.html",
-                    "/register.html",
-                    "/panel.html",
-                    "/css/**",
-                    "/js/**",
-                    "/Images/**",
-                    "/videos/**"
-                ).permitAll()
+    
+            // Páginas públicas
+            .requestMatchers(
+                "/",
+                "/index.html",
+                "/login.html",
+                "/register.html",
+                "/panel.html",
+                "/css/**",
+                "/js/**",
+                "/Images/**",
+                "/videos/**"
+            ).permitAll()
 
-                // Autenticación pública
-                .requestMatchers("/api/auth/**").permitAll()
+            // Autenticación pública
+            .requestMatchers("/api/auth/**").permitAll()
 
-                // Estado de la base de datos
-                .requestMatchers("/api/estado-db").permitAll()
+            // Estado de la base de datos
+            .requestMatchers("/api/estado-db").permitAll()
 
-                // Administración solo para administradores
-                .requestMatchers("/api/admin/**").hasRole("ADMINISTRADOR")
+            // Asistente de inteligencia artificial
+            .requestMatchers("/api/ia/**").permitAll()
 
-                // Todo lo demás requiere JWT
-                .anyRequest().authenticated()
+            // Administración solo para administradores
+            .requestMatchers("/api/admin/**").hasRole("ADMINISTRADOR")
+
+            // Todo lo demás requiere autenticación
+            .anyRequest().authenticated()
+
             )
 
             .formLogin(form -> form.disable())

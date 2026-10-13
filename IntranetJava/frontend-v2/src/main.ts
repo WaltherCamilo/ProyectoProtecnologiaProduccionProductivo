@@ -1,4 +1,5 @@
 import { login } from "./auth.js";
+import { configurarAsistenteIA } from "./ia.js";
 
 function configurarModalLogin(): void {
 
@@ -94,6 +95,15 @@ function configurarLogin(): void {
     });
 }
 
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        configurarModalLogin();
+        configurarLogin();
+        configurarAsistenteIA();
+    }
+);
 document.addEventListener(
     "DOMContentLoaded",
     () => {

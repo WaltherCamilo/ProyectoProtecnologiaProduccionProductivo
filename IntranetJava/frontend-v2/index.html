@@ -254,6 +254,37 @@
     </div>
 
 
+<!-- Asistente IA ProTecnologiaTech -->
+<button id="iaAbrir" class="ia-boton" type="button">
+    Asistente IA
+</button>
+
+<section id="iaVentana" class="ia-ventana" aria-label="Asistente de inteligencia artificial">
+    <header class="ia-cabecera">
+        <span>ProTecnologiaTech IA</span>
+        <button id="iaCerrar" class="ia-cerrar" type="button" aria-label="Cerrar chat">×</button>
+    </header>
+
+    <div id="iaMensajes" class="ia-mensajes" aria-live="polite">
+        <div class="ia-mensaje asistente">
+            Hola. Soy el asistente local de ProTecnologiaTech. ¿En qué puedo ayudarte?
+        </div>
+    </div>
+
+    <form id="iaFormulario" class="ia-formulario">
+        <input
+            id="iaEntrada"
+            class="ia-entrada"
+            type="text"
+            placeholder="Escribe tu pregunta..."
+            maxlength="2000"
+            autocomplete="off"
+            required
+        >
+        <button id="iaEnviar" class="ia-enviar" type="submit">Enviar</button>
+    </form>
+</section>
+
     <script type="module" src="dist/main.js"></script>
     
 </body>

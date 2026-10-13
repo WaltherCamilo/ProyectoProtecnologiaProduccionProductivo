@@ -1436,3 +1436,114 @@ nav a:hover {
 .login-extra span {
   margin: 0 !important;
 }
+
+/* Asistente IA ProTecnologiaTech */
+.ia-boton {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10000;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 28px;
+    background: #00bcd4;
+    color: #071b25;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .25);
+}
+
+.ia-ventana {
+    position: fixed;
+    right: 24px;
+    bottom: 85px;
+    z-index: 10000;
+    display: none;
+    flex-direction: column;
+    width: min(360px, calc(100vw - 32px));
+    height: 440px;
+    max-height: calc(100vh - 120px);
+    overflow: hidden;
+    border: 1px solid #00bcd4;
+    border-radius: 16px;
+    background: #101c29;
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .4);
+}
+
+.ia-ventana.activa {
+    display: flex;
+}
+
+.ia-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    background: #073746;
+    font-weight: 700;
+}
+
+.ia-cerrar {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.ia-mensajes {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.ia-mensaje {
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: 1.45;
+}
+
+.ia-mensaje.usuario {
+    background: #164e63;
+}
+
+.ia-mensaje.asistente {
+    background: #263342;
+}
+
+.ia-formulario {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #354454;
+}
+
+.ia-entrada {
+    min-width: 0;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #607080;
+    border-radius: 8px;
+    background: #fff;
+    color: #111;
+}
+
+.ia-enviar {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #00bcd4;
+    color: #071b25;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ia-enviar:disabled {
+    opacity: .5;
+    cursor: wait;
+}
+

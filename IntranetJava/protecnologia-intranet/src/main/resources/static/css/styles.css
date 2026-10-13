@@ -1069,8 +1069,8 @@ form textarea {
   width: 100%;
 }
 .btn-inicio-float {
-  position: fixed;
-  bottom: 95px; /* arriba del WhatsApp */
+    position: fixed;
+  bottom: 160px; /* casita Inicio más arriba */
   right: 25px;
 
   width: 50px;
