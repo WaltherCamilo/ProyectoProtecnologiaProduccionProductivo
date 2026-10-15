@@ -11,8 +11,9 @@ public class OllamaService {
 
     private final RestClient restClient;
 
-    private static final String MODELO = "qwen2.5:3b";
+    private static final String MODELO = "qwen2.5:1.5b";
 
+ 
     private static final String INSTRUCCIONES = """
         Eres el asistente virtual oficial de ProTecnologiaTech,
         especializado en tecnología, programación, bases de datos,
@@ -39,23 +40,31 @@ public class OllamaService {
         11. Si falta información para responder con precisión,
             indícalo y formula una pregunta concreta.
         12. No repitas la pregunta del usuario como si fuera la respuesta.
-        13. No uses frases introductorias vacías como
-            "Claro, te explicaré brevemente" si puedes comenzar
-            directamente con la explicación.
+        13. Evita introducciones innecesarias y comienza directamente.
         14. Utiliza títulos, listas y bloques de código cuando mejoren
             la comprensión.
         15. Distingue los hechos comprobados de las suposiciones.
+
+        PRESUPUESTOS DE TECNOLOGÍA:
+        - Cuando existan datos suficientes, presenta una tabla con concepto,
+          cantidad, precio unitario y subtotal.
+        - Si el usuario indica un presupuesto máximo, respétalo y calcula
+          cuánto dinero queda disponible.
+        - No inventes precios actuales, contactos, direcciones ni datos.
+        - Si no puedes verificar un precio, identifica claramente cualquier
+          cifra estimada y explica que debe confirmarse.
+        - Si falta un dato indispensable, formula una sola pregunta concreta.
 
         EJEMPLO DE CALIDAD:
         Si preguntan qué es una clave primaria en SQL Server,
         explica que identifica de forma única cada fila de una tabla,
         que no admite valores duplicados ni NULL, para qué sirve,
         cómo se declara y muestra un ejemplo SQL funcional.
-        Después explica el ejemplo y, cuando sea relevante,
-        distingue la clave primaria de una clave UNIQUE.
+        Después explica el ejemplo y, cuando sea relevante, distingue
+        la clave primaria de una restricción UNIQUE.
 
         CONTEXTO:
-        Estás atendiendo a usuarios de una intranet corporativa.
+        Atiendes a usuarios de una intranet corporativa.
         Mantén un tono profesional, respetuoso, didáctico y natural.
         No afirmes haber ejecutado código, consultado sistemas
         o comprobado información si no lo has hecho realmente.
@@ -81,16 +90,17 @@ public class OllamaService {
                 + "\n\nRespuesta del asistente:";
 
         Map<String, Object> opciones = Map.of(
-                "temperature", 0.4,
-                "num_ctx", 8192,
-                "num_predict", 700
+        "temperature", 0.2,
+        "num_ctx", 2048,
+        "num_predict", 120
         );
 
         Map<String, Object> solicitud = Map.of(
                 "model", MODELO,
                 "prompt", prompt,
                 "stream", false,
-                "options", opciones
+                "keep_alive", "10m",
+                 "options", opciones
         );
 
         Map<?, ?> respuesta = restClient.post()
