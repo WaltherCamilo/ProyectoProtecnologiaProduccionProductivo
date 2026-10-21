@@ -2,6 +2,7 @@ package com.protecnologia.intranet.controller;
 
 import com.protecnologia.intranet.model.Usuario;
 import com.protecnologia.intranet.service.AuthService;
+import com.protecnologia.intranet.service.EmailService;
 import com.protecnologia.intranet.service.JwtService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +15,16 @@ public class AuthController {
 
     private final AuthService authService;
     private final JwtService jwtService;
+    private final EmailService emailService;
 
     public AuthController(
             AuthService authService,
-            JwtService jwtService
+            JwtService jwtService,
+            EmailService emailService
     ) {
         this.authService = authService;
         this.jwtService = jwtService;
+        this.emailService = emailService;
     }
 
     @PostMapping("/registro")
@@ -61,23 +65,52 @@ public class AuthController {
                 return ResponseEntity.badRequest().body(
                         Map.of(
                                 "estado", "ERROR",
-                                "mensaje", "La contraseña debe tener mínimo 8 caracteres"
+                                "mensaje", "La contraseÃ±a debe tener mÃ­nimo 8 caracteres"
                         )
                 );
             }
 
+            String correo = request.correo().trim().toLowerCase();
+
             String token = authService.registrar(
                     request.nombre().trim(),
                     request.apellido().trim(),
-                    request.correo().trim().toLowerCase(),
+                    correo,
                     request.password()
             );
+
+            try {
+                emailService.enviarVerificacion(correo, token);
+            } catch (Exception errorCorreo) {
+                System.err.println(
+                        "Fallo de envío SMTP: "
+                        + errorCorreo.getClass().getSimpleName()
+                        + " - " + errorCorreo.getMessage()
+                );
+
+                Throwable causa = errorCorreo.getCause();
+                int nivel = 0;
+                while (causa != null && nivel < 5) {
+                    System.err.println(
+                            "Causa SMTP " + (nivel + 1) + ": "
+                            + causa.getClass().getSimpleName()
+                            + " - " + causa.getMessage()
+                    );
+                    causa = causa.getCause();
+                    nivel++;
+                }
+                return ResponseEntity.status(503).body(
+                        Map.of(
+                                "estado", "ERROR",
+                                "mensaje", "La cuenta fue creada, pero no se pudo enviar el correo de verificaciÃ³n. Contacta al administrador para activar tu cuenta."
+                        )
+                );
+            }
 
             return ResponseEntity.ok(
                     Map.of(
                             "estado", "OK",
-                            "mensaje", "Usuario registrado correctamente",
-                            "token", token
+                            "mensaje", "Registro creado. Revisa tu correo para activar la cuenta."
                     )
             );
 
@@ -112,7 +145,7 @@ public class AuthController {
                 return ResponseEntity.badRequest().body(
                         Map.of(
                                 "estado", "ERROR",
-                                "mensaje", "La contraseña es obligatoria"
+                                "mensaje", "La contraseÃ±a es obligatoria"
                         )
                 );
             }
@@ -131,7 +164,7 @@ public class AuthController {
             return ResponseEntity.ok(
                     Map.of(
                             "estado", "OK",
-                            "mensaje", "Inicio de sesión correcto",
+                            "mensaje", "Inicio de sesiÃ³n correcto",
                             "token", token,
                             "usuario", Map.of(
                                     "id", usuario.getId(),
@@ -154,6 +187,26 @@ public class AuthController {
         }
     }
 
+    @PostMapping("/reenviar-verificacion")
+    public ResponseEntity<?> reenviarVerificacion(@RequestBody ReenvioRequest request) {
+        String mensaje = "Si la cuenta existe y está pendiente de activación, recibirás un correo de verificación.";
+        try {
+            if (request.correo() == null || request.correo().isBlank()) {
+                return ResponseEntity.badRequest().body(
+                    Map.of("estado", "ERROR", "mensaje", "El correo es obligatorio")
+                );
+            }
+            String correo = request.correo().trim().toLowerCase();
+            String token = authService.reenviarVerificacion(correo);
+            emailService.enviarVerificacion(correo, token);
+            return ResponseEntity.ok(Map.of("estado", "OK", "mensaje", mensaje));
+        } catch (Exception e) {
+            System.err.println("Error en reenvío: " + e.getClass().getSimpleName());
+            return ResponseEntity.ok(Map.of("estado", "OK", "mensaje", mensaje));
+        }
+    }
+
+    public record ReenvioRequest(String correo) {}
     @GetMapping("/verificar")
     public ResponseEntity<?> verificar(
             @RequestParam String token
@@ -174,7 +227,7 @@ public class AuthController {
         return ResponseEntity.badRequest().body(
                 Map.of(
                         "estado", "ERROR",
-                        "mensaje", "Token inválido o expirado"
+                        "mensaje", "Token invÃ¡lido o expirado"
                 )
         );
     }

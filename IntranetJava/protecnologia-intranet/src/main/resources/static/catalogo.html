@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | ProTecnologiaTech</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #eaf2ff;
+            background: linear-gradient(135deg, #03182e, #073969);
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+            padding: 20px 5%;
+            background: linear-gradient(90deg, #020b30, #07528d);
+            box-shadow: 0 4px 14px #0004;
+        }
+        header a { color: white; text-decoration: none; font-weight: bold; }
+        header nav { display: flex; flex-wrap: wrap; gap: 22px; }
+        .marca { font-size: 22px; font-weight: bold; }
+        main { max-width: 1200px; margin: auto; padding: 38px 22px 60px; }
+        .intro { text-align: center; margin-bottom: 30px; }
+        .intro h1 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 12px; }
+        .intro p { color: #c8dcf5; line-height: 1.6; }
+        .filtros {
+            display: flex; gap: 12px; flex-wrap: wrap;
+            margin: 25px 0; justify-content: center;
+        }
+        input, select {
+            padding: 13px 15px; border: 1px solid #7397bc;
+            border-radius: 9px; font-size: 15px;
+            background: #fff; color: #172b43;
+        }
+        input { flex: 1; min-width: 220px; max-width: 520px; }
+        #estado { text-align: center; padding: 24px 10px; color: #d5e6fa; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+            gap: 22px;
+        }
+        .producto {
+            background: #122746; border: 1px solid #29486e;
+            border-radius: 15px; overflow: hidden;
+            box-shadow: 0 8px 22px #0003;
+            transition: transform .2s;
+        }
+        .producto:hover { transform: translateY(-4px); }
+        .producto img {
+            width: 100%; height: 190px; object-fit: cover;
+            background: #e5edf7; display: block;
+        }
+        .sin-imagen {
+            height: 190px; display: grid; place-items: center;
+            background: linear-gradient(135deg, #164b79, #087eae);
+            font-size: 52px;
+        }
+        .categorias { margin: 30px 0 38px; }
+        .categorias-grid { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+        .categoria {
+            display: block; overflow: hidden; text-decoration: none;
+            color: #eaf2ff; background: #122746; border: 1px solid #29486e;
+            border-radius: 14px; box-shadow: 0 8px 22px #0003;
+            transition: transform .2s, border-color .2s;
+        }
+        .categoria:hover, .categoria:focus-visible {
+            transform: translateY(-4px); border-color: #8be0ff;
+        }
+        .categoria img {
+            display: block; width: 100%; height: 145px; object-fit: cover;
+        }
+        .categoria span {
+            display: block; padding: 14px; font-weight: bold; line-height: 1.4;
+        }
+        .portafolio-servicios {
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .banner-servicios {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            overflow: hidden;
+            border: 1px solid #2b6390;
+            border-radius: 18px;
+            background: linear-gradient(120deg, #03182e, #07528d);
+            box-shadow: 0 12px 32px #0004;
+            margin: 24px 0 32px;
+        }
+        .banner-texto {
+            padding: clamp(24px, 4vw, 46px);
+            align-self: center;
+        }
+        .banner-texto .marca-portafolio {
+            color: #8be0ff;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .banner-texto h2 {
+            font-size: clamp(28px, 4vw, 44px);
+            line-height: 1.12;
+            margin: 16px 0;
+        }
+        .banner-texto p {
+            color: #d5e6fa;
+            line-height: 1.65;
+        }
+        .banner-visual {
+            min-height: 280px;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background:
+                radial-gradient(circle at 70% 30%, #20b9e866, transparent 38%),
+                linear-gradient(135deg, #0b6798, #061d3b);
+        }
+        .banner-iconos {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(90px, 1fr));
+            gap: 14px;
+            width: min(100%, 320px);
+        }
+        .banner-icono {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 110px;
+            padding: 12px;
+            border: 1px solid #8be0ff66;
+            border-radius: 14px;
+            background: #ffffff12;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.35;
+        }
+        .banner-icono span:first-child {
+            font-size: 32px;
+        }
+        .servicios-intro {
+            margin: 28px 0 18px;
+        }
+        .servicios-intro h2 {
+            font-size: clamp(23px, 3vw, 30px);
+        }
+        .servicios-intro p {
+            color: #c8dcf5;
+            line-height: 1.6;
+        }
+        .portafolio-servicios #servicios {
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        }
+        .portafolio-servicios .producto {
+            height: 100%;
+        }
+        .cotizacion-banner {
+            margin-top: 32px;
+            padding: 26px;
+            border: 1px solid #2b6390;
+            border-radius: 16px;
+            background: linear-gradient(100deg, #0a3158, #07528d);
+            text-align: center;
+        }
+        .cotizacion-banner h2 {
+            margin-top: 0;
+        }
+        .cotizacion-banner p {
+            color: #d5e6fa;
+            line-height: 1.6;
+        }
+        @media (max-width: 700px) {
+            .banner-servicios {
+                grid-template-columns: 1fr;
+            }
+            .banner-visual {
+                min-height: 190px;
+            }
+            .banner-texto {
+                padding: 24px;
+            }
+        }
+        #tituloServicios {
+            scroll-margin-top: 28px;
+        }
+        .contenido { padding: 18px; }
+        .etiqueta {
+            display: inline-block; background: #0b6798;
+            border-radius: 20px; padding: 5px 10px;
+            font-size: 12px; margin-bottom: 10px;
+        }
+        .contenido h2 { font-size: 20px; margin: 4px 0 10px; }
+        .descripcion { color: #c4d4e8; line-height: 1.5; min-height: 48px; }
+        .precio { font-size: 21px; font-weight: bold; color: #8be0ff; margin-top: 15px; }
+        footer { text-align: center; color: #b8cde5; padding: 25px; }
+        @media (max-width: 600px) {
+            header { justify-content: center; }
+            header nav { justify-content: center; gap: 14px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a class="marca" href="index.html">ProTecnologiaTech</a>
+    <nav aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#empresa">¿Quiénes somos?</a>
+        <a href="#catalogo" data-vista="catalogo">Catálogo</a>
+        <a href="#servicios" data-vista="servicios">Servicios</a>
+        <a href="#" id="abrirRegistro">Registro</a>
+    </nav>
+</header>
+
+<main>
+    <section class="intro">
+        <h1>Catálogo de productos y servicios</h1>
+        <p>Explora las soluciones tecnológicas de ProTecnologiaTech.</p>
+    </section>
+
+
+
+    <div id="vistaCatalogo">
+    <section class="filtros" aria-label="Buscar productos">
+        <input id="buscar" type="search" placeholder="Buscar productos por nombre o descripción..." aria-label="Buscar productos">
+    </section>
+    <section class="categorias" aria-labelledby="tituloCategorias">
+        <h2 id="tituloCategorias">Nuestras categorías de productos</h2>
+        <div class="grid categorias-grid">
+            <a class="categoria" href="#productos" data-categoria="Computadores">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=80" alt="Computador portátil">
+                <span>1. Computadores</span>
+            </a>
+            <a class="categoria" href="#productos" data-categoria="Tablets">
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=700&q=80" alt="Tablets">
+                <span>2. Tablets</span>
+            </a>
+            <a class="categoria" href="#productos" data-categoria="Servidores">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=700&q=80" alt="Servidores">
+                <span>3. Servidores</span>
+            </a>
+            <a class="categoria" href="#productos" data-categoria="Accesorios para equipos de cómputo">
+                <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=80" alt="Accesorios para computador">
+                <span>4. Accesorios para equipos de cómputo</span>
+            </a>
+            <a class="categoria" href="#productos" data-categoria="Celulares">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80" alt="Celular">
+                <span>5. Celulares</span>
+            </a>
+        </div>
+    </section>
+    <section aria-labelledby="tituloProductos">
+        <h2 id="tituloProductos">Productos disponibles</h2>
+        <p id="estadoProductos" role="status">Cargando productos...</p>
+        <section id="productos" class="grid" aria-live="polite"></section>
+    </section>
+
+    </div>
+
+    <div id="vistaServicios" hidden>
+        <section class="portafolio-servicios" aria-labelledby="tituloServicios">
+            <div class="banner-servicios">
+                <div class="banner-texto">
+                    <p class="marca-portafolio">ProTecnologiaTech</p>
+                    <h2 id="tituloServicios">Soluciones inteligentes para la gestión de información</h2>
+                    <p>Organizamos, clasificamos y transformamos la información de tu empresa para ayudarte a trabajar con mayor orden, calidad y eficiencia.</p>
+                </div>
+                <div class="banner-visual" role="img" aria-label="Soluciones tecnológicas y gestión de información">
+                    <div class="banner-iconos">
+                    <div class="banner-icono">
+                        <span aria-hidden="true">🛠️</span>
+                        <span>Soporte remoto</span>
+                    </div>
+                    <div class="banner-icono">
+                        <span aria-hidden="true">🌐</span>
+                        <span>Infraestructura de red</span>
+                    </div>
+                    <div class="banner-icono">
+                        <span aria-hidden="true">☁️</span>
+                        <span>Servicios en la nube</span>
+                    </div>
+                    <div class="banner-icono">
+                        <span aria-hidden="true">🤖</span>
+                        <span>Soluciones en IA</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="servicios-intro">
+                <h2>Nuestro portafolio de servicios</h2>
+                <p>Soluciones adaptadas a las necesidades y al alcance de cada proyecto.</p>
+            </div>
+
+            <p id="estadoServicios" role="status">Cargando servicios...</p>
+            <section id="servicios" class="grid" aria-live="polite"></section>
+
+            <div class="cotizacion-banner">
+                <h2>¿Necesitas una solución para tu empresa?</h2>
+                <p>Cuéntanos qué necesitas y evaluaremos el alcance de tu proyecto para preparar una cotización.</p>
+                <p><strong>ProTecnologiaTech · Soluciones tecnológicas para tu información</strong></p>
+            </div>
+        </section>
+    </div>
+
+
+<footer>ProTecnologiaTech · Soluciones tecnológicas</footer>
+
+<script>
+(() => {
+    const productos = document.getElementById('productos');
+    const servicios = document.getElementById('servicios');
+    const estadoProductos = document.getElementById('estadoProductos');
+    const estadoServicios = document.getElementById('estadoServicios');
+    const buscar = document.getElementById('buscar');
+    const vistaCatalogo = document.getElementById('vistaCatalogo');
+    const vistaServicios = document.getElementById('vistaServicios');
+
+    function cambiarVista() {
+        const serviciosActivos = window.location.hash === '#servicios';
+
+        vistaCatalogo.hidden = serviciosActivos;
+        vistaServicios.hidden = !serviciosActivos;
+    }
+
+    document.querySelectorAll('[data-vista]').forEach(enlace => {
+        enlace.addEventListener('click', evento => {
+            evento.preventDefault();
+            const destino = enlace.dataset.vista === 'servicios'
+                ? '#servicios'
+                : '#catalogo';
+
+            if (window.location.hash === destino) {
+                cambiarVista();
+            } else {
+                window.location.hash = destino;
+            }
+        });
+    });
+
+    window.addEventListener('hashchange', cambiarVista);
+    cambiarVista();
+    let articulos = [];
+
+    const escapar = valor => String(valor ?? '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;',
+        '"': '&quot;', "'": '&#39;'
+    })[c]);
+
+    const precioTexto = precio => {
+        if (precio === null || precio === undefined || precio === '') {
+            return 'Precio bajo cotización';
+        }
+        const numero = Number(precio);
+        if (!Number.isFinite(numero)) return 'Consultar precio';
+        return numero.toLocaleString('es-CO', {
+            style: 'currency', currency: 'COP', maximumFractionDigits: 2
+        });
+    };
+
+    function crearTarjeta(item, esServicio) {
+        const tarjeta = document.createElement('article');
+        tarjeta.className = 'producto';
+
+        const url = String(item.imagenUrl ?? '').trim();
+        const imagen = /^https?:\/\//i.test(url)
+            ? `<img src="${escapar(url)}" alt="${escapar(item.nombre)}" loading="lazy">`
+            : '<div class="sin-imagen" aria-label="Sin imagen">💻</div>';
+
+        tarjeta.innerHTML = `
+            ${imagen}
+            <div class="contenido">
+                <span class="etiqueta">${esServicio ? 'SERVICIO' : 'PRODUCTO'}</span>
+                <h2>${escapar(item.nombre || 'Sin nombre')}</h2>
+                <p class="descripcion">${escapar(item.descripcion || 'Consulta los detalles.')}</p>
+                <p class="precio">${esServicio ? escapar(item.textoComercial || 'Atención especializada') : escapar(precioTexto(item.precio))}</p>
+            </div>`;
+        return tarjeta;
+    }
+
+    let categoriaSeleccionada = null;
+
+    function mostrar() {
+        const texto = buscar.value.trim().toLocaleLowerCase('es');
+
+        const listaProductos = articulos.filter(item =>
+            String(item.tipo ?? '').toUpperCase() === 'PRODUCTO'
+        );
+
+        const listaServicios = articulos.filter(item =>
+            String(item.tipo ?? '').toUpperCase() === 'SERVICIO'
+        );
+
+        const encontrados = listaProductos.filter(item => {
+            const coincideCategoria =
+                categoriaSeleccionada === null ||
+                Number(item.categoriaId) === categoriaSeleccionada;
+
+            const coincideTexto =
+                String(item.nombre ?? '').toLocaleLowerCase('es').includes(texto) ||
+                String(item.descripcion ?? '').toLocaleLowerCase('es').includes(texto);
+
+            return coincideCategoria && coincideTexto;
+        });
+
+        productos.replaceChildren();
+        servicios.replaceChildren();
+
+        if (encontrados.length === 0) {
+            estadoProductos.hidden = false;
+            estadoProductos.textContent = listaProductos.length === 0
+                ? 'Próximamente publicaremos nuestros productos.'
+                : 'No encontramos productos en esta categoría o que coincidan con tu búsqueda.';
+        } else {
+            estadoProductos.hidden = true;
+            encontrados.forEach(item =>
+                productos.appendChild(crearTarjeta(item, false))
+            );
+        }
+
+        if (listaServicios.length === 0) {
+            estadoServicios.hidden = false;
+            estadoServicios.textContent = 'Próximamente publicaremos nuestros servicios.';
+        } else {
+            estadoServicios.hidden = true;
+
+            const nombresServicios = {
+                'Clasificación de datos': {
+                    nombre: 'Soporte remoto',
+                    textoComercial: 'Atención técnica especializada',
+                    descripcion: 'Asistencia técnica remota, diagnóstico y solución de incidentes tecnológicos.'
+                },
+                'Digitalización de documentos': {
+                    nombre: 'Infraestructura de red',
+                    textoComercial: 'Soluciones de conectividad',
+                    descripcion: 'Configuración y soporte de redes, switches, VLAN y conectividad empresarial.'
+                },
+                'Etiquetado de datos': {
+                    nombre: 'Servicios en la nube',
+                    textoComercial: 'Tecnología cloud empresarial',
+                    descripcion: 'Soluciones cloud y acompañamiento tecnológico según las necesidades de tu empresa.'
+                },
+                'Organización y depuración de datos': {
+                    nombre: 'Soluciones en IA',
+                    textoComercial: 'Innovación e inteligencia artificial',
+                    descripcion: 'Soluciones de inteligencia artificial para apoyar procesos y mejorar la productividad.'
+                },
+                'Otros servicios de gestión de información': {
+                    nombre: 'Gestión y monitoreo NOC',
+                    textoComercial: 'Monitoreo y continuidad operativa',
+                    descripcion: 'Monitoreo de infraestructura tecnológica, seguimiento de alertas y apoyo a la continuidad operativa.'
+                }
+            };
+
+            const nombresOriginales = new Set();
+
+            listaServicios.forEach(item => {
+                const original = String(item.nombre ?? '').trim();
+                nombresOriginales.add(original);
+
+                const adaptacion = nombresServicios[original];
+                const tarjetaItem = adaptacion
+                    ? { ...item, nombre: adaptacion.nombre, descripcion: adaptacion.descripcion }
+                    : item;
+
+                servicios.appendChild(crearTarjeta(tarjetaItem, true));
+            });
+
+            const serviciosAdicionales = [
+                {
+                    nombre: 'Análisis y validación de vulnerabilidades',
+                    textoComercial: 'Evaluación de seguridad informática',
+                    descripcion: 'Evaluación de seguridad e identificación de vulnerabilidades en sistemas, con autorización del cliente.',
+                    icono: '🛡️'
+                },
+                {
+                    nombre: 'Soporte a gobierno',
+                    textoComercial: 'Soluciones para entidades públicas',
+                    descripcion: 'Acompañamiento tecnológico y soporte para procesos de entidades y organizaciones gubernamentales.',
+                    icono: '🏛️'
+                },
+                {
+                    nombre: 'Alquiler de equipos tecnológicos',
+                    textoComercial: 'Equipos disponibles para alquiler',
+                    descripcion: 'Alquiler de computadores y equipos tecnológicos según disponibilidad y necesidades del proyecto.',
+                    icono: '💻'
+                },
+                {
+                    nombre: 'Otros servicios tecnológicos',
+                    textoComercial: 'Soluciones a la medida',
+                    descripcion: 'Soluciones tecnológicas complementarias adaptadas a los requerimientos de cada cliente.',
+                    icono: '⚙️'
+                }
+            ];
+
+            serviciosAdicionales.forEach(item => {
+                const tarjeta = document.createElement('article');
+                tarjeta.className = 'producto';
+                tarjeta.innerHTML = `
+                    <div class="sin-imagen" aria-hidden="true">${item.icono}</div>
+                    <div class="contenido">
+                        <span class="etiqueta">SERVICIO</span>
+                        <h2>${escapar(item.nombre)}</h2>
+                        <p class="descripcion">${escapar(item.descripcion)}</p>
+                        <p class="precio">${escapar(item.textoComercial || "Soluciones a la medida")}</p>
+                    </div>`;
+                servicios.appendChild(tarjeta);
+            });
+        }
+
+        document.querySelectorAll('.categoria[data-categoria]').forEach(enlace => {
+            const ids = {
+                'Computadores': 5,
+                'Tablets': 6,
+                'Servidores': 7,
+                'Accesorios para equipos de cómputo': 8,
+                'Celulares': 9
+            };
+
+            const seleccionada = categoriaSeleccionada === ids[enlace.dataset.categoria];
+            enlace.setAttribute('aria-pressed', String(seleccionada));
+            enlace.classList.toggle('categoria-seleccionada', seleccionada);
+        });
+    }
+    async function cargarCatalogo() {
+        try {
+            const respuesta = await fetch('/api/catalogo', {
+                headers: { 'Accept': 'application/json' }
+            });
+            if (!respuesta.ok) {
+                throw new Error('HTTP ' + respuesta.status);
+            }
+
+            const resultado = await respuesta.json();
+            if (resultado.estado !== 'OK' || !Array.isArray(resultado.datos)) {
+                throw new Error('Formato de respuesta inesperado');
+            }
+
+            articulos = resultado.datos;
+            mostrar();
+        } catch (error) {
+            estadoProductos.hidden = false;
+            estadoServicios.hidden = false;
+            estadoProductos.textContent = 'No fue posible cargar los productos.';
+            estadoServicios.textContent = 'No fue posible cargar los servicios.';
+            console.error('Error al cargar el catálogo:', error);
+        }
+    }
+
+    document.querySelectorAll('.categoria[data-categoria]').forEach(enlace => {
+        enlace.addEventListener('click', () => {
+            const ids = {
+                'Computadores': 5,
+                'Tablets': 6,
+                'Servidores': 7,
+                'Accesorios para equipos de cómputo': 8,
+                'Celulares': 9
+            };
+
+            const id = ids[enlace.dataset.categoria];
+            if (id === undefined) return;
+
+            categoriaSeleccionada = categoriaSeleccionada === id ? null : id;
+            mostrar();
+
+            document.getElementById('tituloProductos').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+    buscar.addEventListener('input', mostrar);
+    cargarCatalogo();
+})();
+</script>
+<div id="modalRegistro" class="registro-overlay" hidden>
+  <section class="registro-modal" role="dialog" aria-modal="true" aria-labelledby="tituloRegistro">
+    <button type="button" id="cerrarRegistro" class="registro-cerrar" aria-label="Cerrar">×</button>
+    <h2 id="tituloRegistro">Crear cuenta</h2>
+    <p>Regístrate en ProTecnologiaTech.</p>
+
+    <form id="formularioRegistro">
+      <label for="registroNombre">Nombre</label>
+      <input id="registroNombre" name="nombre" type="text" autocomplete="given-name" required maxlength="100">
+
+      <label for="registroApellido">Apellido</label>
+      <input id="registroApellido" name="apellido" type="text" autocomplete="family-name" required maxlength="100">
+
+      <label for="registroCorreo">Correo electrónico</label>
+      <input id="registroCorreo" name="correo" type="email" autocomplete="email" required maxlength="254">
+
+      <label for="registroPassword">Contraseña</label>
+      <input id="registroPassword" name="password" type="password" autocomplete="new-password" required minlength="8">
+
+      <label for="registroPasswordConfirmacion">Repetir contraseña</label>
+      <input id="registroPasswordConfirmacion" name="confirmarPassword" type="password" autocomplete="new-password" required minlength="8">
+
+      <label class="registro-terminos">
+        <input id="registroAceptaTerminos" name="aceptaTerminos" type="checkbox" required>
+        <span>Acepto los <a href="terminos.html" target="_blank" rel="noopener noreferrer">términos y condiciones</a>.</span>
+      </label>
+
+      <p id="mensajeRegistro" role="status" aria-live="polite"></p>
+      <button type="submit" id="botonEnviarRegistro">Crear cuenta</button>
+    </form>
+  </section>
+</div>
+
+<style>
+.registro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, .65);
+  overflow-y: auto;
+}
+.registro-overlay[hidden] { display: none; }
+.registro-overlay:not([hidden]) { display: flex !important; }
+.registro-modal {
+  position: relative;
+  box-sizing: border-box;
+  width: min(100%, 420px);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 26px;
+  border-radius: 14px;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 12px 45px rgba(0,0,0,.3);
+}
+.registro-modal h2 { margin: 0 32px 8px 0; }
+.registro-modal form > label:not(.registro-terminos) {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.registro-modal form > input {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 7px;
+  font: inherit;
+}
+.registro-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+.registro-terminos {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 16px;
+  font-size: 12px;
+}
+.registro-terminos input { margin-top: 3px; }
+#botonEnviarRegistro {
+  width: 100%;
+  margin-top: 16px;
+  padding: 11px;
+  border: 0;
+  border-radius: 7px;
+  background: #1769aa;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+#mensajeRegistro { font-size: 13px; }
+body.registro-abierto { overflow: hidden; }
+</style>
+
+<script>
+(() => {
+  const modal = document.getElementById('modalRegistro');
+  const abrir = document.getElementById('abrirRegistro');
+  const cerrar = document.getElementById('cerrarRegistro');
+  const formulario = document.getElementById('formularioRegistro');
+  const mensaje = document.getElementById('mensajeRegistro');
+
+  if (!modal || !abrir || !cerrar || !formulario) return;
+
+  function abrirModal(evento) {
+    if (evento) evento.preventDefault();
+    modal.hidden = false;
+    document.body.classList.add('registro-abierto');
+    document.getElementById('registroNombre').focus();
+  }
+
+  function cerrarModal() {
+    modal.hidden = true;
+    document.body.classList.remove('registro-abierto');
+    abrir.focus();
+  }
+
+  abrir.addEventListener('click', abrirModal);
+  cerrar.addEventListener('click', cerrarModal);
+
+  modal.addEventListener('click', evento => {
+    if (evento.target === modal) cerrarModal();
+  });
+
+  document.addEventListener('keydown', evento => {
+    if (evento.key === 'Escape' && !modal.hidden) cerrarModal();
+  });
+
+  formulario.addEventListener('submit', evento => {
+    evento.preventDefault();
+    const password = document.getElementById('registroPassword').value;
+    const confirmar = document.getElementById('registroPasswordConfirmacion').value;
+
+    if (password !== confirmar) {
+      mensaje.textContent = 'Las contraseñas no coinciden.';
+      return;
+    }
+
+    if (!document.getElementById('registroAceptaTerminos').checked) {
+      mensaje.textContent = 'Debes aceptar los términos y condiciones.';
+      return;
+    }
+
+    mensaje.textContent = 'Formulario listo. La conexión de registro y el correo de verificación aún deben configurarse.';
+  });
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const enlace = document.getElementById('abrirRegistro');
+  const modal = document.getElementById('modalRegistro');
+  if (enlace && modal) {
+    enlace.addEventListener('click', function (e) {
+      e.preventDefault();
+      modal.hidden = false;
+      document.body.classList.add('registro-abierto');
+      const campo = document.getElementById('registroNombre');
+      if (campo) campo.focus();
+    });
+  }
+});
+</script>
+<script>
+document.addEventListener('click', function (e) {
+  const enlace = e.target.closest('#abrirRegistro');
+  if (!enlace) return;
+  e.preventDefault();
+
+  const modal = document.getElementById('modalRegistro');
+  if (modal) {
+    modal.hidden = false;
+    modal.style.setProperty('display', 'flex', 'important');
+    document.body.classList.add('registro-abierto');
+  }
+});
+</script>
+</body>
+</html>

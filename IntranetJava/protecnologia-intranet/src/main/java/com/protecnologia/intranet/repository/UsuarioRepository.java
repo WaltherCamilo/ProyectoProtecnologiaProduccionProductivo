@@ -121,6 +121,26 @@ public class UsuarioRepository {
         );
     }
 
+    public int renovarTokenVerificacion(
+            String correo,
+            String token,
+            LocalDateTime expiracion
+    ) {
+        String sql = """
+            UPDATE dbo.Usuarios
+            SET token_verificacion = ?,
+                token_expiracion = ?
+            WHERE correo = ?
+              AND activo = 0
+        """;
+
+        return jdbcTemplate.update(
+            sql,
+            token,
+            Timestamp.valueOf(expiracion),
+            correo
+        );
+    }
     public int activarUsuario(Integer id) {
 
         String sql = """

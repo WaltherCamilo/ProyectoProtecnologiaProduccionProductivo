@@ -54,6 +54,41 @@ public class AuthService {
         return token;
     }
 
+    public String reenviarVerificacion(String correo) {
+        String correoNormalizado = correo.trim().toLowerCase();
+
+        Usuario usuario;
+        try {
+            usuario = usuarioRepository.buscarPorCorreo(correoNormalizado);
+        } catch (org.springframework.dao.EmptyResultDataAccessException e) {
+            throw new IllegalArgumentException(
+                    "No se encontró una cuenta pendiente para ese correo"
+            );
+        }
+
+        if (Boolean.TRUE.equals(usuario.getActivo())) {
+            throw new IllegalArgumentException(
+                    "La cuenta ya está activada"
+            );
+        }
+
+        String token = UUID.randomUUID().toString();
+        LocalDateTime expiracion = LocalDateTime.now().plusHours(24);
+
+        int actualizados = usuarioRepository.renovarTokenVerificacion(
+                correoNormalizado,
+                token,
+                expiracion
+        );
+
+        if (actualizados != 1) {
+            throw new IllegalStateException(
+                    "No se pudo renovar la verificación"
+            );
+        }
+
+        return token;
+    }
     public boolean verificarToken(String token) {
 
         Usuario usuario;
