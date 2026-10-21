@@ -73,6 +73,7 @@ public class SecurityConfig {
             .requestMatchers(
                 "/",
                 "/index.html",
+                "/catalogo.html",
                 "/login.html",
                 "/register.html",
                 "/panel.html",
@@ -84,6 +85,9 @@ public class SecurityConfig {
 
             // Autenticación pública
             .requestMatchers("/api/auth/**").permitAll()
+
+            // Catálogo público de productos y servicios
+            .requestMatchers("/api/catalogo").permitAll()
 
             // Estado de la base de datos
             .requestMatchers("/api/estado-db").permitAll()

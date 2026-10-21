@@ -55,7 +55,8 @@
         <nav>
             <a href="index.html">Inicio</a>
             <a href="#empresa">¿Quiénes somos?</a>
-            <a href="services/servicios.html">Servicios</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="catalogo.html#servicios">Servicios</a>
             <a href="#" id="btnContacto">Contáctanos</a>
             <a href="#" id="btnRegistro">Registro</a>
             <a href="#" id="btnAbrirLogin">Ingreso</a>
@@ -237,17 +238,20 @@
 
             <h3>Registro</h3>
 
-            <input type="text" id="regNombre" placeholder="Nombre completo">
-            <input type="email" id="regCorreo" placeholder="Correo electrónico">
-            <input type="password" id="regPass" placeholder="Contraseña">
+                        <input type="text" id="regNombre" placeholder="Nombre" autocomplete="given-name" required>
+            <input type="text" id="regApellido" placeholder="Apellido" autocomplete="family-name" required>
+            <input type="email" id="regCorreo" placeholder="Correo electrónico" autocomplete="email" required>
+            <input type="password" id="regPass" placeholder="Contraseña (mínimo 8 caracteres)" autocomplete="new-password" required>
+            <input type="password" id="regPassConfirmar" placeholder="Repetir contraseña" autocomplete="new-password" required>
 
-            <button id="btnEnviarRegistro">Registrarse</button>
             <div class="registro-extra">
                 <label class="check-inline">
-                    <input type="checkbox">
+                    <input type="checkbox" id="regAceptaTerminos" required>
                     <span>Acepto términos y condiciones</span>
                 </label>
             </div>
+            <p id="regMensaje" role="status" aria-live="polite"></p>
+            <button type="button" id="btnEnviarRegistro">Registrarse</button>
 
         </div>
 
@@ -351,7 +355,108 @@ async function login() {
     }
 }
        
-    </script>
+    
+// ===== REGISTRO: ABRIR Y CERRAR MODAL =====
+document.addEventListener("DOMContentLoaded", () => {
+    const btnRegistro = document.getElementById("btnRegistro");
+    const modalRegistro = document.getElementById("modalRegistro");
+    const cerrarRegistro = document.querySelector(".close-registro");
+
+    if (!btnRegistro || !modalRegistro || !cerrarRegistro) {
+        console.error("Registro: falta el enlace, el modal o el cierre.");
+        return;
+    }
+
+    btnRegistro.addEventListener("click", (e) => {
+        e.preventDefault();
+        modalRegistro.classList.add("active");
+    });
+
+    cerrarRegistro.addEventListener("click", () => {
+        modalRegistro.classList.remove("active");
+    });
+
+    modalRegistro.addEventListener("click", (e) => {
+        if (e.target === modalRegistro) {
+            modalRegistro.classList.remove("active");
+        }
+    });
+});
+
+// ===== REGISTRO: ENVIAR AL BACKEND =====
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("btnEnviarRegistro");
+    const mensaje = document.getElementById("regMensaje");
+
+    if (!btn || !mensaje) {
+        console.error("Registro: no se encontró el botón o el área de mensajes.");
+        return;
+    }
+
+    btn.addEventListener("click", async () => {
+        const nombre = document.getElementById("regNombre")?.value.trim() || "";
+        const apellido = document.getElementById("regApellido")?.value.trim() || "";
+        const correo = document.getElementById("regCorreo")?.value.trim() || "";
+        const password = document.getElementById("regPass")?.value || "";
+        const confirmar = document.getElementById("regPassConfirmar")?.value || "";
+        const acepta = document.getElementById("regAceptaTerminos")?.checked || false;
+
+        mensaje.textContent = "";
+        mensaje.style.color = "";
+
+        if (!nombre || !apellido || !correo || !password || !confirmar) {
+            mensaje.textContent = "Completa todos los campos.";
+            return;
+        }
+
+        if (password.length < 8) {
+            mensaje.textContent = "La contraseña debe tener al menos 8 caracteres.";
+            return;
+        }
+
+        if (password !== confirmar) {
+            mensaje.textContent = "Las contraseñas no coinciden.";
+            return;
+        }
+
+        if (!acepta) {
+            mensaje.textContent = "Debes aceptar los términos y condiciones.";
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = "Enviando...";
+
+        try {
+            const respuesta = await fetch("/api/auth/registro", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ nombre, apellido, correo, password })
+            });
+
+            const datos = await respuesta.json();
+
+            if (!respuesta.ok || datos.estado === "ERROR") {
+                throw new Error(datos.mensaje || "No se pudo completar el registro.");
+            }
+
+            mensaje.style.color = "green";
+            mensaje.textContent = datos.mensaje ||
+                "Solicitud de registro procesada.";
+        } catch (error) {
+            mensaje.style.color = "red";
+            mensaje.textContent = error.message ||
+                "No fue posible conectar con el servidor.";
+        } finally {
+            btn.disabled = false;
+            btn.textContent = "Registrarse";
+        }
+    });
+});
+</script>
 </body>
 
 </html>
+
+
+
