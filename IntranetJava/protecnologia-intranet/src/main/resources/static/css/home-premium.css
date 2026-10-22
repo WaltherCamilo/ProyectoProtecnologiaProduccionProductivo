@@ -1,0 +1,1393 @@
+/* PROTECNOLOGIATECH - PORTADA PREMIUM
+   Alcance: navegación y portada únicamente.
+   No modificar reglas del carrusel aquí. */
+
+.navbar {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px clamp(20px, 5vw, 72px);
+    background: linear-gradient(110deg, #07172b 0%, #102b49 65%, #0b213b 100%);
+    border-bottom: 1px solid rgba(56, 214, 244, 0.25);
+    box-shadow: 0 8px 28px rgba(0, 8, 24, 0.18);
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.navbar .logo img {
+    display: block;
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+}
+
+.navbar .logo span {
+    color: #ffffff;
+    font-size: clamp(16px, 1.6vw, 21px);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.navbar nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 13px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #e8f2ff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a:focus-visible {
+    color: #54e0f7;
+    background: rgba(56, 214, 244, 0.09);
+    border-color: rgba(56, 214, 244, 0.3);
+    outline: none;
+}
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: clamp(270px, 35vw, 410px);
+    padding: clamp(40px, 7vw, 88px) clamp(24px, 9vw, 130px);
+    background:
+        radial-gradient(ellipse at 85% 20%, rgba(36, 164, 208, 0.2), transparent 42%),
+        linear-gradient(120deg, #07172b 0%, #102c4b 58%, #0b2039 100%);
+    border-bottom: 1px solid rgba(56, 214, 244, 0.18);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 300px;
+    height: 300px;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid rgba(56, 214, 244, 0.13);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 34px rgba(56, 214, 244, 0.025),
+        0 0 0 70px rgba(56, 214, 244, 0.02);
+    pointer-events: none;
+}
+
+.hero h2 {
+    max-width: 820px;
+    margin: 0 0 18px;
+    color: #ffffff;
+    font-size: clamp(30px, 4.2vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    text-wrap: balance;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0;
+    color: #c6d9ec;
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px 22px;
+    }
+
+    .navbar nav {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .hero::before {
+        right: -150px;
+        opacity: .6;
+    }
+}
+
+@media (max-width: 520px) {
+    .navbar nav {
+        gap: 4px;
+    }
+
+    .navbar nav a {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 260px;
+        padding: 42px 22px;
+    }
+
+    .hero h2 {
+        font-size: clamp(29px, 8vw, 38px);
+        letter-spacing: -0.5px;
+    }
+
+    .hero::before {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar nav a {
+        transition: none;
+    }
+}
+
+/* === PORTADA CORPORATIVA: TARJETAS TECNOLOGICAS === */
+.home-hero {
+    position: relative !important;
+    isolation: isolate;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: clamp(24px, 5vw, 72px) !important;
+    width: 100% !important;
+    max-width: 1440px !important;
+    min-height: 390px !important;
+    margin: 0 auto !important;
+    padding: clamp(44px, 6vw, 76px) clamp(24px, 7vw, 96px) !important;
+    overflow: hidden;
+    text-align: left !important;
+    background:
+        radial-gradient(ellipse at 82% 48%, rgba(0, 198, 232, .15), transparent 36%),
+        linear-gradient(115deg, #07172b 0%, #102b49 62%, #0a2039 100%) !important;
+    border-bottom: 1px solid rgba(50, 211, 240, .2);
+    box-sizing: border-box;
+}
+.home-hero .home-hero-content {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 600px;
+    max-width: 700px;
+}
+.home-hero .home-eyebrow,
+.home-section-heading > span {
+    display: block;
+    margin-bottom: 16px;
+    color: #42d9f4;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.home-hero h1 {
+    max-width: 700px;
+    margin: 0 0 20px;
+    color: #fff;
+    font-size: clamp(36px, 4.4vw, 60px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    text-align: left;
+}
+.home-hero .home-hero-content > p {
+    max-width: 570px;
+    margin: 0;
+    color: #c2d4e7;
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: left;
+}
+.home-hero .home-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+.home-hero .home-btn-primary,
+.home-hero .home-btn-secondary {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 19px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease;
+}
+.home-hero .home-btn-primary {
+    color: #06172a;
+    background: #36d9f4;
+    border: 1px solid #36d9f4;
+}
+.home-hero .home-btn-secondary {
+    color: #f0f7ff;
+    background: rgba(255,255,255,.035);
+    border: 1px solid #42617d;
+}
+.home-hero .home-btn-primary:hover,
+.home-hero .home-btn-secondary:hover {
+    transform: translateY(-2px);
+}
+.home-hero .home-btn-secondary:hover {
+    background: rgba(54,217,244,.1);
+}
+.home-hero .home-hero-decoration {
+    position: relative;
+    flex: 0 0 clamp(190px, 24vw, 320px);
+    width: clamp(190px, 24vw, 320px);
+    aspect-ratio: 1;
+}
+.home-hero .home-orbit {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(54,217,244,.2);
+    border-radius: 50%;
+}
+.home-hero .home-orbit-one { transform: scale(1); }
+.home-hero .home-orbit-two { transform: scale(.76); border-color: rgba(54,217,244,.28); }
+.home-hero .home-orbit-three { transform: scale(.51); border-color: rgba(54,217,244,.4); }
+.home-hero .home-core {
+    position: absolute;
+    inset: 35%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(54,217,244,.55);
+    border-radius: 24px;
+    color: #4ce0f7;
+    background: linear-gradient(145deg, #163c5c, #0a1d34);
+    box-shadow: 0 0 42px rgba(0,198,232,.15);
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 800;
+}
+.home-services {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 58px 0 68px;
+    color: #eef6ff;
+}
+.home-section-heading {
+    max-width: 680px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+.home-section-heading > span { margin-bottom: 10px; }
+.home-section-heading h2 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(25px, 3vw, 36px);
+    line-height: 1.2;
+}
+.home-section-heading p {
+    margin: 0;
+    color: #a9bfd4;
+    font-size: 15px;
+    line-height: 1.7;
+}
+.home-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+.home-service-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    background: linear-gradient(155deg, #112b47, #0b1d32);
+    border: 1px solid #244561;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+.home-service-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(54,217,244,.65);
+    box-shadow: 0 18px 36px rgba(0,0,0,.22);
+}
+.home-service-image {
+    height: 180px;
+    overflow: hidden;
+    background: #0a192b;
+    border-bottom: 1px solid rgba(54,217,244,.15);
+}
+.home-service-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.home-service-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+}
+.home-service-number {
+    color: #42d9f4;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+.home-service-body h3 {
+    margin: 12px 0 9px;
+    color: #fff;
+    font-size: 21px;
+    line-height: 1.3;
+}
+.home-service-body p {
+    margin: 0 0 22px;
+    color: #b7c9dc;
+    font-size: 14px;
+    line-height: 1.7;
+}
+.home-service-link {
+    display: inline-flex;
+    gap: 10px;
+    margin-top: auto;
+    color: #42d9f4;
+    font-size: 13px;
+    font-weight: 700;
+}
+@media (max-width: 800px) {
+    .home-hero { gap: 12px !important; }
+    .home-hero .home-hero-decoration { flex-basis: 180px; width: 180px; }
+    .home-services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+    .home-hero {
+        min-height: 0 !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 48px 24px !important;
+    }
+    .home-hero h1 { font-size: clamp(34px, 9vw, 44px); letter-spacing: -.8px; }
+    .home-hero .home-hero-decoration { display: none; }
+    .home-services { width: calc(100% - 32px); padding: 42px 0; }
+    .home-services-grid { grid-template-columns: 1fr; gap: 16px; }
+    .home-service-image { height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-service-card, .home-hero .home-btn-primary, .home-hero .home-btn-secondary {
+        transition: none;
+    }
+}
+/* === FIN PORTADA CORPORATIVA === */
+
+/* === DISEÑO FINAL PORTADA CORPORATIVA V1 === */
+.hero.hero-corporativo {
+    box-sizing: border-box;
+    position: relative;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, .75fr);
+    align-items: center;
+    gap: 48px;
+    width: min(1180px, calc(100% - 40px));
+    min-height: 410px;
+    margin: 32px auto 48px !important;
+    padding: clamp(28px, 5vw, 68px) !important;
+    overflow: hidden;
+    border: 1px solid rgba(85, 206, 255, .22);
+    border-radius: 26px;
+    background: radial-gradient(ellipse at 85% 15%, rgba(0, 174, 239, .24), transparent 38%), linear-gradient(125deg, #07162c 0%, #0b2545 58%, #103d61 100%) !important;
+    color: #f5f9ff !important;
+    text-align: left !important;
+    box-shadow: 0 24px 60px rgba(4, 20, 43, .2);
+}
+
+.hero.hero-corporativo .hero-contenido {
+    min-width: 0;
+}
+
+.hero.hero-corporativo .hero-etiqueta,
+.home-services-heading > span {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #55d8ff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero.hero-corporativo .hero-contenido h1 {
+    max-width: 720px;
+    margin: 0 0 20px !important;
+    color: #ffffff !important;
+    font-size: clamp(32px, 4.2vw, 54px) !important;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -1.4px;
+}
+
+.hero.hero-corporativo .hero-contenido p {
+    max-width: 620px;
+    margin: 0 0 28px !important;
+    color: #d2e1f1 !important;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.hero.hero-corporativo .hero-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero.hero-corporativo .hero-acciones a {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 12px 19px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 750;
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.hero.hero-corporativo .hero-boton-principal {
+    background: #22c5f5;
+    color: #06182d !important;
+}
+
+.hero.hero-corporativo .hero-boton-secundario {
+    border-color: rgba(219, 239, 255, .35);
+    background: rgba(255, 255, 255, .05);
+    color: #ffffff !important;
+}
+
+.hero.hero-corporativo .hero-acciones a:hover {
+    transform: translateY(-2px);
+}
+
+.hero.hero-corporativo .hero-panel {
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 30px;
+    border: 1px solid rgba(166, 221, 255, .23);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.hero.hero-corporativo .hero-panel-icono {
+    display: grid;
+    width: 66px;
+    height: 66px;
+    margin-bottom: 28px;
+    place-items: center;
+    border: 1px solid rgba(85, 216, 255, .45);
+    border-radius: 18px;
+    background: rgba(34, 197, 245, .13);
+    color: #66e0ff;
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.hero.hero-corporativo .hero-panel-etiqueta {
+    color: #69dfff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.hero.hero-corporativo .hero-panel h2 {
+    margin: 12px 0;
+    color: #ffffff !important;
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+.hero.hero-corporativo .hero-panel p {
+    margin: 0;
+    color: #c6d9eb !important;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.hero.hero-corporativo .hero-panel-linea {
+    height: 1px;
+    margin: 24px 0 17px;
+    background: linear-gradient(90deg, #35d2ff, transparent);
+}
+
+.hero.hero-corporativo .hero-panel-pie {
+    color: #c1d8eb;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+.home-services {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto 64px;
+    color: #10243d;
+}
+
+.home-services-heading {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.home-services-heading > span {
+    margin-bottom: 10px;
+    color: #078fc3;
+}
+
+.home-services-heading h2 {
+    margin: 0 0 12px;
+    color: #0b203b;
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 850;
+    line-height: 1.2;
+    letter-spacing: -.7px;
+}
+
+.home-services-heading p {
+    margin: 0;
+    color: #62738a;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.home-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.home-service-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #e1eaf2;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(13, 38, 66, .07);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.home-service-card:hover {
+    transform: translateY(-5px);
+    border-color: #9bdcf2;
+    box-shadow: 0 18px 36px rgba(13, 38, 66, .13);
+}
+
+.home-service-card > img {
+    display: block;
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+    background: #eaf2f8;
+}
+
+.home-service-content {
+    padding: 23px;
+}
+
+.home-service-number {
+    color: #078fc3;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.2px;
+}
+
+.home-service-content h3 {
+    margin: 11px 0 10px;
+    color: #102744;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.home-service-content p {
+    min-height: 76px;
+    margin: 0 0 18px;
+    color: #617187;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.home-service-content a {
+    color: #087fae;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.home-service-content a:hover {
+    color: #064f7d;
+    text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+    .hero.hero-corporativo {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        min-height: auto;
+        padding: 36px !important;
+    }
+
+    .hero.hero-corporativo .hero-panel {
+        max-width: none;
+    }
+
+    .home-services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .hero.hero-corporativo {
+        width: calc(100% - 24px);
+        margin: 18px auto 32px !important;
+        padding: 26px 21px !important;
+        border-radius: 19px;
+    }
+
+    .hero.hero-corporativo .hero-contenido h1 {
+        font-size: 34px !important;
+    }
+
+    .hero.hero-corporativo .hero-acciones {
+        flex-direction: column;
+    }
+
+    .hero.hero-corporativo .hero-acciones a {
+        width: 100%;
+    }
+
+    .hero.hero-corporativo .hero-panel {
+        padding: 23px;
+    }
+
+    .home-services {
+        width: calc(100% - 24px);
+        margin-bottom: 42px;
+    }
+
+    .home-services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .home-service-card > img {
+        height: 215px;
+    }
+
+    .home-service-content p {
+        min-height: 0;
+    }
+}
+/* === FIN DISEÑO FINAL PORTADA CORPORATIVA V1 === */
+
+/* AJUSTE DE CONTRASTE PARA TARJETAS DESTACADAS */
+.home-services .home-service-card {
+    background: #ffffff !important;
+    color: #102744 !important;
+    border: 1px solid #dce7f0;
+    box-shadow: 0 12px 32px rgba(13, 38, 66, .09);
+}
+
+.home-services .home-service-content h3 {
+    color: #102744 !important;
+    text-shadow: none !important;
+}
+
+.home-services .home-service-content p {
+    color: #52657b !important;
+    text-shadow: none !important;
+}
+
+.home-services .home-service-number {
+    color: #087fae !important;
+}
+
+.home-services .home-service-content a {
+    color: #067ca8 !important;
+    text-shadow: none !important;
+}
+
+.home-services .home-service-content a:hover {
+    color: #064f7d !important;
+}
+
+.home-services .home-services-heading h2 {
+    color: #102744 !important;
+    text-shadow: none !important;
+}
+
+.home-services .home-services-heading p {
+    color: #52657b !important;
+    text-shadow: none !important;
+}
+/* FIN AJUSTE DE CONTRASTE PARA TARJETAS DESTACADAS */
+
+/* CORRECCION DEFINITIVA TARJETAS V2 */
+.home-services,
+.home-services * {
+    text-shadow: none !important;
+}
+
+.home-services .home-service-card {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    color: #102744 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    border: 1px solid #dce7f0 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 32px rgba(13, 38, 66, .09) !important;
+}
+
+.home-services .home-service-content {
+    background: #ffffff !important;
+    color: #102744 !important;
+    opacity: 1 !important;
+}
+
+.home-services .home-service-content h3 {
+    display: block !important;
+    color: #102744 !important;
+    opacity: 1 !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    line-height: 1.35 !important;
+}
+
+.home-services .home-service-content p {
+    display: block !important;
+    color: #465b72 !important;
+    opacity: 1 !important;
+    font-size: 14px !important;
+    line-height: 1.75 !important;
+}
+
+.home-services .home-service-number {
+    color: #087fae !important;
+    opacity: 1 !important;
+}
+
+.home-services .home-service-content a {
+    display: inline-block !important;
+    color: #067ba5 !important;
+    opacity: 1 !important;
+    font-weight: 800 !important;
+}
+
+.home-services .home-services-heading h2 {
+    color: #102744 !important;
+    opacity: 1 !important;
+}
+
+.home-services .home-services-heading p {
+    color: #465b72 !important;
+    opacity: 1 !important;
+}
+/* FIN CORRECCION DEFINITIVA TARJETAS V2 */
+
+
+/* DISTRIBUCION INFERIOR CORPORATIVA V1 */
+
+/* Empresa: tarjeta clara, ancho controlado y jerarquia visual */
+.container#empresa {
+    width: min(1180px, calc(100% - 40px)) !important;
+    max-width: 1180px !important;
+    margin: 0 auto 56px !important;
+    padding: 0 !important;
+}
+
+.container#empresa .empresa {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: clamp(22px, 4vw, 44px) !important;
+    overflow: hidden;
+    border: 1px solid #dce7f0 !important;
+    border-radius: 22px;
+    background: #ffffff !important;
+    color: #243a52 !important;
+    box-shadow: 0 14px 38px rgba(13, 38, 66, .08) !important;
+    text-align: left !important;
+}
+
+.container#empresa .empresa > .img-top {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: clamp(220px, 30vw, 340px);
+    margin: 0 0 30px;
+    object-fit: cover;
+    object-position: center 45%;
+    border: 0;
+    border-radius: 15px;
+}
+
+.container#empresa .empresa h2 {
+    margin: 0 0 20px !important;
+    color: #102744 !important;
+    font-size: clamp(28px, 3vw, 38px) !important;
+    line-height: 1.2;
+    text-align: left;
+    text-shadow: none !important;
+}
+
+.container#empresa .empresa p {
+    max-width: 900px;
+    margin: 0 0 18px !important;
+    color: #52657b !important;
+    font-size: 15px;
+    line-height: 1.85;
+    text-align: left;
+    text-shadow: none !important;
+}
+
+.container#empresa .empresa img:not(.img-top) {
+    display: block;
+    max-width: min(100%, 440px);
+    max-height: 380px;
+    margin: 28px auto;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* Contacto: seccion independiente, con espacios consistentes */
+.footer-pro {
+    box-sizing: border-box;
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto 32px !important;
+    padding: clamp(26px, 4vw, 44px) !important;
+    overflow: hidden;
+    border: 1px solid rgba(91, 207, 244, .22);
+    border-radius: 22px;
+    background: linear-gradient(135deg, #0a1d36, #103657) !important;
+    color: #edf7ff !important;
+    box-shadow: 0 16px 40px rgba(13, 38, 66, .12);
+}
+
+.footer-pro h2,
+.footer-pro h3 {
+    color: #ffffff !important;
+    line-height: 1.3;
+    text-shadow: none !important;
+}
+
+.footer-pro p,
+.footer-pro li {
+    color: #d0e0ef !important;
+    line-height: 1.8;
+    text-shadow: none !important;
+}
+
+.footer-pro a {
+    color: #6cddff !important;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+.footer-pro a:hover {
+    color: #ffffff !important;
+}
+
+/* Pie final: centrado y sin anchuras descontroladas */
+footer.footer {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 !important;
+    padding: 26px 20px !important;
+    text-align: center;
+}
+
+footer.footer p {
+    max-width: 1100px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+    .container#empresa {
+        width: calc(100% - 24px) !important;
+        margin-bottom: 36px !important;
+    }
+
+    .container#empresa .empresa {
+        padding: 18px !important;
+        border-radius: 17px;
+    }
+
+    .container#empresa .empresa > .img-top {
+        height: 210px;
+        margin-bottom: 23px;
+    }
+
+    .container#empresa .empresa h2 {
+        font-size: 28px !important;
+    }
+
+    .container#empresa .empresa p {
+        font-size: 14px;
+    }
+
+    .footer-pro {
+        width: calc(100% - 24px);
+        margin-bottom: 20px !important;
+        padding: 24px 19px !important;
+        border-radius: 17px;
+    }
+}
+
+/* FIN DISTRIBUCION INFERIOR CORPORATIVA V1 */
+
+/* CORRECCION ENCABEZADOS SERVICIOS V1 */
+
+/* Encabezado de tarjetas: texto oscuro sobre fondo blanco */
+.home-services-heading {
+    width: 100%;
+    margin: 0 auto 34px !important;
+    padding: 24px 16px 0;
+    box-sizing: border-box;
+    text-align: center !important;
+}
+
+.home-services-heading h2 {
+    color: #ffffff !important;
+    text-shadow: none !important;
+    margin: 0 0 14px !important;
+    line-height: 1.25 !important;
+}
+
+.home-services-heading p {
+    color: #d4e5f5 !important;
+    text-shadow: none !important;
+    margin: 0 auto !important;
+    line-height: 1.7 !important;
+}
+
+/* Evita que el título del carrusel quede recortado arriba */
+.slider-section {
+    box-sizing: border-box;
+    padding-top: 42px !important;
+    padding-bottom: 40px !important;
+    overflow: visible !important;
+}
+
+.slider-section > .titulo-servicios {
+    margin-top: 0 !important;
+    margin-bottom: 28px !important;
+    padding-top: 0 !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+}
+
+@media (max-width: 600px) {
+    .home-services-heading {
+        padding-top: 12px;
+        margin-bottom: 24px !important;
+    }
+
+    .slider-section {
+        padding-top: 32px !important;
+    }
+}
+
+/* FIN CORRECCION ENCABEZADOS SERVICIOS V1 */
+
+/* CORRECCION VISIBLE ENCABEZADOS V2 */
+
+/* Titulos de la portada y servicios: contraste real */
+body .home-services-heading h2,
+body .home-services h2,
+body #servicios-destacados h2 {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    visibility: visible !important;
+}
+
+/* Descripcion y textos secundarios de esa seccion */
+body .home-services-heading p,
+body .home-services p,
+body #servicios-destacados p {
+    color: #d6e6f5 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+/* Encabezado del carrusel: evitar recortes por margenes y altura de linea */
+body section.slider-section {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-top: 48px !important;
+    overflow: visible !important;
+}
+
+body section.slider-section > h2,
+body section.slider-section h2 {
+    position: relative !important;
+    top: auto !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    line-height: 1.3 !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+@media (max-width: 600px) {
+    body section.slider-section {
+        padding-top: 32px !important;
+    }
+}
+
+/* FIN CORRECCION VISIBLE ENCABEZADOS V2 */
+
+/* CORRECCION VISIBLE ENCABEZADOS V2 */
+
+/* Titulos de la portada y servicios: contraste real */
+body .home-services-heading h2,
+body .home-services h2,
+body #servicios-destacados h2 {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    visibility: visible !important;
+}
+
+/* Descripcion y textos secundarios de esa seccion */
+body .home-services-heading p,
+body .home-services p,
+body #servicios-destacados p {
+    color: #d6e6f5 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+/* Encabezado del carrusel: evitar recortes por margenes y altura de linea */
+body section.slider-section {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-top: 48px !important;
+    overflow: visible !important;
+}
+
+body section.slider-section > h2,
+body section.slider-section h2 {
+    position: relative !important;
+    top: auto !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    line-height: 1.3 !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+@media (max-width: 600px) {
+    body section.slider-section {
+        padding-top: 32px !important;
+    }
+}
+
+/* FIN CORRECCION VISIBLE ENCABEZADOS V2 */
+
+/* CORRECCION CONTRASTE TARJETAS SERVICIOS */
+body .home-services .home-service-card p,
+body .home-services .home-service-content p,
+body #servicios-destacados .home-service-card p,
+body #servicios-destacados .home-service-content p {
+    color: #52657b !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+body .home-services .home-service-card h3,
+body .home-services .home-service-content h3,
+body #servicios-destacados .home-service-card h3,
+body #servicios-destacados .home-service-content h3 {
+    color: #102744 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+body .home-services .home-service-card a,
+body .home-services .home-service-content a,
+body #servicios-destacados .home-service-card a,
+body #servicios-destacados .home-service-content a {
+    color: #007da8 !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+/* FIN CORRECCION CONTRASTE TARJETAS SERVICIOS */
+
+
+/* FONDO OSCURO PARA SECCION EMPRESA */
+body .container#empresa .empresa {
+    background: linear-gradient(145deg, #0a1d36, #103657) !important;
+    color: #edf6ff !important;
+    border-color: rgba(91, 207, 244, .28) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .22) !important;
+}
+
+body .container#empresa .empresa h2 {
+    color: #ffffff !important;
+}
+
+body .container#empresa .empresa p {
+    color: #d4e5f5 !important;
+}
+
+body .container#empresa .empresa img {
+    border-color: rgba(91, 207, 244, .25);
+}
+
+/* FIN FONDO OSCURO PARA SECCION EMPRESA */
+
+/* DISEÑO DEFINITIVO INGENIERIA V1 */
+body #servicios-destacados.ingenieria-section {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: clamp(36px, 5vw, 72px) max(24px, calc((100% - 1180px)/2));
+    color: #eef7ff;
+    background: #081b32;
+}
+
+#servicios-destacados .ingenieria-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px);
+    margin-bottom: clamp(42px, 6vw, 76px);
+}
+
+#servicios-destacados .ingenieria-copy {
+    min-width: 0;
+}
+
+#servicios-destacados .ingenieria-eyebrow,
+#servicios-destacados .ingenieria-section-heading > span {
+    display: block;
+    margin-bottom: 16px;
+    color: #5bd4f5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .13em;
+    line-height: 1.7;
+}
+
+#servicios-destacados .ingenieria-copy h2 {
+    margin: 0 0 20px;
+    color: #ffffff;
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -.035em;
+    text-shadow: none;
+}
+
+#servicios-destacados .ingenieria-copy > p {
+    max-width: 540px;
+    margin: 0 0 28px;
+    color: #d0e0ef;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+#servicios-destacados .ingenieria-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 19px;
+    border: 1px solid #48c8ed;
+    border-radius: 9px;
+    background: #0b8bb5;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .2s ease, transform .2s ease;
+}
+
+#servicios-destacados .ingenieria-cta:hover {
+    background: #08749a;
+    transform: translateY(-2px);
+}
+
+#servicios-destacados .ingenieria-visual {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(91, 212, 245, .35);
+    border-radius: 20px;
+    background: #102d49;
+    box-shadow: 0 22px 55px rgba(0, 0, 0, .25);
+}
+
+#servicios-destacados .ingenieria-visual > img {
+    display: block;
+    width: 100%;
+    height: clamp(280px, 34vw, 430px);
+    object-fit: cover;
+    object-position: center;
+}
+
+#servicios-destacados .ingenieria-image-caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 18px;
+    background: #102d49;
+    color: #edf7ff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#servicios-destacados .ingenieria-status-dot {
+    width: 9px;
+    height: 9px;
+    flex: 0 0 9px;
+    border-radius: 50%;
+    background: #5bd4f5;
+}
+
+#servicios-destacados .ingenieria-section-heading {
+    margin-bottom: 24px;
+}
+
+#servicios-destacados .ingenieria-section-heading > span {
+    margin-bottom: 8px;
+}
+
+#servicios-destacados .ingenieria-section-heading h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.25;
+    font-weight: 800;
+}
+
+#servicios-destacados .ingenieria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+#servicios-destacados .ingenieria-card {
+    min-width: 0;
+    padding: 24px 21px;
+    border: 1px solid rgba(133, 185, 220, .22);
+    border-radius: 14px;
+    background: #102945;
+    transition: border-color .2s ease, transform .2s ease;
+}
+
+#servicios-destacados .ingenieria-card:hover {
+    border-color: #45c5eb;
+    transform: translateY(-3px);
+}
+
+#servicios-destacados .ingenieria-card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(91, 212, 245, .4);
+    border-radius: 11px;
+    background: rgba(91, 212, 245, .1);
+    color: #65dafa;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+#servicios-destacados .ingenieria-card h4 {
+    margin: 0 0 11px;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+#servicios-destacados .ingenieria-card p {
+    margin: 0;
+    color: #c5d8e9;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+@media (max-width: 900px) {
+    #servicios-destacados .ingenieria-intro {
+        grid-template-columns: 1fr;
+    }
+
+    #servicios-destacados .ingenieria-visual > img {
+        height: 340px;
+    }
+
+    #servicios-destacados .ingenieria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    body #servicios-destacados.ingenieria-section {
+        padding: 34px 18px;
+    }
+
+    #servicios-destacados .ingenieria-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    #servicios-destacados .ingenieria-card {
+        padding: 20px;
+    }
+
+    #servicios-destacados .ingenieria-visual > img {
+        height: 240px;
+    }
+}
+/* FIN DISEÑO DEFINITIVO INGENIERIA V1 */
