@@ -68,11 +68,12 @@ public class SecurityConfig {
 
             .authorizeHttpRequests(auth -> auth
 
-    
+
             // Páginas públicas
             .requestMatchers(
                 "/",
                 "/index.html",
+                "/quienes-somos.html",
                 "/catalogo.html",
                 "/login.html",
                 "/register.html",
@@ -98,8 +99,15 @@ public class SecurityConfig {
             // Administración solo para administradores
             .requestMatchers("/api/admin/**").hasRole("ADMINISTRADOR")
 
+                        // Envío público del formulario de contacto
+            .requestMatchers(
+                org.springframework.http.HttpMethod.POST,
+                "/api/sugerencias"
+            ).permitAll()
+
             // Todo lo demás requiere autenticación
-            .anyRequest().authenticated()
+               .requestMatchers("/api/diagnostico-sugerencias").permitAll()
+               .anyRequest().authenticated()
 
             )
 

@@ -17,6 +17,132 @@
     <link rel="manifest" href="services/favicon/site.webmanifest">
     <link rel="icon" href="services/favicon/favicon.ico">
 
+<style>
+.modal-contacto .contact-box.contacto-premium {
+    position: relative;
+    width: min(620px, calc(100vw - 32px));
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 30px;
+    border: 1px solid rgba(65, 190, 255, .25);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #101c35, #07111f);
+    color: #f3f7ff;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .45);
+}
+.contacto-premium .close-contacto {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: 0;
+    background: transparent;
+    color: #b8c8df;
+    font-size: 28px;
+    cursor: pointer;
+}
+.contacto-icono {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(53, 199, 255, .5);
+    border-radius: 13px;
+    background: rgba(25, 164, 225, .12);
+    color: #43d2ff;
+    font-size: 25px;
+}
+.contacto-premium h3 {
+    margin: 0 30px 8px 0;
+    color: #fff;
+    font-size: clamp(23px, 4vw, 30px);
+}
+.contacto-descripcion {
+    margin: 0 0 22px;
+    color: #b8c7dc;
+    line-height: 1.55;
+}
+.contacto-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.contacto-premium label {
+    display: block;
+    margin-bottom: 15px;
+    color: #dce8f8;
+    font-size: 13px;
+    font-weight: 600;
+}
+.contacto-premium input,
+.contacto-premium textarea {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    padding: 12px 13px;
+    box-sizing: border-box;
+    border: 1px solid #2b3d58;
+    border-radius: 10px;
+    outline: none;
+    background: #0b1628;
+    color: #fff;
+    font: inherit;
+    font-weight: 400;
+}
+.contacto-premium input:focus,
+.contacto-premium textarea:focus {
+    border-color: #37c8ff;
+    box-shadow: 0 0 0 3px rgba(55, 200, 255, .12);
+}
+.contacto-premium input::placeholder,
+.contacto-premium textarea::placeholder {
+    color: #8293ac;
+}
+.contacto-campos .contacto-correo {
+    grid-column: 1 / -1;
+}
+.contacto-premium textarea {
+    resize: vertical;
+    min-height: 105px;
+}
+.contacto-premium .contacto-enviar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 11px;
+    background: linear-gradient(90deg, #16b9e8, #3779ff);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+.contacto-premium .contacto-enviar:disabled {
+    opacity: .65;
+    cursor: wait;
+}
+.contacto-privacidad {
+    margin: 13px 0 0;
+    color: #91a4bf;
+    font-size: 12px;
+    text-align: center;
+}
+.estado-contacto {
+    margin: 12px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.estado-contacto.error { color: #ff9b9b; }
+.estado-contacto.exito { color: #80edbd; }
+@media (max-width: 520px) {
+    .modal-contacto .contact-box.contacto-premium { padding: 24px 18px; }
+    .contacto-campos { grid-template-columns: 1fr; gap: 0; }
+    .contacto-campos .contacto-correo { grid-column: auto; }
+}
+</style>
 </head>
 
 <body>
@@ -56,7 +182,7 @@
 
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="#empresa">¿Quiénes somos?</a>
+            <a href="quienes-somos.html">¿Quiénes somos?</a>
             <a href="catalogo.html">Catálogo</a>
             <a href="catalogo.html#servicios">Servicios</a>
             <a href="#" id="btnContacto">Contáctanos</a>
@@ -74,7 +200,7 @@
         <p>Infraestructura tecnológica, soporte especializado y servicios diseñados para mantener tu operación conectada, segura y productiva.</p>
         <div class="hero-acciones">
             <a class="hero-boton-principal" href="#servicios-destacados">Conoce nuestros servicios</a>
-            <a class="hero-boton-secundario" href="#empresa">Conoce la empresa</a>
+            <a class="hero-boton-secundario" href="quienes-somos.html">Conoce la empresa</a>
         </div>
     </div>
     <div class="hero-panel">
@@ -90,9 +216,9 @@
 <section class="home-services ingenieria-section" id="servicios-destacados">
     <div class="ingenieria-intro">
         <div class="ingenieria-copy">
-            <span class="ingenieria-eyebrow">PROTECNOLOGIATECH · INFRAESTRUCTURA Y CONECTIVIDAD</span>
-            <h2>La tecnología que mantiene tu empresa conectada</h2>
-            <p>Infraestructura, conectividad y soporte especializado para acompañar las operaciones tecnológicas de tu organización.</p>
+            <span class="ingenieria-eyebrow">PROTECNOLOGIATECH · INNOVACIÓN E INTELIGENCIA ARTIFICIAL</span>
+            <h2>Inteligencia artificial: tecnología que transforma tu empresa</h2>
+            <p>La IA permite automatizar tareas, analizar información y optimizar procesos. En ProTecnologiaTech exploramos la innovación tecnológica para impulsar soluciones útiles, eficientes y adaptadas a las necesidades de cada organización.</p>
             <a class="ingenieria-cta" href="catalogo.html#servicios">Conoce nuestros servicios <span aria-hidden="true">→</span></a>
         </div>
         <div class="ingenieria-visual">
@@ -134,105 +260,208 @@
     </div>
 </section>
 
-    <section class="container" id="empresa">
-        <article class="card empresa">
-
-            <img src="./Images/Walther Valarezo Ciudad de Bogota DC.jpg" class="img-top">
-
-            <h2>ProTecnologiaTech</h2>
-
-            <p>
-                ProTecnologiaTech fue fundada el 14 de mayo de 2025 a las 18:04 en San José del Guaviare por Walther
-                Valarezo.
-            </p>
-
-            <p>
-                Walther nació en 1993 en Bogotá, Colombia, donde desarrolló su pasión por la tecnología.
-                Culminó sus estudios en Ingeniería de Sistemas en la Universidad San José.
-            </p>
-
-            <p>
-                Durante un viaje de trabajo al Guaviare nació la idea de crear una empresa enfocada en soluciones
-                tecnológicas reales,
-                proyecto que hoy sigue creciendo día a día. Desde entonces, ProTecnologiaTech se ha dedicado a ofrecer servicios de alta calidad en el ámbito de IT,
-                con un enfoque en la satisfacción del cliente y la innovación constante.
-            </p>
-
-            
-
-            <!-- 🔥 IMÁGENES -->
-            <div class="imagenes-personas">
 
 
-                <img src="Images/Walther Valarezo Biografia.jpg" alt="Walther">
+    <!-- SECCION NUESTROS CLIENTES -->
+    <section class="slider-section clientes-section" id="nuestros-clientes">
+        <h2 class="titulo-servicios">Nuestros Clientes</h2>
+        <div class="clientes-underline"></div>
 
+        <div class="clientes-grid">
+            <article class="cliente-card">
+                <div class="cliente-icon-ring">
+                    <i class="fas fa-handshake" aria-hidden="true"></i>
+                </div>
+                <h3>Próximamente</h3>
+                <span class="cliente-accent"></span>
+            </article>
 
+            <article class="cliente-card">
+                <div class="cliente-icon-ring">
+                    <i class="fas fa-handshake" aria-hidden="true"></i>
+                </div>
+                <h3>Próximamente</h3>
+                <span class="cliente-accent"></span>
+            </article>
 
-            </div>
+            <article class="cliente-card">
+                <div class="cliente-icon-ring">
+                    <i class="fas fa-handshake" aria-hidden="true"></i>
+                </div>
+                <h3>Próximamente</h3>
+                <span class="cliente-accent"></span>
+            </article>
 
-        </article>
-
-
+            <article class="cliente-card">
+                <div class="cliente-icon-ring">
+                    <i class="fas fa-handshake" aria-hidden="true"></i>
+                </div>
+                <h3>Próximamente</h3>
+                <span class="cliente-accent"></span>
+            </article>
+        </div>
     </section>
 
-    <!-- 🔥 SLIDER (AHORA ABAJO) -->
-    <section class="slider-section">
+    <style>
+        /* Estilos exclusivos de Nuestros Clientes */
+        .clientes-section {
+            padding: 56px clamp(20px, 5vw, 70px) 66px;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(21, 94, 153, .28), transparent 65%),
+                linear-gradient(145deg, #0b2948, #071a30 75%);
+            overflow: hidden;
+        }
 
-        <h2 class="titulo-servicios">Nuestros Servicios</h2>
+        .clientes-section .titulo-servicios {
+            margin: 0;
+            color: #f5f9ff;
+            text-align: center;
+            font-size: clamp(2rem, 3.2vw, 2.8rem);
+            font-weight: 800;
+        }
 
-        <div class="slider-container">
-            <div class="slides">
+        .clientes-underline {
+            width: 64px;
+            height: 5px;
+            margin: 16px auto 40px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #39e1ee, #66bfff);
+        }
 
-                <div class="card">
-                    <img src="Images/Walther Valarezo DataCenter.jpg">
-                    <h3>DataCenter</h3>
-                    <p>Infraestructura, servidores y alta disponibilidad.</p>
-                </div>
+        .clientes-grid {
+            width: min(1500px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
 
-                <div class="card">
-                    <img src="Images/Walther Valarezo Mesa de ayuda.jpg">
-                    <h3>Mesa de ayuda</h3>
-                    <p>Soporte técnico especializado y gestión de tickets.</p>
-                </div>
+        .cliente-card {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 18px;
+            border: 1px solid rgba(66, 166, 255, .78);
+            border-radius: 22px;
+            background: linear-gradient(150deg, rgba(10, 39, 68, .96), rgba(7, 28, 50, .98));
+            box-shadow: inset 0 0 22px rgba(26, 133, 206, .055);
+            text-align: center;
+            transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+        }
 
-                <div class="card">
-                    <img src="Images/Walther Valarezo Traslado de cable.jpg">
-                    <h3>Infraestructura</h3>
-                    <p>Redes, cableado estructurado y mantenimiento.</p>
-                </div>
+        .cliente-card:hover {
+            transform: translateY(-5px);
+            border-color: #39e1ee;
+            box-shadow: 0 12px 35px rgba(0, 174, 255, .12);
+        }
 
-                <div class="card">
-                    <img src="Images/Walther Valarezo Repuesto.jpg">
-                    <h3>Hardware</h3>
-                    <p>Venta y mantenimiento de equipos.</p>
-                </div>
+        .cliente-icon-ring {
+            width: 142px;
+            height: 142px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 26px;
+            border: 2px solid #24b9e6;
+            border-radius: 50%;
+            outline: 1px solid rgba(41, 180, 231, .35);
+            outline-offset: 10px;
+            color: #3bd8f1;
+            font-size: 3.6rem;
+            background: radial-gradient(circle, rgba(36, 185, 230, .14), rgba(8, 33, 58, .2) 70%);
+            box-shadow: 0 0 25px rgba(27, 182, 232, .14), inset 0 0 20px rgba(27, 182, 232, .1);
+        }
 
+        .cliente-card h3 {
+            margin: 0;
+            color: #f4f8ff;
+            font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+            font-weight: 700;
+        }
+
+        .cliente-accent {
+            width: 34px;
+            height: 4px;
+            margin-top: 20px;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #35e2e8, #57baff);
+        }
+
+        @media (max-width: 900px) {
+            .clientes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 520px) {
+            .clientes-section { padding: 42px 18px; }
+            .clientes-grid { gap: 13px; }
+            .cliente-card { min-height: 220px; padding: 22px 10px; }
+            .cliente-icon-ring {
+                width: 92px;
+                height: 92px;
+                font-size: 2.4rem;
+                margin-bottom: 24px;
+                outline-offset: 6px;
+            }
+            .cliente-card h3 { font-size: 1rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cliente-card { transition: none; }
+        }
+    </style>
+    <!-- FORMULARIO DE CONTACTO -->
+<div id="modalContacto" class="modal-contacto" aria-hidden="true">
+    <div class="contact-box contacto-premium" role="dialog"
+         aria-modal="true" aria-labelledby="tituloContacto">
+        <button type="button" class="close-contacto"
+                aria-label="Cerrar formulario">&times;</button>
+
+        <div class="contacto-icono" aria-hidden="true">✦</div>
+        <h3 id="tituloContacto">Hablemos de tecnología</h3>
+        <p class="contacto-descripcion">
+            Cuéntanos qué necesitas. Nuestro equipo estará encantado de escucharte.
+        </p>
+
+        <form id="formContacto">
+            <div class="contacto-campos">
+                <label>
+                    Nombre completo
+                    <input id="nombre" name="nombre" type="text"
+                           maxlength="120" autocomplete="name"
+                           placeholder="Tu nombre" required>
+                </label>
+                <label>
+                    Teléfono
+                    <input id="telefono" name="telefono" type="tel"
+                           maxlength="30" autocomplete="tel"
+                           placeholder="Tu teléfono" required>
+                </label>
+                <label class="contacto-correo">
+                    Correo electrónico
+                    <input id="correo" name="correo" type="email"
+                           maxlength="254" autocomplete="email"
+                           placeholder="tu@empresa.com" required>
+                </label>
             </div>
-        </div>
 
-    </section>
+            <label class="contacto-mensaje-label">
+                ¿Cómo podemos ayudarte?
+                <textarea id="mensaje" name="mensaje" rows="4"
+                          maxlength="1000" placeholder="Escribe tu mensaje..."
+                          required></textarea>
+            </label>
 
-    <!-- 🔥 MODAL CONTACTO -->
-    <div id="modalContacto" class="modal-contacto">
-        <div class="contact-box">
-
-            <span class="close-contacto">&times;</span>
-
-            <h3>Contáctanos</h3>
-
-            <form id="formContacto">
-                <input id="nombre" type="text" placeholder="Nombres completoss">
-                <input id="correo" type="email" placeholder="Correo electrónico">
-                <input id="telefono" type="tel" placeholder="Teléfono de contacto">
-                <textarea id="mensaje" maxlength="500" placeholder="Mensaje"></textarea>
-
-                <button type="submit">Enviar</button>
-            </form>
-
-        </div>
+            <button id="btnEnviarContacto" class="contacto-enviar"
+                    type="submit">Enviar mensaje <span aria-hidden="true">→</span></button>
+            <p class="contacto-privacidad">
+                Tus datos se utilizarán para responder a tu solicitud.
+            </p>
+            <p id="estadoContacto" class="estado-contacto"
+               role="status" aria-live="polite"></p>
+        </form>
     </div>
-
-    </section>
+</div>
     <!-- FOOTER -->
     <section class="footer-pro">
         <div class="footer-container">
@@ -283,6 +512,7 @@
 
             <input type="text" id="miniNombre" placeholder="Nombre">
             <input type="email" id="miniCorreo" placeholder="Correo electrónico">
+            <input type="tel" id="miniTelefono" placeholder="Teléfono">
             <textarea id="miniMensaje" placeholder="¿En qué te podemos ayudar?"></textarea>
 
             <button id="btnEnviarMini">Enviar</button>
@@ -418,8 +648,8 @@ async function login() {
         );
     }
 }
-       
-    
+
+
 // ===== REGISTRO: ABRIR Y CERRAR MODAL =====
 document.addEventListener("DOMContentLoaded", () => {
     const btnRegistro = document.getElementById("btnRegistro");
@@ -519,18 +749,182 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("formContacto");
+    const modal = document.getElementById("modalContacto");
+    const boton = document.getElementById("btnEnviarContacto");
+    const estado = document.getElementById("estadoContacto");
+
+    if (!form || !modal || !boton || !estado) {
+        console.error("Contacto: faltan elementos del formulario.");
+        return;
+    }
+
+    function mostrarEstado(texto, tipo) {
+        estado.textContent = texto;
+        estado.className = "estado-contacto " + tipo;
+    }
+
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        if (!form.reportValidity()) return;
+
+        const datos = {
+            nombre: document.getElementById("nombre").value.trim(),
+            telefono: document.getElementById("telefono").value.trim(),
+            correo: document.getElementById("correo").value.trim(),
+            mensaje: document.getElementById("mensaje").value.trim()
+        };
+
+        if (Object.values(datos).some(valor => !valor)) {
+            mostrarEstado("Completa todos los campos antes de enviar.", "error");
+            return;
+        }
+
+        boton.disabled = true;
+        boton.textContent = "Enviando...";
+        mostrarEstado("Enviando tu mensaje...", "");
+
+        try {
+            const respuesta = await fetch("/api/sugerencias", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(datos)
+            });
+
+            const resultado = await respuesta.json().catch(() => ({}));
+
+            if (!respuesta.ok) {
+                throw new Error(resultado.mensaje ||
+                    "No pudimos guardar tu mensaje. Inténtalo nuevamente.");
+            }
+
+            mostrarEstado(
+                resultado.mensaje ||
+                "¡Gracias por enviarnos tu mensaje! Pronto nuestro equipo se pondrá en contacto contigo. :)",
+                "exito"
+            );
+
+            form.reset();
+        } catch (error) {
+            console.error("Error enviando contacto:", error);
+            mostrarEstado(
+                error.message || "No fue posible enviar el mensaje. Inténtalo nuevamente.",
+                "error"
+            );
+        } finally {
+            boton.disabled = false;
+            boton.innerHTML = 'Enviar mensaje <span aria-hidden="true">→</span>';
+        }
+    });
+
+    boton.addEventListener("click", function () {
+        console.log("Botón de contacto pulsado.");
+    });
+
+    console.log("Formulario de contacto inicializado correctamente.");
+});
+</script>
+
+<!-- FIX-MINI-CONTACTO-API -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const boton = document.getElementById("btnEnviarMini");
+    const contenedor = document.getElementById("miniContacto");
+
+    if (!boton || !contenedor) return;
+
+    boton.type = "button";
+
+    boton.addEventListener("click", async function (evento) {
+        evento.preventDefault();
+
+        const datos = {
+            nombre: document.getElementById("miniNombre").value.trim(),
+            telefono: document.getElementById("miniTelefono").value.trim(),
+            correo: document.getElementById("miniCorreo").value.trim(),
+            mensaje: document.getElementById("miniMensaje").value.trim()
+        };
+
+        if (Object.values(datos).some(valor => !valor)) {
+            alert("Completa nombre, correo, teléfono y mensaje.");
+            return;
+        }
+
+        boton.disabled = true;
+        boton.textContent = "Enviando...";
+
+        try {
+            const respuesta = await fetch("/api/sugerencias", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(datos)
+            });
+
+            const resultado = await respuesta.json().catch(() => ({}));
+
+            if (!respuesta.ok) {
+                throw new Error(resultado.mensaje || "No se pudo enviar el mensaje.");
+            }
+
+            alert(resultado.mensaje || "¡Mensaje enviado correctamente!");
+            document.getElementById("miniNombre").value = "";
+            document.getElementById("miniTelefono").value = "";
+            document.getElementById("miniCorreo").value = "";
+            document.getElementById("miniMensaje").value = "";
+        } catch (error) {
+            console.error("Error al enviar contacto mini:", error);
+            alert(error.message || "Error al conectar con el servidor.");
+        } finally {
+            boton.disabled = false;
+            boton.textContent = "Enviar";
+        }
+    });
+});
+</script>
+<!-- FIN FIX-MINI-CONTACTO-API -->
+
+<!-- FIX-ABRIR-MINI-CONTACTO -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("miniContacto");
+    const cerrar = document.querySelector(".cerrar-mini");
+
+    if (!modal) return;
+
+    // Abrir el formulario desde el enlace "Contáctanos"
+    document.querySelectorAll("#btnContacto").forEach(function (boton) {
+        boton.addEventListener("click", function (evento) {
+            evento.preventDefault();
+            modal.classList.add("active");
+        });
+    });
+
+    // Cerrar el formulario
+    if (cerrar) {
+        cerrar.addEventListener("click", function () {
+            modal.classList.remove("active");
+        });
+    }
+});
+</script>
+<!-- FIN FIX-ABRIR-MINI-CONTACTO -->
+
+<script id="FIX-CONTACTO-CLICK-CAPTURE">
+document.addEventListener("click", function (evento) {
+    const enlace = evento.target.closest("#btnContacto");
+    if (!enlace) return;
+
+    evento.preventDefault();
+    const mini = document.getElementById("miniContacto");
+    if (mini) {
+        mini.classList.add("active");
+        document.getElementById("miniNombre")?.focus();
+    }
+}, true);
+</script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

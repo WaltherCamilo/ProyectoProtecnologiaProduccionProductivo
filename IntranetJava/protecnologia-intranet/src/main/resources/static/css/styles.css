@@ -1436,3 +1436,102 @@ nav a:hover {
 .login-extra span {
   margin: 0 !important;
 }
+
+/* ===== REGISTRO: DISEÑO PREMIUM A JUEGO CON CONTACTO ===== */
+#modalRegistro .login-card {
+    position: relative;
+    width: min(520px, calc(100vw - 32px));
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 30px;
+    border: 1px solid rgba(65, 190, 255, .25);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #101c35, #07111f);
+    color: #f3f7ff;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .45);
+}
+
+#modalRegistro .login-card h3 {
+    margin: 0 30px 22px 0;
+    color: #fff;
+    font-size: clamp(23px, 4vw, 30px);
+}
+
+#modalRegistro .close-registro {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: #b8c8df;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+#modalRegistro .close-registro:hover {
+    color: #43d2ff;
+}
+
+#modalRegistro .login-card > input {
+    display: block;
+    width: 100%;
+    margin: 0 0 15px;
+    padding: 12px 13px;
+    box-sizing: border-box;
+    border: 1px solid #2b3d58;
+    border-radius: 10px;
+    outline: none;
+    background: #0b1628;
+    color: #fff;
+    font: inherit;
+}
+
+#modalRegistro .login-card > input:focus {
+    border-color: #37c8ff;
+    box-shadow: 0 0 0 3px rgba(55, 200, 255, .12);
+}
+
+#modalRegistro .login-card > input::placeholder {
+    color: #8293ac;
+}
+
+#modalRegistro .registro-extra {
+    margin: 8px 0 16px;
+    color: #dce8f8;
+    font-size: 13px;
+}
+
+#modalRegistro .check-inline {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+#modalRegistro .login-card > button {
+    display: block;
+    width: 100%;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 11px;
+    background: linear-gradient(90deg, #16b9e8, #3779ff);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#modalRegistro .login-card > button:hover {
+    filter: brightness(1.08);
+}
+
+#modalRegistro #regMensaje {
+    color: #b8c7dc;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 520px) {
+    #modalRegistro .login-card {
+        padding: 24px 18px;
+    }
+}

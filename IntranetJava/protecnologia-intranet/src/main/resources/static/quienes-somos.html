@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071426">
+    <meta name="description" content="Conoce la historia, el origen y la trayectoria de ProTecnologiaTech.">
+    <title>Quiénes somos | ProTecnologiaTech</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/premium.css">
+    <link rel="stylesheet" href="css/home-premium.css?v=20261021v2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="services/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="services/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="services/favicon/favicon-16x16.png">
+    <link rel="manifest" href="services/favicon/site.webmanifest">
+
+    <style>
+        /* Estilos exclusivos de la página Quiénes somos */
+        .about-page {
+            --about-bg: #071426;
+            --about-panel: #0d2038;
+            --about-panel-light: #112b49;
+            --about-blue: #48a5ff;
+            --about-cyan: #69e0f5;
+            --about-text: #f3f7fc;
+            --about-muted: #b6c6d9;
+            --about-border: rgba(128, 184, 235, .2);
+            background:
+                radial-gradient(ellipse at 80% 5%, rgba(24, 103, 176, .2), transparent 35%),
+                radial-gradient(ellipse at 10% 45%, rgba(30, 89, 148, .13), transparent 36%),
+                var(--about-bg);
+            color: var(--about-text);
+            min-height: 100vh;
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.75;
+        }
+
+        .about-page *, .about-page *::before, .about-page *::after {
+            box-sizing: border-box;
+        }
+
+        .about-page a { text-decoration: none; }
+
+        .about-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            padding: 17px clamp(20px, 5vw, 76px);
+            background: rgba(5, 17, 33, .94);
+            border-bottom: 1px solid var(--about-border);
+            backdrop-filter: blur(16px);
+        }
+
+        .about-brand {
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.08rem;
+            letter-spacing: -.5px;
+            white-space: nowrap;
+        }
+
+        .about-brand span { color: var(--about-blue); }
+
+        .about-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .about-links a {
+            padding: 9px 13px;
+            border-radius: 8px;
+            color: #d8e5f5;
+            font-size: .88rem;
+            font-weight: 500;
+            transition: background .2s ease, color .2s ease;
+        }
+
+        .about-links a:hover,
+        .about-links a[aria-current="page"] {
+            background: rgba(72, 165, 255, .12);
+            color: #72c0ff;
+        }
+
+        .about-links .about-contact {
+            color: #071426;
+            background: linear-gradient(100deg, #65c7ff, #7ee7ef);
+            font-weight: 700;
+            margin-left: 5px;
+        }
+
+        .about-links .about-contact:hover {
+            color: #071426;
+            background: #fff;
+        }
+
+        .about-wrap {
+            width: min(1160px, calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        .about-hero {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(54px, 8vw, 100px) 0 64px;
+        }
+
+        .about-hero::before {
+            content: "";
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            right: -150px;
+            top: 40px;
+            border: 1px solid rgba(72, 165, 255, .15);
+            border-radius: 50%;
+            box-shadow: 0 0 0 35px rgba(72,165,255,.025),
+                        0 0 0 75px rgba(72,165,255,.02);
+            pointer-events: none;
+        }
+
+        .about-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 20px;
+            color: #83d8ff;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .about-eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 2px;
+            background: var(--about-cyan);
+        }
+
+        .about-hero h1 {
+            max-width: 850px;
+            margin: 0;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.4rem, 6vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -2.7px;
+            line-height: 1.1;
+        }
+
+        .about-hero h1 span {
+            background: linear-gradient(100deg, #64baff, #80e5ed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .about-lead {
+            max-width: 720px;
+            margin: 25px 0 0;
+            color: var(--about-muted);
+            font-size: clamp(1rem, 1.6vw, 1.16rem);
+        }
+
+        .about-hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .about-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 14px;
+            border: 1px solid var(--about-border);
+            border-radius: 999px;
+            background: rgba(16, 42, 69, .7);
+            color: #dceafa;
+            font-size: .84rem;
+        }
+
+        .about-chip i { color: var(--about-cyan); }
+
+        .about-photo-frame {
+            position: relative;
+            overflow: hidden;
+            margin-top: 46px;
+            border: 1px solid rgba(116, 192, 255, .32);
+            border-radius: 22px;
+            background: var(--about-panel);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, .28);
+        }
+
+        .about-photo-frame::after {
+            content: "";
+            position: absolute;
+            inset: 50% 0 0;
+            background: linear-gradient(transparent, rgba(4, 15, 30, .3));
+            pointer-events: none;
+        }
+
+        .about-city-photo {
+            display: block;
+            width: 100%;
+            height: clamp(230px, 38vw, 450px);
+            object-fit: cover;
+            object-position: center 48%;
+        }
+
+        .about-section {
+            padding: 42px 0 76px;
+            scroll-margin-top: 100px;
+        }
+
+        .about-section-heading {
+            max-width: 720px;
+            margin-bottom: 30px;
+        }
+
+        .about-section-heading h2 {
+            margin: 0 0 13px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+            line-height: 1.2;
+            letter-spacing: -.8px;
+        }
+
+        .about-section-heading p {
+            margin: 0;
+            color: var(--about-muted);
+        }
+
+        .about-bio-grid {
+            display: grid;
+            grid-template-columns: minmax(260px, .82fr) minmax(0, 1.18fr);
+            gap: 34px;
+            align-items: stretch;
+        }
+
+        .about-portrait-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 410px;
+            border: 1px solid var(--about-border);
+            border-radius: 20px;
+            background: var(--about-panel);
+        }
+
+        .about-portrait {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 410px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .about-portrait-caption {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 42px 24px 23px;
+            background: linear-gradient(transparent, rgba(3, 13, 27, .96));
+        }
+
+        .about-portrait-caption strong {
+            display: block;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.35rem;
+        }
+
+        .about-portrait-caption span {
+            color: #b9d8f6;
+            font-size: .9rem;
+        }
+
+        .about-story {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .about-story-card {
+            padding: 22px 24px;
+            border: 1px solid var(--about-border);
+            border-radius: 16px;
+            background: linear-gradient(140deg, rgba(17, 43, 73, .88), rgba(10, 29, 50, .88));
+        }
+
+        .about-story-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 9px;
+            color: #f4f8ff;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .about-story-card h3 i {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            flex: 0 0 36px;
+            border-radius: 10px;
+            background: rgba(72, 165, 255, .13);
+            color: #71c4ff;
+        }
+
+        .about-story-card p {
+            margin: 0;
+            color: var(--about-muted);
+            font-size: .96rem;
+        }
+
+        .about-timeline {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .about-timeline-card {
+            padding: 26px 23px;
+            border: 1px solid var(--about-border);
+            border-radius: 17px;
+            background: rgba(13, 32, 56, .83);
+            transition: transform .22s ease, border-color .22s ease;
+        }
+
+        .about-timeline-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(91, 184, 255, .6);
+        }
+
+        .about-timeline-card .about-number {
+            display: block;
+            margin-bottom: 15px;
+            color: var(--about-blue);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+        }
+
+        .about-timeline-card h3 {
+            margin: 0 0 9px;
+            color: #fff;
+            font-size: 1.08rem;
+        }
+
+        .about-timeline-card p {
+            margin: 0;
+            color: var(--about-muted);
+            font-size: .93rem;
+        }
+
+        .about-purpose {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .about-purpose-card {
+            padding: clamp(25px, 4vw, 38px);
+            border: 1px solid var(--about-border);
+            border-radius: 20px;
+            background:
+                radial-gradient(circle at 100% 0, rgba(72, 165, 255, .13), transparent 45%),
+                var(--about-panel);
+        }
+
+        .about-purpose-card .about-icon {
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            background: rgba(72, 165, 255, .14);
+            color: #75caff;
+            font-size: 1.25rem;
+        }
+
+        .about-purpose-card h3 {
+            margin: 0 0 10px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.35rem;
+        }
+
+        .about-purpose-card p {
+            margin: 0;
+            color: var(--about-muted);
+        }
+
+        .about-cta {
+            position: relative;
+            overflow: hidden;
+            margin: 10px auto 76px;
+            padding: clamp(32px, 6vw, 60px);
+            border: 1px solid rgba(94, 181, 255, .35);
+            border-radius: 24px;
+            background:
+                radial-gradient(ellipse at 90% 0, rgba(64, 161, 255, .22), transparent 42%),
+                linear-gradient(120deg, #102b49, #0a1b30);
+            text-align: center;
+        }
+
+        .about-cta h2 {
+            margin: 0 0 12px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.7rem, 4vw, 2.5rem);
+            line-height: 1.2;
+        }
+
+        .about-cta p {
+            max-width: 620px;
+            margin: 0 auto 25px;
+            color: var(--about-muted);
+        }
+
+        .about-cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 22px;
+            border-radius: 10px;
+            background: linear-gradient(100deg, #65c7ff, #7ee7ef);
+            color: #071426 !important;
+            font-weight: 800;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .about-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(72, 165, 255, .2);
+        }
+
+        .about-footer {
+            padding: 26px 20px;
+            border-top: 1px solid var(--about-border);
+            background: rgba(3, 12, 24, .65);
+            text-align: center;
+        }
+
+        .about-footer p {
+            margin: 0 0 8px;
+            color: #91a7c0;
+            font-size: .84rem;
+        }
+
+        .about-footer a {
+            color: #79c7ff;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .about-nav {
+                position: relative;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px 20px;
+            }
+
+            .about-links {
+                justify-content: flex-start;
+                gap: 3px;
+                width: 100%;
+            }
+
+            .about-links a {
+                padding: 8px 9px;
+                font-size: .8rem;
+            }
+
+            .about-links .about-contact { margin-left: 0; }
+
+            .about-hero { padding-top: 52px; }
+
+            .about-hero h1 { letter-spacing: -1.4px; }
+
+            .about-bio-grid { grid-template-columns: 1fr; }
+
+            .about-portrait-card, .about-portrait {
+                min-height: 320px;
+                max-height: 480px;
+            }
+
+            .about-timeline { grid-template-columns: 1fr; }
+
+            .about-purpose { grid-template-columns: 1fr; }
+
+            .about-section { padding: 30px 0 52px; }
+
+            .about-photo-frame { margin-top: 30px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .about-page *, .about-page *::before, .about-page *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+        }
+            /* Artículo de tecnología moderna e inteligencia artificial */
+        .about-ai {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(28px, 5vw, 48px);
+            border: 1px solid rgba(91, 184, 255, .3);
+            border-radius: 22px;
+            background:
+                radial-gradient(ellipse at 100% 0%, rgba(51, 144, 255, .17), transparent 42%),
+                linear-gradient(135deg, #102b49, #091a2e 75%);
+            box-shadow: 0 22px 60px rgba(0, 0, 0, .17);
+        }
+
+        .about-ai-heading {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            margin-bottom: 22px;
+        }
+
+        .about-ai-icon {
+            display: grid;
+            place-items: center;
+            width: 58px;
+            height: 58px;
+            flex: 0 0 58px;
+            border: 1px solid rgba(105, 224, 245, .25);
+            border-radius: 17px;
+            background: rgba(72, 165, 255, .13);
+            color: #75dfff;
+            font-size: 1.6rem;
+        }
+
+        .about-ai-heading h2 {
+            margin: 0;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.45rem, 3vw, 2.1rem);
+            line-height: 1.3;
+        }
+
+        .about-ai-heading p {
+            margin: 4px 0 0;
+            color: #83d8ff;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .about-ai-copy {
+            max-width: 900px;
+            color: #c2d1e2;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .about-ai-copy p { margin: 0 0 16px; }
+        .about-ai-copy p:last-child { margin-bottom: 0; }
+
+        .about-ai-points {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .about-ai-point {
+            padding: 18px;
+            border: 1px solid rgba(128, 184, 235, .17);
+            border-radius: 14px;
+            background: rgba(4, 19, 35, .48);
+        }
+
+        .about-ai-point i {
+            display: block;
+            margin-bottom: 10px;
+            color: #69e0f5;
+            font-size: 1.2rem;
+        }
+
+        .about-ai-point strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #f3f7fc;
+            font-size: .94rem;
+        }
+
+        .about-ai-point span {
+            display: block;
+            color: #aebfd3;
+            font-size: .85rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 650px) {
+            .about-ai-points { grid-template-columns: 1fr; }
+            .about-ai-heading { align-items: flex-start; }
+            .about-ai-icon {
+                width: 48px;
+                height: 48px;
+                flex-basis: 48px;
+                font-size: 1.3rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="about-page">
+    <header class="about-nav">
+        <a class="about-brand" href="index.html" aria-label="ProTecnologiaTech, inicio">
+            ProTecnologia<span>Tech</span>
+        </a>
+
+        <nav class="about-links" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="quienes-somos.html" aria-current="page">¿Quiénes somos?</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="catalogo.html#servicios">Servicios</a>
+            <a class="about-contact" href="index.html#btnContacto">Contáctanos <i class="fa-solid fa-arrow-right"></i></a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="about-wrap">
+                <p class="about-eyebrow">Nuestra historia · Nuestra identidad</p>
+                <h1>La tecnología tiene sentido cuando <span>transforma ideas en soluciones.</span></h1>
+                <p class="about-lead">
+                    Conoce la historia de Walther Valarezo y el origen de ProTecnologiaTech:
+                    un proyecto nacido de la pasión por la tecnología y del propósito de ofrecer
+                    soluciones tecnológicas enfocadas en las necesidades reales.
+                </p>
+
+                <div class="about-hero-meta">
+                    <span class="about-chip"><i class="fa-solid fa-calendar-check"></i> Desde el 14 de mayo de 2025</span>
+                    <span class="about-chip"><i class="fa-solid fa-location-dot"></i> San José del Guaviare, Colombia</span>
+                </div>
+
+                <div class="about-photo-frame">
+                    <img
+                        class="about-city-photo"
+                        src="Images/Walther Valarezo Ciudad de Bogota DC.jpg"
+                        alt="Vista panorámica de Bogotá, Colombia"
+                        fetchpriority="high">
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="mi-historia">
+            <div class="about-wrap">
+                <div class="about-section-heading">
+                    <p class="about-eyebrow">La persona detrás del proyecto</p>
+                    <h2>Una historia impulsada por la tecnología</h2>
+                    <p>
+                        Detrás de ProTecnologiaTech hay una trayectoria personal, una formación
+                        profesional y una idea que comenzó durante un viaje de trabajo.
+                    </p>
+                </div>
+
+                <div class="about-bio-grid">
+                    <div class="about-portrait-card">
+                        <img
+                            class="about-portrait"
+                            src="Images/Walther Valarezo Biografia.jpg"
+                            alt="Retrato de Walther Valarezo"
+                            loading="lazy">
+                        <div class="about-portrait-caption">
+                            <strong>Walther Valarezo</strong>
+                            <span>Fundador de ProTecnologiaTech</span>
+                        </div>
+                    </div>
+
+                    <div class="about-story">
+                        <article class="about-story-card">
+                            <h3><i class="fa-solid fa-user-graduate"></i> Formación y vocación</h3>
+                            <p>
+                                Walther nació en 1993 en Bogotá, Colombia, donde desarrolló su pasión
+                                por la tecnología. Culminó sus estudios en Ingeniería de Sistemas
+                                en la Universidad San José.
+                            </p>
+                        </article>
+
+                        <article class="about-story-card">
+                            <h3><i class="fa-solid fa-lightbulb"></i> El nacimiento de una idea</h3>
+                            <p>
+                                Durante un viaje de trabajo al Guaviare nació la idea de crear una
+                                empresa enfocada en soluciones tecnológicas reales. Aquella idea
+                                se convirtió en el punto de partida de ProTecnologiaTech.
+                            </p>
+                        </article>
+
+                        <article class="about-story-card">
+                            <h3><i class="fa-solid fa-building"></i> El comienzo de la empresa</h3>
+                            <p>
+                                ProTecnologiaTech fue fundada el 14 de mayo de 2025 a las 18:04
+                                en San José del Guaviare por Walther Valarezo. Desde entonces,
+                                el proyecto busca ofrecer servicios de calidad en el ámbito de TI,
+                                con atención a las necesidades de sus clientes y a la innovación.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="nuestro-origen">
+            <div class="about-wrap">
+                <div class="about-section-heading">
+                    <p class="about-eyebrow">De una idea a un proyecto</p>
+                    <h2>Los momentos que cuentan nuestra historia</h2>
+                    <p>
+                        Tres elementos esenciales explican el origen de ProTecnologiaTech.
+                    </p>
+                </div>
+
+                <div class="about-timeline">
+                    <article class="about-timeline-card">
+                        <span class="about-number">01</span>
+                        <h3>Pasión por la tecnología</h3>
+                        <p>
+                            Una vocación desarrollada en Bogotá y respaldada por la formación
+                            en Ingeniería de Sistemas.
+                        </p>
+                    </article>
+
+                    <article class="about-timeline-card">
+                        <span class="about-number">02</span>
+                        <h3>Una idea en el Guaviare</h3>
+                        <p>
+                            Un viaje de trabajo dio origen a la idea de construir una empresa
+                            enfocada en soluciones tecnológicas reales.
+                        </p>
+                    </article>
+
+                    <article class="about-timeline-card">
+                        <span class="about-number">03</span>
+                        <h3>Fundación de ProTecnologiaTech</h3>
+                        <p>
+                            El 14 de mayo de 2025, en San José del Guaviare, la idea se convirtió
+                            en una empresa.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="proposito">
+            <div class="about-wrap">
+                <div class="about-section-heading">
+                    <p class="about-eyebrow">Lo que nos impulsa</p>
+                    <h2>Un propósito centrado en la tecnología útil</h2>
+                    <p>
+                        Nuestra historia parte de una idea sencilla: la tecnología debe responder
+                        a necesidades concretas y aportar valor.
+                    </p>
+                </div>
+
+                <div class="about-purpose">
+                    <article class="about-purpose-card">
+                        <div class="about-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <h3>Nuestro propósito</h3>
+                        <p>
+                            Desarrollar una empresa de servicios tecnológicos orientada a
+                            necesidades reales, la calidad del servicio y la satisfacción
+                            del cliente.
+                        </p>
+                    </article>
+
+                    <article class="about-purpose-card">
+                        <div class="about-icon"><i class="fa-solid fa-forward"></i></div>
+                        <h3>Nuestra proyección</h3>
+                        <p>
+                            Seguir construyendo y fortaleciendo el proyecto mediante la innovación,
+                            el aprendizaje continuo y la búsqueda de soluciones tecnológicas
+                            útiles para sus clientes.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="articulo-ia">
+            <div class="about-wrap">
+                <article class="about-ai">
+                    <div class="about-ai-heading">
+                        <div class="about-ai-icon" aria-hidden="true">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <div>
+                            <p>Tecnología e innovación</p>
+                            <h2>Tecnología moderna e inteligencia artificial: construyendo el futuro</h2>
+                        </div>
+                    </div>
+
+                    <div class="about-ai-copy">
+                        <p>
+                            La tecnología evoluciona constantemente y la inteligencia artificial
+                            se ha convertido en una herramienta importante para transformar la
+                            manera en que trabajamos, analizamos información y resolvemos problemas.
+                            Su aplicación puede ayudar a automatizar tareas, optimizar procesos
+                            y desarrollar soluciones más eficientes para empresas y personas.
+                        </p>
+
+                        <p>
+                            En ProTecnologiaTech creemos en el valor de la innovación tecnológica
+                            como motor de crecimiento. La combinación de infraestructura tecnológica,
+                            conectividad y herramientas inteligentes abre oportunidades para mejorar
+                            los servicios de TI, fortalecer la productividad y responder a los
+                            desafíos del entorno digital.
+                        </p>
+
+                        <p>
+                            Nuestro propósito es mantenernos atentos a esta evolución y explorar
+                            soluciones tecnológicas que aporten valor real, con atención a la calidad,
+                            la seguridad y las necesidades de nuestros clientes. La inteligencia
+                            artificial no sustituye una buena estrategia tecnológica: puede
+                            complementarla cuando se utiliza de manera responsable y adecuada.
+                        </p>
+                    </div>
+
+                    <div class="about-ai-points">
+                        <div class="about-ai-point">
+                            <i class="fa-solid fa-gears" aria-hidden="true"></i>
+                            <strong>Automatización</strong>
+                            <span>Reducir tareas repetitivas y facilitar procesos de trabajo.</span>
+                        </div>
+                        <div class="about-ai-point">
+                            <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+                            <strong>Infraestructura inteligente</strong>
+                            <span>Integrar redes, sistemas y herramientas digitales según cada necesidad.</span>
+                        </div>
+                        <div class="about-ai-point">
+                            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                            <strong>Uso responsable</strong>
+                            <span>Considerar la seguridad, la privacidad y la supervisión humana.</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="about-wrap">
+            <div class="about-cta">
+                <p class="about-eyebrow">Conectemos</p>
+                <h2>¿Hablamos de tecnología?</h2>
+                <p>
+                    Conoce nuestros servicios y descubre cómo ProTecnologiaTech puede acompañar
+                    tus necesidades tecnológicas.
+                </p>
+                <a class="about-cta-button" href="catalogo.html">
+                    Explorar servicios <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="about-footer">
+        <p>ProTecnologiaTech · Tecnología, innovación y compromiso.</p>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</a>
+    </footer>
+</body>
+</html>

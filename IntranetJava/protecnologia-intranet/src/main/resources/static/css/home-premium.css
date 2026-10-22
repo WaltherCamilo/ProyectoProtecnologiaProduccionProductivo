@@ -1391,3 +1391,72 @@ body #servicios-destacados.ingenieria-section {
     }
 }
 /* FIN DISEÑO DEFINITIVO INGENIERIA V1 */
+
+/* AJUSTE: tarjetas compactas de Nuestros Clientes */
+.clientes-section {
+    padding-top: 36px;
+    padding-bottom: 42px;
+}
+
+.clientes-underline {
+    margin-bottom: 28px;
+}
+
+.clientes-grid {
+    max-width: 1120px;
+    gap: 18px;
+}
+
+.cliente-card {
+    min-height: 235px;
+    padding: 22px 14px;
+    border-radius: 18px;
+}
+
+.cliente-icon-ring {
+    width: 105px;
+    height: 105px;
+    flex-basis: 105px;
+    margin-bottom: 22px;
+    font-size: 2.7rem;
+    outline-offset: 7px;
+}
+
+.cliente-card h3 {
+    font-size: 1.1rem;
+}
+
+.cliente-accent {
+    margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+    .clientes-grid {
+        max-width: 700px;
+        gap: 16px;
+    }
+
+    .cliente-card {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 520px) {
+    .cliente-card {
+        min-height: 190px;
+        padding: 18px 8px;
+    }
+
+    .cliente-icon-ring {
+        width: 78px;
+        height: 78px;
+        flex-basis: 78px;
+        font-size: 2rem;
+        margin-bottom: 19px;
+        outline-offset: 5px;
+    }
+
+    .cliente-card h3 {
+        font-size: .95rem;
+    }
+}
